@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react'
+// ==> Grommet <== \\
 import { Notification, FormClose } from 'grommet-icons';
 import {
   Box,
@@ -10,23 +11,13 @@ import {
   ResponsiveContext
 } from 'grommet';
 
-const theme = {
-  global: {
-    colors: {
-      brand: '#00004D',
-      c2: '#000d36',
-      c3: '#bfcfff',
-      c4: '#809fff',
-      white: '#ffffff',
-      highlight: '#CC0000'
-    },
-    font: {
-      family: 'Roboto',
-      size: '18px',
-      height: '20px'
-    }
-  }
-};
+// ==> Themes \\
+import light from './Themes/light'
+
+// ==> Components <== \\
+import {MainContainer} from './Containers';
+import Routes from './Routes'
+
 
 const AppBar = props => (
   <Box
@@ -42,35 +33,28 @@ const AppBar = props => (
   />
 );
 
-class App extends Component {
-  state = {
-    showSidebar: false
-  };
-  render() {
-    const { showSidebar } = this.state;
+function App() {
+  const [showSidebar, setShowSidebar] = useState(false)
+
     return (
-      <Grommet theme={theme} full>
+      <Grommet theme={light} full>
         <ResponsiveContext.Consumer>
           {size => (
             <Box fill>
               <AppBar>
                 <Heading level='3' margin='none'>
-                  My App
+                  Indigo
                 </Heading>
 
                 <Button
                   icon={<Notification />}
                   onClick={() =>
-                    this.setState(prevState => ({
-                      showSidebar: !prevState.showSidebar
-                    }))
+                    setShowSidebar(!showSidebar)
                   }
                 />
               </AppBar>
               <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
-                <Box flex align='center' justify='center'>
-                  app body
-                </Box>
+                <Routes />
 
                 {!showSidebar || size !== 'small' ? (
                   <Collapsible direction='horizontal' open={showSidebar}>
@@ -96,7 +80,7 @@ class App extends Component {
                     >
                       <Button
                         icon={<FormClose />}
-                        onClick={() => this.setState({ showSidebar: false })}
+                        onClick={() => setShowSidebar(!showSidebar)}
                       />
                     </Box>
                     <Box
@@ -116,6 +100,6 @@ class App extends Component {
       </Grommet>
     );
   }
-}
+
 
 export default App;
