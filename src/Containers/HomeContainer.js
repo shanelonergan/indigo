@@ -15,18 +15,16 @@ import {
 
 const HomeContainer = () => {
   const [open, setOpen] = React.useState(false);
-  const FormFieldTextInput = props => {
-    const [state, setState] = useState({
-      value: ''
-    });
+  const [state, setState] = useState({
+    value: ''
+  });
 
-    const onChange = event => {
-      const {
-        target: { value }
-      } = event;
+  const onChange = event => {
+    const {
+      target: { value }
+    } = event;
 
-      setState({ value, suggestions });
-    };
+    setState({ value });
   };
 
   const onOpen = () => setOpen(true);
@@ -65,8 +63,6 @@ const HomeContainer = () => {
                   placeholder='placeholder'
                   value={state.value}
                   onChange={onChange}
-                  onSelect={onSelect}
-                  suggestions={state.suggestions}
                 />
               </FormField>
               <FormField label='Password'>
@@ -76,8 +72,6 @@ const HomeContainer = () => {
                   placeholder='placeholder'
                   value={state.value}
                   onChange={onChange}
-                  onSelect={onSelect}
-                  suggestions={state.suggestions}
                 />
               </FormField>
             </Box>
