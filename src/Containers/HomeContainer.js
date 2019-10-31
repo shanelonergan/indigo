@@ -8,7 +8,6 @@ import {
   FormField,
   Heading,
   Layer,
-  Select,
   TextArea,
   TextInput
 } from 'grommet';

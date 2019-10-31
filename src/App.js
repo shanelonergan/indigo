@@ -44,8 +44,11 @@ function App() {
         <ResponsiveContext.Consumer>
           {size => (
             <Box fill>
-              <NavBar>
-                <Heading level='3' margin='none'>
+              <NavBar
+                showSidebar={showSidebar}
+                setShowSidebar={setShowSidebar}
+              />
+                {/* <Heading level='3' margin='none'>
                   Indigo
                 </Heading>
 
@@ -54,8 +57,8 @@ function App() {
                   onClick={() =>
                     setShowSidebar(!showSidebar)
                   }
-                />
-              </NavBar>
+                /> */}
+              {/* </NavBar> */}
               <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
 
                 <Routes />
