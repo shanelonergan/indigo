@@ -40,7 +40,7 @@ const FormContainer = () => (
                 options={["clothing made for men", "clothing made for women", "both"]}
             />
             <Box direction="row" justify="between" margin={{ top: "medium" }}>
-                <Button type="submit" label="Log In" primary />
+                <Button type="submit" label="Sign Up" primary />
             </Box>
         </Form>
       </Box>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Add, Close } from 'grommet-icons';
+import { Add } from 'grommet-icons';
 
 import {
   Box,

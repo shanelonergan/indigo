@@ -6,7 +6,7 @@ const LOGIN_URL = BASE_URL + '/login';
 const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
 
 // ==> REDUX ACTIONS \\
-const setUserAtion = userObj => ({
+const setUserAction = userObj => ({
   type: 'SET_USER',
   payload: userObj
 });
@@ -81,9 +81,9 @@ const logoutUser = () => dispatch => {
 };
 
 export {
-  newUserToDB,
-  deleteUserFromDB,
-  loginUserToDB,
+  createUser,
+  deleteUser,
+  loginUser,
   persistUser,
   logoutUser
 };

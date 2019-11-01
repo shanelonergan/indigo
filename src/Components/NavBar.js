@@ -1,5 +1,5 @@
 import React from 'react';
-import { Notification } from 'grommet-icons';
+import { Cart } from 'grommet-icons';
 import {
   Box,
   Button,
@@ -19,11 +19,11 @@ const NavBar = ({showSidebar, setShowSidebar}) => {
       style={{ zIndex: '1' }}
     >
       <Heading level='3' margin='none'>
-        Indigo
+        indigo
       </Heading>
 
       <Button
-        icon={<Notification />}
+        icon={<Cart />}
         onClick={() => setShowSidebar(!showSidebar)}
       />
     </Box>
