@@ -1,18 +1,89 @@
 // ==> API CONSTANTS <== \\
-const BASE_URL = 'http://localhost:3000'
-const USERS_URL = BASE_URL + '/users'
-const PERSIST_URL = BASE_URL + '/persist'
-const LOGIN_URL = BASE_URL + '/login'
-const SPECIFIC_USER_URL = id => USERS_URL + '/' + id
+const BASE_URL = 'http://localhost:3000';
+const USERS_URL = BASE_URL + '/users';
+const PERSIST_URL = BASE_URL + '/persist';
+const LOGIN_URL = BASE_URL + '/login';
+const SPECIFIC_USER_URL = id => USERS_URL + '/' + id;
 
-// ==> Redux Actions \\
+// ==> REDUX ACTIONS \\
 const setUserAtion = userObj => ({
-    type: 'SET_USER',
-    payload: userObj
-})
+  type: 'SET_USER',
+  payload: userObj
+});
 
 const clearUserAction = () => ({
-    type: 'CLEAR_USER'
+  type: 'CLEAR_USER'
+});
 
-})
+// ==> FETCH <== \\
 
+const createUser = userObj => dispatch => {
+  const config = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userObj)
+  };
+
+  fetch(USERS_URL, config)
+    .then(res => res.json())
+    .then(userObj => {
+      dispatch(setUserAction(userObj.user));
+      localStorage.setItem('token', userObj.token);
+    });
+};
+
+const deleteUser = userId => dispatch => {
+  const config = {
+    method: 'DELETE'
+  };
+
+  fetch(SPECIFIC_USER_URL(userId), config).then(res => {
+    dispatch(clearUserAction());
+    localStorage.clear();
+  });
+};
+
+const loginUser = userCredentials => dispatch => {
+  const config = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userCredentials)
+  };
+  fetch(LOGIN_URL, config)
+    .then(res => res.json())
+    .then(userObj => {
+      dispatch(setUserAction(userObj.user));
+      localStorage.setItem('token', userObj.token);
+    });
+};
+
+const persistUser = () => dispatch => {
+  const config = {
+    method: 'GET',
+    headers: {
+      Authorization: `bearer ` + localStorage.token
+    }
+  };
+  fetch(PERSIST_URL, config)
+    .then(res => res.json())
+    .then(userObj => {
+      dispatch(setUserAction(userObj));
+    });
+};
+
+const logoutUser = () => dispatch => {
+  dispatch(clearUserAction());
+  localStorage.clear();
+};
+
+export {
+  newUserToDB,
+  deleteUserFromDB,
+  loginUserToDB,
+  persistUser,
+  logoutUser
+};
