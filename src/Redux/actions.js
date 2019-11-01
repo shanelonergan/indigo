@@ -29,6 +29,7 @@ const createUser = userObj => dispatch => {
   fetch(USERS_URL, config)
     .then(res => res.json())
     .then(userObj => {
+        console.log(userObj)
       dispatch(setUserAction(userObj.user));
       localStorage.setItem('token', userObj.token);
     });

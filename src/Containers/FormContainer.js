@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState }  from "react";
+import { useDispatch } from 'react-redux';
+import { createUser } from '../Redux/actions.js';
 
 import {
   Box,
@@ -8,28 +10,54 @@ import {
   RadioButtonGroup,
 } from "grommet";
 
-const FormContainer = () => (
-    <Box fill align="center" justify="center">
+const FormContainer = ({history}) => {
+
+    const dispatch = useDispatch();
+
+    const [signupForm, setSignupForm] = useState({
+      username: '',
+      password: ''
+    });
+
+    const handleChange = event =>
+      setSignupForm({ ...signupForm, [event.target.name]: event.target.value });
+
+    const handleSubmit = event => {
+      event.preventDefault();
+      console.log(signupForm)
+      dispatch(createUser(signupForm));
+      history.push('/');
+    };
+
+    const { username, password } = signupForm;
+
+    return (<Box fill align="center" justify="center">
       <Box width="medium">
         <Form
-          onReset={event => console.log(event)}
-          onSubmit={({ value }) => console.log("Submit", value)}
+        //   onReset={event => console.log(event)}
+          onSubmit={handleSubmit}
         >
             <FormField
                 label="Username"
-                name="name"
+                name="username"
                 required
+                value={username}
+                onChange={handleChange}
+                placeholder="Username"
             />
             <FormField
                 label="Email"
                 name="email"
                 type="email"
-                required
+                // required
             />
             <FormField
                 label="Password"
                 name="password"
                 type="password"
+                value={password}
+                onChange={handleChange}
+                placeholder="Password"
                 required
             />
             <FormField
@@ -44,7 +72,7 @@ const FormContainer = () => (
             </Box>
         </Form>
       </Box>
-    </Box>
-);
+    </Box>)
+};
 
 export default FormContainer
