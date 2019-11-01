@@ -1,13 +1,9 @@
 import React from 'react';
-import { Notification, FormClose } from 'grommet-icons';
+import { FormClose } from 'grommet-icons';
 import {
   Box,
   Button,
-  Collapsible,
-  Heading,
-  Grommet,
   Layer,
-  ResponsiveContext
 } from 'grommet';
 
 const MobileSidebar = ({showSidebar, setShowSidebar}) => {

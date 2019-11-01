@@ -3,14 +3,9 @@ import React from "react";
 import {
   Box,
   Button,
-  CheckBox,
-  Grommet,
   Form,
   FormField,
   RadioButtonGroup,
-  RangeInput,
-  Select,
-  TextArea
 } from "grommet";
 
 const FormContainer = () => (
