@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { loginUser } from '../Redux/actions';
 import { Box, Button, FormField, Heading, Layer, TextInput } from 'grommet';
 import { Close } from 'grommet-icons';
 
 const LoginForm = ({ onClose, history }) => {
+
     const dispatch = useDispatch();
+
     const [loginForm, setLoginForm] = useState({
         username: '',
         password: ''
     });
 
     const onSubmit = event => {
+        console.log('submit')
         event.preventDefault()
-        dispatch(loginUser)
+        dispatch(loginUser(loginForm))
         history.push('/')
     }
 
@@ -70,7 +74,7 @@ const LoginForm = ({ onClose, history }) => {
                     <Button
                         type='submit'
                         label='Submit'
-                        onClick={onClose}
+                        onClick={onSubmit}
                         primary
                     />
                 </Box>
@@ -79,4 +83,4 @@ const LoginForm = ({ onClose, history }) => {
     );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

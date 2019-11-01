@@ -4,7 +4,7 @@ import {
   Collapsible,
 } from 'grommet';
 
-const CollapsableSidebar = ({showSidebar, setShowSidebar}) => {
+const CollapsableSidebar = ({showSidebar}) => {
   return (
     <Collapsible direction='horizontal' open={showSidebar}>
       <Box

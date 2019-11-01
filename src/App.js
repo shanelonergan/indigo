@@ -1,57 +1,75 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 // ==> Grommet <== \\
-import {
-  Box,
-  Grommet,
-  ResponsiveContext
-} from 'grommet';
+import { Box, Grommet, ResponsiveContext } from 'grommet';
 
 // ==> Themes \\
-import light from './Themes/light'
+import light from './Themes/light';
 
 // ==> Components <== \\
-import Routes from './Routes'
-import NavBar from './Components/NavBar'
-import CollapsableSidebar from './Components/CollapsableSidebar'
+import Routes from './Routes';
+import NavBar from './Components/NavBar';
+import CollapsableSidebar from './Components/CollapsableSidebar';
+import UserSidebar from './Components/UserSidebar';
 import MobileSidebar from './Components/MobileSidebar';
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(false)
+    const [showSidebar, setShowSidebar] = useState(false);
+    const [showUserInfo, setShowUserInfo] = useState(false);
+    // const [showSidebarType]
 
     return (
-      <Grommet theme={light} full>
-        <ResponsiveContext.Consumer>
-          {size => (
-            <Box fill>
-              <NavBar
-                showSidebar={showSidebar}
-                setShowSidebar={setShowSidebar}
-              />
+        <Grommet theme={light} full>
+            <ResponsiveContext.Consumer>
+                {size => (
+                    <Box fill>
+                        <NavBar
+                            showSidebar={showSidebar}
+                            setShowSidebar={setShowSidebar}
+                            showUserInfo={showUserInfo}
+                            setShowUserInfo={setShowUserInfo}
+                        />
 
-              <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+                        <Box
+                            direction='row'
+                            flex
+                            overflow={{ horizontal: 'hidden' }}
+                        >
+                            <Routes />
 
-                <Routes />
+                            {!showSidebar || size !== 'small' ? (
+                                <CollapsableSidebar
+                                    showSidebar={showSidebar}
+                                    setShowSidebar={setShowSidebar}
+                                    showUserInfo={showUserInfo}
+                                    setShowUserInfo={setShowUserInfo}
+                                />
+                            ) : (
+                                <MobileSidebar
+                                    showSidebar={showSidebar}
+                                    setShowSidebar={setShowSidebar}
+                                    showUserInfo={showUserInfo}
+                                    setShowUserInfo={setShowUserInfo}
+                                />
+                            )}
 
-                {!showSidebar || size !== 'small' ? (
-                  <CollapsableSidebar
-                    showSidebar={showSidebar}
-                    setShowSidebar={setShowSidebar}
-                  />
-                ) : (
-
-                  <MobileSidebar
-                    showSidebar={showSidebar}
-                    setShowSidebar={setShowSidebar}
-                  />
+                            {!showUserInfo || size !== 'small' ? (
+                                <UserSidebar
+                                    showUserInfo={showUserInfo}
+                                    setShowUserInfo={setShowUserInfo}
+                                />
+                            ) : (
+                                <MobileSidebar
+                                    showUserInfo={showUserInfo}
+                                    setShowUserInfo={setShowUserInfo}
+                                />
+                            )}
+                        </Box>
+                    </Box>
                 )}
-              </Box>
-            </Box>
-          )}
-        </ResponsiveContext.Consumer>
-      </Grommet>
+            </ResponsiveContext.Consumer>
+        </Grommet>
     );
-  }
-
+}
 
 export default App;
