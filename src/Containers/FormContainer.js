@@ -19,14 +19,12 @@ const FormContainer = () => (
             label="Name"
             name="name"
             required
-            validate={{ regexp: /^[a-z]/i }}
           />
           <FormField label="Email" name="email" type="email" required />
           <FormField
             label="Employee ID"
             name="employeeId"
             required
-            validate={{ regexp: /^[0-9]{4,6}$/, message: "4-6 digits" }}
           />
           <FormField
             label="I am interested in:"
