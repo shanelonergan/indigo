@@ -14,17 +14,6 @@ import LoginForm from '../Components/LoginForm';
 
 const HomeContainer = () => {
   const [open, setOpen] = React.useState(false);
-  const [state, setState] = useState({
-    value: ''
-  });
-
-  const onChange = event => {
-    const {
-      target: { value }
-    } = event;
-
-    setState({ value });
-  };
 
   const onOpen = () => setOpen(true);
 
@@ -79,7 +68,11 @@ const HomeContainer = () => {
         //     </Box>
         //   </Box>
         // </Layer>
-        <LoginForm />
+        <LoginForm
+        // onChange={onChange}
+        onClose={onClose}
+        onOpen={onOpen}
+        />
       )}
     </Box>
   );
