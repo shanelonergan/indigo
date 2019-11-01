@@ -15,27 +15,33 @@ const FormContainer = () => (
           onReset={event => console.log(event)}
           onSubmit={({ value }) => console.log("Submit", value)}
         >
-          <FormField
-            label="Name"
-            name="name"
-            required
-          />
-          <FormField label="Email" name="email" type="email" required />
-          <FormField
-            label="Employee ID"
-            name="employeeId"
-            required
-          />
-          <FormField
-            label="I am interested in:"
-            name="ampm"
-            component={RadioButtonGroup}
-            pad
-            options={["clothing made for men", "clothing made for women", "both"]}
-          />
-          <Box direction="row" justify="between" margin={{ top: "medium" }}>
-            <Button type="submit" label="Log In" primary />
-          </Box>
+            <FormField
+                label="Username"
+                name="name"
+                required
+            />
+            <FormField
+                label="Email"
+                name="email"
+                type="email"
+                required
+            />
+            <FormField
+                label="Password"
+                name="password"
+                type="password"
+                required
+            />
+            <FormField
+                label="I am interested in:"
+                name="ampm"
+                component={RadioButtonGroup}
+                pad
+                options={["clothing made for men", "clothing made for women", "both"]}
+            />
+            <Box direction="row" justify="between" margin={{ top: "medium" }}>
+                <Button type="submit" label="Log In" primary />
+            </Box>
         </Form>
       </Box>
     </Box>
