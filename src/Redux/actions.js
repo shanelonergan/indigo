@@ -29,7 +29,7 @@ const createUser = userObj => dispatch => {
   fetch(USERS_URL, config)
     .then(res => res.json())
     .then(userObj => {
-        console.log(userObj)
+        console.log(userObj, "create user")
       dispatch(setUserAction(userObj.user));
       localStorage.setItem('token', userObj.token);
     });
@@ -40,9 +40,11 @@ const deleteUser = userId => dispatch => {
     method: 'DELETE'
   };
 
-  fetch(SPECIFIC_USER_URL(userId), config).then(res => {
+  fetch(SPECIFIC_USER_URL(userId), config)
+  .then(res => {
     dispatch(clearUserAction());
     localStorage.clear();
+    console.log('deleted user')
   });
 };
 
@@ -72,6 +74,7 @@ const persistUser = () => dispatch => {
   fetch(PERSIST_URL, config)
     .then(res => res.json())
     .then(userObj => {
+        console.log(userObj)
       dispatch(setUserAction(userObj));
     });
 };
