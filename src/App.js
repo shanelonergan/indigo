@@ -19,13 +19,11 @@ import LoginContainer from './Containers/LoginContainer';
 function App() {
     const [showSidebar, setShowSidebar] = useState(false);
     const [showUserInfo, setShowUserInfo] = useState(false);
+    const [openLogIn, setOpenLogIn] = useState(false);
     const dispatch = useDispatch();
 
-    const [openLogIn, setOpenLogIn] = React.useState(false);
-
     const onOpenLogIn = () => setOpenLogIn(true);
-
-    const onCloseLogIn = () => setOpenLogIn(undefined);
+    const onCloseLogIn = () => setOpenLogIn(false);
 
     useEffect(() => {
         if (localStorage.token) {
@@ -43,7 +41,7 @@ function App() {
                             setShowSidebar={setShowSidebar}
                             showUserInfo={showUserInfo}
                             setShowUserInfo={setShowUserInfo}
-                            openLogin={openLogIn}
+                            openLogIn={openLogIn}
                             setOpenLogIn={setOpenLogIn}
                             onOpenLogIn={onOpenLogIn}
                             onCloseLogIn={onCloseLogIn}
@@ -54,12 +52,15 @@ function App() {
                             flex
                             overflow={{ horizontal: 'hidden' }}
                         >
-                            <LoginContainer
-                                openLogIn={openLogIn}
-                                onCloseLogIn={onCloseLogIn}
-                                onOpenLogIn={onOpenLogIn}
-                            />
+                          <Box fill align='center' justify='center'>
+                          <LoginContainer
+                            openLogIn={openLogIn}
+                            setOpenLogIn={setOpenLogIn}
+                            onOpenLogIn={onOpenLogIn}
+                            onCloseLogIn={onCloseLogIn}
+                          />
                             <Routes />
+                            </Box>
 
                             {!showSidebar || size !== 'small' ? (
                                 <CollapsableSidebar

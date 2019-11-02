@@ -7,7 +7,7 @@ const Routes = () => {
     return (
         <Switch>
             <Route path='/signup' component={FormContainer}/>
-            <Route path='/' component={HomeContainer} />
+            <Route path='/' exact component={HomeContainer} />
         </Switch>
     )
 }
