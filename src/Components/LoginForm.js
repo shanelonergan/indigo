@@ -5,7 +5,7 @@ import { loginUser } from '../Redux/actions';
 import { Box, Button, FormField, Heading, Layer, TextInput } from 'grommet';
 import { Close } from 'grommet-icons';
 
-const LoginForm = ({ onClose, history }) => {
+const LoginForm = ({ onCloseLogIn, history }) => {
 
     const dispatch = useDispatch();
 
@@ -32,8 +32,8 @@ const LoginForm = ({ onClose, history }) => {
             position='right'
             full='vertical'
             modal
-            onClickOutside={onClose}
-            onEsc={onClose}
+            onClickOutside={onCloseLogIn}
+            onEsc={onCloseLogIn}
         >
             <Box
                 as='form'
@@ -47,7 +47,7 @@ const LoginForm = ({ onClose, history }) => {
                     <Heading level={2} margin='none'>
                         Log In
                     </Heading>
-                    <Button icon={<Close />} onClick={onClose} />
+                    <Button icon={<Close />} onClick={onCloseLogIn} />
                 </Box>
                 <Box flex='grow' overflow='auto' pad={{ vertical: 'medium' }}>
                     <FormField label='Username'>

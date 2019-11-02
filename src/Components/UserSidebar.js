@@ -9,9 +9,9 @@ const UserSidebar = ({showUserInfo}) => {
     const username = useSelector(state => state.username);
     console.log(username)
     const text = username ? (
-        <h1>{username} is currently logged in</h1>
+        username + ' is currently logged in'
       ) : (
-        <p>Nobody is logged in</p>
+        'Nobody is logged in'
       );
 
   return (

@@ -1,8 +1,14 @@
 import React from 'react';
-import { Cart, User } from 'grommet-icons';
+import { Cart, User, Login, Add } from 'grommet-icons';
 import { Box, Button, Heading } from 'grommet';
 
-const NavBar = ({ showSidebar, setShowSidebar, showUserInfo, setShowUserInfo }) => {
+const NavBar = ({
+    onOpenLogIn,
+    showSidebar,
+    setShowSidebar,
+    showUserInfo,
+    setShowUserInfo
+}) => {
     return (
         <Box
             tag='header'
@@ -18,7 +24,10 @@ const NavBar = ({ showSidebar, setShowSidebar, showUserInfo, setShowUserInfo }) 
                 indigo
             </Heading>
 
+            <Button icon={<Add />} label='search' gap="xlarge" onClick={() => {}} />
+
             <Box direction='row' align='center' justify='between'>
+                <Button icon={<Login />} onClick={onOpenLogIn} />
                 <Button
                     icon={<User />}
                     onClick={() => setShowUserInfo(!showUserInfo)}
