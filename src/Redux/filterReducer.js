@@ -1,8 +1,8 @@
 export default (state = {}, { type, payload }) => {
     switch (type) {
 
-    case GET_FILTERS:
-        return payload
+    case SET_FILTERS:
+        return {...state, payload }
 
     default:
         return state
