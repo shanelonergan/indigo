@@ -4,7 +4,7 @@ const light = {
         brand: '#00004D',
         c2: '#000d36',
         c3: '#bfcfff',
-        c4: '#809fff',
+        control: '#809fff',
         white: '#ffffff',
         focus: '#CC0000'
       },
