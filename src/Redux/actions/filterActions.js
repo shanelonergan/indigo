@@ -7,36 +7,88 @@ const MILLS_URL = BASE_URL + '/mills';
 const WASHES_URL = BASE_URL + '/washes';
 
 // ==> REDUX ACTIONS \\
-const setFilters = fetchObj => ({
+const setFiltersAction = fetchObj => ({
     type: 'SET_FILTERS',
     payload: fetchObj
-  });
+});
 
 // ==> FETCH <== \\
-const getFilter = (url) => dispatch => {
+const getCategories = () => dispatch => {
     const config = {
-      method: 'GET',
-      headers: {
-        "Content-Type": 'application/json'
-      }
+        method: 'GET',
+        headers: {
+            Authorization: `bearer ` + localStorage.token
+        }
     };
-    fetch(url, config)
-      .then(res => res.json())
-      .then(fetchObj => {
-            console.log(fetchObj)
-            dispatch(setFilters(fetchObj));
-      });
-  };
+    fetch(CATEGORIES_URL, config)
+        .then(res => res.json())
+        .then(fetchObj => {
+            console.log(fetchObj);
+            dispatch(setFiltersAction({categories: fetchObj}));
+        });
+};
 
-const getAllFilters = () => {
-    getFilter(CATEGORIES_URL)
-    getFilter(BRANDS_URL)
-    getFilter(CONDITIONS_URL)
-    getFilter(MILLS_URL)
-    getFilter(WASHES_URL)
-}
+const getBrands = () => dispatch => {
 
-  export {
-      getFilter,
-      getAllFilters
-  }
+    const config = {
+        method: 'GET',
+        headers: {
+            Authorization: `bearer ` + localStorage.token
+        }
+    };
+    fetch(BRANDS_URL, config)
+        .then(res => res.json())
+        .then(fetchObj => {
+            console.log(fetchObj);
+            dispatch(setFiltersAction(fetchObj));
+        });
+};
+const getConditions = () => dispatch => {
+
+    const config = {
+        method: 'GET',
+        headers: {
+            Authorization: `bearer ` + localStorage.token
+        }
+    };
+    fetch(CONDITIONS_URL, config)
+        .then(res => res.json())
+        .then(fetchObj => {
+            console.log(fetchObj);
+            dispatch(setFiltersAction(fetchObj));
+        });
+};
+
+const getMills = () => dispatch => {
+
+    const config = {
+        method: 'GET',
+        headers: {
+            Authorization: `bearer ` + localStorage.token
+        }
+    };
+    fetch(MILLS_URL, config)
+        .then(res => res.json())
+        .then(fetchObj => {
+            console.log(fetchObj);
+            dispatch(setFiltersAction(fetchObj));
+        });
+};
+
+const getWashes = () => dispatch => {
+
+    const config = {
+        method: 'GET',
+        headers: {
+            Authorization: `bearer ` + localStorage.token
+        }
+    };
+    fetch(WASHES_URL, config)
+        .then(res => res.json())
+        .then(fetchObj => {
+            console.log(fetchObj);
+            dispatch(setFiltersAction(fetchObj));
+        });
+};
+
+export { getCategories, getBrands, getConditions, getMills, getWashes };
