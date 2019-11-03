@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createListing } from '../Redux/actions/listingActions.js';
+import { Checkmark } from 'grommet-icons'
 
 import {
     Box,
@@ -11,7 +12,7 @@ import {
     CheckBox,
     Select,
     TextArea,
-    RangeInput
+    RangeSelector
 } from 'grommet';
 
 const NewListingContainer = () => {
@@ -42,73 +43,91 @@ const NewListingContainer = () => {
         // history.push('/');
     };
     return (
+
         <Box fill align='center' justify='center'>
             <Box width='medium'>
+              <h1>Add a new listing</h1>
                 <Form
                     onReset={event => console.log(event)}
                     onSubmit={({ value }) => console.log('Submit', value)}
                 >
+                    <h2>details</h2>
                     <FormField
-                        label='Name'
+                        placeholder='item name'
                         name='name'
                         required
                         validate={{ regexp: /^[a-z]/i }}
                     />
                     <FormField
-                        label='Email'
-                        name='email'
-                        type='email'
-                        required
+                        placeholder='brand'
+                        name='brand'
+                        component={Select}
+                        onChange={event => console.log(event)}
+                        options={['small', 'medium', 'large', 'xlarge']}
                     />
-                    <FormField
-                        label='Employee ID'
-                        name='employeeId'
-                        required
-                        validate={{
-                            regexp: /^[0-9]{4,6}$/,
-                            message: '4-6 digits'
-                        }}
-                    />
-                    <FormField
-                        name='subscribe'
-                        component={CheckBox}
-                        pad
-                        label='Subscribe?'
-                    />
-                    <FormField
-                        name='ampm'
+                    {/* <FormField
+                        name='gender'
                         component={RadioButtonGroup}
                         pad
-                        options={['morning', 'evening']}
-                    />
-                    <FormField
-                        label='Size'
-                        name='size'
+                        options={['male', 'female', 'unisex']}
+                    /> */}
+                     <FormField
+                        placeholder='category'
+                        name='category'
                         component={Select}
                         onChange={event => console.log(event)}
                         options={['small', 'medium', 'large', 'xlarge']}
                     />
                     <FormField
-                        label='Comments'
-                        name='comments'
-                        component={TextArea}
+                        placeholder='condition'
+                        name='condition'
+                        component={Select}
+                        onChange={event => console.log(event)}
+                        options={['small', 'medium', 'large', 'xlarge']}
                     />
                     <FormField
-                        label='Age'
-                        name='age'
-                        component={RangeInput}
-                        pad
-                        min={15}
-                        max={75}
+                        placeholder='waist'
+                        name='waist'
+                        component={Select}
+                        onChange={event => console.log(event)}
+                        options={['small', 'medium', 'large', 'xlarge']}
+                    />
+                    <FormField
+                        placeholder='length'
+                        name='length'
+                        component={Select}
+                        onChange={event => console.log(event)}
+                        options={['small', 'medium', 'large', 'xlarge']}
+                    />
+                    <FormField
+                        placeholder='mill'
+                        name='mill'
+                        component={Select}
+                        onChange={event => console.log(event)}
+                        options={['small', 'medium', 'large', 'xlarge']}
+                    />
+                    <FormField
+                        placeholder='wash'
+                        name='wash'
+                        component={Select}
+                        onChange={event => console.log(event)}
+                        options={['small', 'medium', 'large', 'xlarge']}
+                    />
+                    <FormField
+                        placeholder='denim weight (oz)'
+                        name='weight'
+                        type='number'
+                    />
+                    <FormField
+                        placeholder='item description'
+                        name='descriptions'
+                        component={TextArea}
                     />
                     <Box
-                        direction='row'
-                        justify='between'
+
                         margin={{ top: 'medium' }}
                     >
-                        <Button label='Cancel' />
-                        <Button type='reset' label='Reset' />
-                        <Button type='submit' label='Update' primary />
+                        <Button type='submit' label='submit' primary color='brand' alignSelf='center' fill='true' icon={<Checkmark/>}/>
                     </Box>
                 </Form>
             </Box>
