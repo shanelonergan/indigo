@@ -16,6 +16,24 @@ import {
 } from 'grommet';
 
 const NewListingContainer = () => {
+    const dispatch = useDispatch();
+
+    const { brands, categories, conditions, mills, washes } = useSelector(
+        state => state.filters
+    );
+
+    const [newListingForm, setNewListingForm] = useState({
+        name: '',
+        category_id: '',
+        brand_id: '',
+        waist: 30,
+        length: 32,
+        weight: 12,
+        wash_id: '',
+        mill_id: '',
+        condition_id: ''
+    });
+
     let renderBrandOptions = () => {
         return []
     }
@@ -31,10 +49,6 @@ const NewListingContainer = () => {
     let renderConditionOptions = () => {
         return []
     }
-
-    const { brands, categories, conditions, mills, washes } = useSelector(
-        state => state.filters
-    );
 
     if (brands && categories && conditions && mills && washes) {
          renderBrandOptions = () => {
@@ -81,20 +95,6 @@ const NewListingContainer = () => {
             ));
         };
     }
-
-    const dispatch = useDispatch();
-
-    const [newListingForm, setNewListingForm] = useState({
-        name: '',
-        category_id: '',
-        brand_id: '',
-        waist: 30,
-        length: 32,
-        weight: 12,
-        wash_id: '',
-        mill_id: '',
-        condition_id: ''
-    });
 
     const handleChange = event => {
         // debugger
