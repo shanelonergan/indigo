@@ -19,9 +19,8 @@ const ShopContainer = () => {
     };
 
     const dispatch = useDispatch();
-    const state = useSelector(state => state);
-    let listings = []
-    console.log(state)
+    const listings = useSelector(state => state.listings);
+    debugger
 
     useEffect(() => {
         dispatch(getAllListings());
