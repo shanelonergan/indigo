@@ -6,7 +6,7 @@ import {
 } from 'grommet';
 
 const UserSidebar = ({showUserInfo}) => {
-    const username = useSelector(state => state.username);
+    const username = useSelector(state => state.user.username);
     console.log(username)
     const text = username ? (
         username + ' is currently logged in'

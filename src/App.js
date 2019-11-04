@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // ==> Grommet <== \\
 import { Box, Grommet, ResponsiveContext } from 'grommet';
@@ -35,7 +35,10 @@ function App() {
         dispatch(getConditions())
         dispatch(getMills())
         dispatch(getWashes())
-    });
+    }, []);
+
+    const filters = useSelector(state => state.filters);
+    console.log(filters)
 
     return (
         <Grommet theme={light} full>

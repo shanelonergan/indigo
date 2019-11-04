@@ -3,12 +3,18 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware} from 'redux'
-import rootReducer from './Redux/rootReducer.js'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import filterReducer from './Redux/filterReducer.js'
+import userReducer from './Redux/userReducer.js'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const reducer = combineReducers({
+    user: userReducer,
+    filters: filterReducer
+})
+
+const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
         <Provider store={store}>

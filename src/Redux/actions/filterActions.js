@@ -7,10 +7,30 @@ const MILLS_URL = BASE_URL + '/mills';
 const WASHES_URL = BASE_URL + '/washes';
 
 // ==> REDUX ACTIONS \\
-const setFiltersAction = fetchObj => ({
-    type: 'SET_FILTERS',
+const setCategoriesAction = fetchObj => ({
+    type: 'SET_CATEGORIES',
     payload: fetchObj
 });
+
+const setBrandsAction = fetchObj => ({
+    type: 'SET_BRANDS',
+    payload: fetchObj
+})
+
+const setConditionsAction = fetchObj => ({
+    type: 'SET_CONDITIONS',
+    payload: fetchObj
+})
+
+const setMillsAction = fetchObj => ({
+    type: 'SET_MILLS',
+    payload: fetchObj
+})
+
+const setWashesAction = fetchObj => ({
+    type: 'SET_WASHES',
+    payload: fetchObj
+})
 
 // ==> FETCH <== \\
 const getCategories = () => dispatch => {
@@ -24,7 +44,7 @@ const getCategories = () => dispatch => {
         .then(res => res.json())
         .then(fetchObj => {
             console.log(fetchObj);
-            dispatch(setFiltersAction({categories: fetchObj}));
+            dispatch(setCategoriesAction({categories: fetchObj}));
         });
 };
 
@@ -40,7 +60,7 @@ const getBrands = () => dispatch => {
         .then(res => res.json())
         .then(fetchObj => {
             console.log(fetchObj);
-            dispatch(setFiltersAction(fetchObj));
+            dispatch(setBrandsAction(fetchObj));
         });
 };
 const getConditions = () => dispatch => {
@@ -55,7 +75,7 @@ const getConditions = () => dispatch => {
         .then(res => res.json())
         .then(fetchObj => {
             console.log(fetchObj);
-            dispatch(setFiltersAction(fetchObj));
+            dispatch(setConditionsAction(fetchObj));
         });
 };
 
@@ -71,7 +91,7 @@ const getMills = () => dispatch => {
         .then(res => res.json())
         .then(fetchObj => {
             console.log(fetchObj);
-            dispatch(setFiltersAction(fetchObj));
+            dispatch(setMillsAction(fetchObj));
         });
 };
 
@@ -87,7 +107,7 @@ const getWashes = () => dispatch => {
         .then(res => res.json())
         .then(fetchObj => {
             console.log(fetchObj);
-            dispatch(setFiltersAction(fetchObj));
+            dispatch(setWashesAction(fetchObj));
         });
 };
 
