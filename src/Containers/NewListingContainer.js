@@ -136,12 +136,20 @@ const NewListingContainer = () => {
                     /> */}
                     <label>
                         <select name='brand_id' onChange={handleChange}>
+                            <option value="" disabled selected hidden>brand</option>
                             {brands ? renderBrandOptions() : null}
                         </select>
                     </label>
                     <label>
                         <select name='category_id' onChange={handleChange}>
+                        <option value="" disabled selected hidden>category</option>
                             {categories ? renderCategoryOptions() : null}
+                        </select>
+                    </label>
+                    <label>
+                        <select name='condition_id' onChange={handleChange}>
+                            <option value="" disabled selected hidden>condition</option>
+                            {conditions ? renderConditionOptions() : null}
                         </select>
                     </label>
 
@@ -213,6 +221,7 @@ const NewListingContainer = () => {
                     /> */}
                     <label>
                         <select name='wash_id' onChange={handleChange}>
+                            <option value="" disabled selected hidden>wash</option>
                             {washes ? renderWashOptions() : null}
                         </select>
                     </label>
@@ -227,6 +236,7 @@ const NewListingContainer = () => {
                     /> */}
                     <label>
                         <select name='mill_id' onChange={handleChange}>
+                            <option value="" disabled selected hidden>mill</option>
                             {mills ? renderMillOptions() : null}
                         </select>
                     </label>
