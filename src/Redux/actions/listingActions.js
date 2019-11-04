@@ -4,9 +4,10 @@ const LISTINGS_URL = BASE_URL + '/listings';
 const SPECIFIC_LISTING_URL = id => LISTINGS_URL + '/' + id;
 
 // ==> REDUX ACTIONS \\
-const setAllListingsAction = fetchObj => ({
+
+const setAllListingsAction = listingsObj => ({
     type: 'SET_ALL_LISTINGS',
-    payload: fetchObj
+    payload: listingsObj
 });
 
 // ==> FETCH <== \\
@@ -22,7 +23,7 @@ const createListing = listingObj => dispatch => {
     fetch(LISTINGS_URL, config)
         .then(res => res.json())
         .then(listingObj => {
-            console.log(listingObj, 'create listing');
+            // dispatch()
         });
 };
 
@@ -42,4 +43,4 @@ const getAllListings = () => dispatch => {
 };
 
 
-export { createListing };
+export { createListing, getAllListings };

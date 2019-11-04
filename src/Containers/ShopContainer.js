@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     Box,
@@ -9,14 +9,19 @@ import {
     Image,
     InfinateScroll
 } from 'grommet';
+import {getAllListings} from '../Redux/actions/listingActions'
 
 const ShopContainer = () => {
     const [range, setRange] = useState([30, 32]);
+
     const onChange = values => {
         setRange(values);
     };
 
     const dispatch = useDispatch()
+    const listings = useSelector(state => state.listings)
+
+    useEffect(() => {dispatch(getAllListings())}, [])
 
     return (
         <Grid
