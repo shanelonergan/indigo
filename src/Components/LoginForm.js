@@ -74,6 +74,7 @@ const LoginForm = ({ onCloseLogIn, history }) => {
                     <Button
                         type='submit'
                         label='Submit'
+                        fill='true'
                         onClick={onSubmit}
                         primary
                     />
