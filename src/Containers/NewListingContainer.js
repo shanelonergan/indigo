@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router'
 import { createListing } from '../Redux/actions/listingActions.js';
 import { Checkmark } from 'grommet-icons';
 
@@ -21,6 +22,8 @@ const NewListingContainer = () => {
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
     );
+
+    const [toListings, setToListings] = useState(false)
 
     const [newListingForm, setNewListingForm] = useState({
         name: '',
@@ -107,12 +110,14 @@ const NewListingContainer = () => {
     const handleSubmit = event => {
         event.preventDefault();
         console.log(newListingForm);
+        setToListings(true)
         dispatch(createListing(newListingForm));
         // history.push('/');
     };
 
     return (
         <Box fill align='center' justify='center'>
+            { toListings ? <Redirect to='/listings'/> : null }
             <Box width='medium'>
                 <h1>Add a new listing</h1>
                 <Form onSubmit={handleSubmit}>

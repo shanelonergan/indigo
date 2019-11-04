@@ -12,21 +12,22 @@ import {
 import { getAllListings } from '../Redux/actions/listingActions';
 
 const ShopContainer = () => {
-    const [range, setRange] = useState([30, 32]);
+    // const [range, setRange] = useState([30, 32]);
 
-    const onChange = values => {
-        setRange(values);
-    };
+    // const onChange = values => {
+    //     setRange(values);
+    // };
 
     const dispatch = useDispatch();
     const listings = useSelector(state => state.listings);
-    debugger
+    // debugger
 
     useEffect(() => {
         dispatch(getAllListings());
     }, []);
 
     return (
+
         <Grid
             fill
             rows={['auto', 'flex']}
@@ -37,7 +38,8 @@ const ShopContainer = () => {
             ]}
         >
             <Box gridArea='sidebar' background='c2' width='small'>
-                <Stack>
+              filters go here
+                {/* <Stack>
                     <Box direction='column' justify='between'>
                         {[
                             26,
@@ -77,17 +79,17 @@ const ShopContainer = () => {
                         values={range}
                         onChange={onChange}
                     />
-                </Stack>
+                </Stack> */}
             </Box>
 
             <Box gridArea='main' justify='center' align='center'>
                 <Grid columns='xsmall' rows='small'>
                     {listings ?
-                    <InfiniteScroll items={listings} step={2}>
+                    <InfiniteScroll items={listings} step={8}>
                         {item => (
                             <Box key={item.id} as='article' pad='xsmall'>
-                                <Image src='https://via.placeholder.com/350x150' />
-                                <Text>{item.brand}</Text>
+                                <Image src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745' />
+                                <Text>{item.brand.name}</Text>
                                 <Text>{item.name}</Text>
                             </Box>
                         )}
