@@ -31,7 +31,7 @@ const NewListingContainer = () => {
       if (brands && categories && conditions && mills && washes) {
         renderBrandOptions = () => {
           return brands.map(brand => (
-            { name: brand.name, id: brand.id }
+            <option key={ brand.id } value={ brand.id } name={ brand.name }>{ brand.name }</option>
         ))};
         categoryNames = categories.map(category => (
           <option key={ categories.id } value={ categories.id }>{ categories.name }</option>
@@ -52,18 +52,18 @@ const NewListingContainer = () => {
 
     const [newListingForm, setNewListingForm] = useState({
         name: '',
-        category: 0,
-        brand: 0,
+        category: '',
+        brand: '',
         waist: 30,
         length: 32,
         weight: 12,
-        wash: 0,
-        mill: 0,
-        condition: 0
+        wash: '',
+        mill: '',
+        condition: ''
     });
 
     const handleChange = event => {
-        debugger
+        // debugger
         setNewListingForm({
             ...newListingForm,
             [event.target.name]: event.target.value
@@ -71,6 +71,7 @@ const NewListingContainer = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        console.log(newListingForm)
         dispatch(createListing(newListingForm));
         // history.push('/');
     };
@@ -79,7 +80,7 @@ const NewListingContainer = () => {
         <Box fill align='center' justify='center'>
             <Box width='medium'>
                 <h1>Add a new listing</h1>
-                <Form
+                <form
                     onSubmit={handleSubmit}
                 >
                     <h4>item details</h4>
@@ -91,16 +92,20 @@ const NewListingContainer = () => {
                         required
                         // validate={{ regexp: /^[a-z]/i }}
                     />
-                    <FormField
+                    {/* <FormField
                         placeholder='brand'
                         name='brand'
                         component={Select}
                         onChange={handleChange}
-                        labelKey='id'
-                        valueKey='name'
-                        // value={brands ? brands : []}
-                        options={brands ? renderBrandOptions() : []}
-                    />
+                        labelKey='name'
+                        value={newListingForm.brand}
+                        options={brands ? brands : []}
+                    /> */}
+                    <label>
+                      <select name='brand' onChange={handleChange}>
+                        {brands ? renderBrandOptions() : null}
+                      </select>
+                    </label>
                     {/* <FormField
                         name='gender'
                         component={RadioButtonGroup}
@@ -111,17 +116,19 @@ const NewListingContainer = () => {
                         placeholder='category'
                         name='category'
                         component={Select}
+                        labelKey='name'
                         value={newListingForm.category}
                         onChange={handleChange}
-                        options={categoryNames}
+                        options={categories ? categories : []}
                     />
                     <FormField
                         placeholder='condition'
                         name='condition'
                         component={Select}
+                        labelKey='name'
                         value={newListingForm.condition}
                         onChange={handleChange}
-                        options={conditionNames}
+                        options={conditions ? conditions : []}
                     />
                     <FormField
                         placeholder='waist'
@@ -144,17 +151,19 @@ const NewListingContainer = () => {
                         placeholder='mill'
                         name='mill'
                         component={Select}
+                        labelKey='name'
                         value={newListingForm.mill}
                         onChange={handleChange}
-                        options={millNames}
+                        options={mills ? mills : []}
                     />
                     <FormField
                         placeholder='wash'
                         name='wash'
                         component={Select}
+                        labelKey='name'
                         value={newListingForm.wash}
                         onChange={handleChange}
-                        options={washNames}
+                        options={washes ? washes : []}
                     />
                     <FormField
                         placeholder='denim weight (oz)'
@@ -182,7 +191,7 @@ const NewListingContainer = () => {
                             icon={<Checkmark />}
                         />
                     </Box>
-                </Form>
+                </form>
             </Box>
         </Box>
     );
