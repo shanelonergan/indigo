@@ -1,10 +1,10 @@
-export default (state = { listings: [] }, { type, payload }) => {
+export default (state = { }, { type, payload }) => {
     switch (type) {
         case 'CREATE_LISTING':
             return { ...state, ...payload };
         case 'SET_ALL_LISTINGS':
             console.log(payload, 'setting listings');
-            return { ...state, payload };
+            return { ...state, ...payload };
 
         default:
             console.log('default')

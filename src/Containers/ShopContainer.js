@@ -7,9 +7,9 @@ import {
     RangeSelector,
     Stack,
     Image,
-    InfinateScroll
+    InfiniteScroll
 } from 'grommet';
-import {getAllListings} from '../Redux/actions/listingActions'
+import { getAllListings } from '../Redux/actions/listingActions';
 
 const ShopContainer = () => {
     const [range, setRange] = useState([30, 32]);
@@ -18,10 +18,14 @@ const ShopContainer = () => {
         setRange(values);
     };
 
-    const dispatch = useDispatch()
-    const listings = useSelector(state => state.listings)
+    const dispatch = useDispatch();
+    const state = useSelector(state => state);
+    let listings = []
+    console.log(state)
 
-    useEffect(() => {dispatch(getAllListings())}, [])
+    useEffect(() => {
+        dispatch(getAllListings());
+    }, []);
 
     return (
         <Grid
@@ -78,7 +82,19 @@ const ShopContainer = () => {
             </Box>
 
             <Box gridArea='main' justify='center' align='center'>
-                <Text>main</Text>
+                <Grid columns='xsmall' rows='small'>
+                    {listings ?
+                    <InfiniteScroll items={listings} step={2}>
+                        {item => (
+                            <Box key={item.id} as='article' pad='xsmall'>
+                                <Image src='https://via.placeholder.com/350x150' />
+                                <Text>{item.brand}</Text>
+                                <Text>{item.name}</Text>
+                            </Box>
+                        )}
+                    </InfiniteScroll>
+                    : <Text>Loading</Text>}
+                </Grid>
             </Box>
         </Grid>
     );

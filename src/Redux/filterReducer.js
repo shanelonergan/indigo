@@ -1,4 +1,4 @@
-export default (state = { filters: [] }, { type, payload }) => {
+export default (state = {}, { type, payload }) => {
     switch (type) {
         case 'SET_CATEGORIES':
             // console.log(payload, 'getting categories');
