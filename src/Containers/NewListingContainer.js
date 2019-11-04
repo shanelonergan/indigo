@@ -16,7 +16,9 @@ import {
 } from 'grommet';
 
 const NewListingContainer = () => {
-    let brandNames = [];
+    let renderBrandOptions = () => {
+      return []
+    }
     let categoryNames = [];
     let conditionNames = [];
     let millNames = [];
@@ -27,11 +29,22 @@ const NewListingContainer = () => {
     );
 
       if (brands && categories && conditions && mills && washes) {
-        brandNames = brands.map(brand => brand.name);
-        categoryNames = categories.map(category => category.name);
-        conditionNames = conditions.map(condition => condition.name);
-        millNames = mills.map(mill => mill.name);
-        washNames = washes.map(wash => wash.name);
+        renderBrandOptions = () => {
+          return brands.map(brand => (
+            { name: brand.name, id: brand.id }
+        ))};
+        categoryNames = categories.map(category => (
+          <option key={ categories.id } value={ categories.id }>{ categories.name }</option>
+        ));
+        conditionNames = conditions.map(condition => (
+          <option key={ condition.id } value={ condition.id }>{ condition.name }</option>
+        ));
+        millNames = mills.map(mill => (
+          <option key={ mill.id } value={ mill.id }>{ mill.name }</option>
+        ));
+        washNames = washes.map(wash => (
+          <option key={ wash.id } value={ wash.id }>{ wash.name }</option>
+        ));
     }
 
 
@@ -39,21 +52,22 @@ const NewListingContainer = () => {
 
     const [newListingForm, setNewListingForm] = useState({
         name: '',
-        category: '',
-        brand: '',
+        category: 0,
+        brand: 0,
         waist: 30,
         length: 32,
         weight: 12,
-        wash: '',
-        mill: '',
-        condition: ''
+        wash: 0,
+        mill: 0,
+        condition: 0
     });
 
-    const handleChange = event =>
+    const handleChange = event => {
+        debugger
         setNewListingForm({
             ...newListingForm,
             [event.target.name]: event.target.value
-        });
+        })};
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -81,9 +95,11 @@ const NewListingContainer = () => {
                         placeholder='brand'
                         name='brand'
                         component={Select}
-                        value={newListingForm.brand}
                         onChange={handleChange}
-                        options={brandNames}
+                        labelKey='id'
+                        valueKey='name'
+                        // value={brands ? brands : []}
+                        options={brands ? renderBrandOptions() : []}
                     />
                     {/* <FormField
                         name='gender'
