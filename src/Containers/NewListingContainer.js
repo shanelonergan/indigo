@@ -25,7 +25,6 @@ const NewListingContainer = () => {
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
     );
-    console.log(categories);
 
       if (brands && categories && conditions && mills && washes) {
         brandNames = brands.map(brand => brand.name);
@@ -42,9 +41,9 @@ const NewListingContainer = () => {
         name: '',
         category: '',
         brand: '',
-        waist: 0,
-        length: 0,
-        weight: 0,
+        waist: 30,
+        length: 32,
+        weight: 12,
         wash: '',
         mill: '',
         condition: ''
@@ -58,7 +57,6 @@ const NewListingContainer = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log(newListingForm);
         dispatch(createListing(newListingForm));
         // history.push('/');
     };
@@ -68,13 +66,14 @@ const NewListingContainer = () => {
             <Box width='medium'>
                 <h1>Add a new listing</h1>
                 <Form
-                    onSubmit={({ value }) => console.log('Submit', value)}
+                    onSubmit={handleSubmit}
                 >
                     <h4>item details</h4>
                     <FormField
                         placeholder='item name'
                         name='name'
                         value={newListingForm.name}
+                        onChange={handleChange}
                         required
                         // validate={{ regexp: /^[a-z]/i }}
                     />
@@ -82,7 +81,8 @@ const NewListingContainer = () => {
                         placeholder='brand'
                         name='brand'
                         component={Select}
-                        onChange={event => console.log(event)}
+                        value={newListingForm.brand}
+                        onChange={handleChange}
                         options={brandNames}
                     />
                     {/* <FormField
@@ -95,55 +95,65 @@ const NewListingContainer = () => {
                         placeholder='category'
                         name='category'
                         component={Select}
-                        onChange={event => console.log(event)}
+                        value={newListingForm.category}
+                        onChange={handleChange}
                         options={categoryNames}
                     />
                     <FormField
                         placeholder='condition'
                         name='condition'
                         component={Select}
-                        onChange={event => console.log(event)}
+                        value={newListingForm.condition}
+                        onChange={handleChange}
                         options={conditionNames}
                     />
                     <FormField
                         placeholder='waist'
                         name='waist'
                         component={Select}
-                        onChange={event => console.log(event)}
-                        options={['small', 'medium', 'large', 'xlarge']}
+                        value={newListingForm.waist}
+                        onChange={handleChange}
+                        options={[26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]}
                     />
                     <FormField
                         placeholder='length'
                         name='length'
                         component={Select}
-                        onChange={event => console.log(event)}
-                        options={['small', 'medium', 'large', 'xlarge']}
+                        value={newListingForm.length}
+                        onChange={handleChange}
+                        options={[28, 29, 30, 31, 32, 33, 34, 35, 36]}
                     />
                     <h4>denim details</h4>
                     <FormField
                         placeholder='mill'
                         name='mill'
                         component={Select}
-                        onChange={event => console.log(event)}
+                        value={newListingForm.mill}
+                        onChange={handleChange}
                         options={millNames}
                     />
                     <FormField
                         placeholder='wash'
                         name='wash'
                         component={Select}
-                        onChange={event => console.log(event)}
+                        value={newListingForm.wash}
+                        onChange={handleChange}
                         options={washNames}
                     />
                     <FormField
                         placeholder='denim weight (oz)'
                         name='weight'
                         type='number'
+                        value={newListingForm.weight}
+                        onChange={handleChange}
                     />
                     <h4>description</h4>
                     <FormField
                         placeholder='item description'
                         name='descriptions'
                         component={TextArea}
+                        value={newListingForm.description}
+                        onChange={handleChange}
                     />
                     <Box margin={{ top: 'medium' }}>
                         <Button

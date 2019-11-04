@@ -1,7 +1,7 @@
 export default (state = {}, { type, payload }) => {
     switch (type) {
 
-    case typeName:
+    case 'CREATE_LISTING':
         return { ...state, ...payload }
 
     default:
