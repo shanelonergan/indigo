@@ -37,9 +37,6 @@ function App() {
         dispatch(getWashes())
     }, []);
 
-    const filters = useSelector(state => state.filters);
-    console.log(filters)
-
     return (
         <Grommet theme={light} full>
             <ResponsiveContext.Consumer>

@@ -44,7 +44,7 @@ const getCategories = () => dispatch => {
         .then(res => res.json())
         .then(fetchObj => {
             console.log(fetchObj);
-            dispatch(setCategoriesAction({categories: fetchObj}));
+            dispatch(setCategoriesAction(fetchObj));
         });
 };
 
