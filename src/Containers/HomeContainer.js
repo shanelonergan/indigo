@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom"
 
 import {
     Box,
@@ -13,6 +14,11 @@ import LoginForm from '../Components/LoginForm';
 
 const HomeContainer = () => {
     // TODO: refactor into one large grid
+    let history = useHistory()
+    const  handleShop = () => {
+        history.push('/listings')
+    }
+
     return (
         <Box pad='small' gap='small' align='center' justify='center'>
             <Box pad='small'>
@@ -22,6 +28,8 @@ const HomeContainer = () => {
                     gap='small'
                 >
                     <Box
+                        // as='button'
+                        onClick={handleShop}
                         align='center'
                         justify='center'
                         background='brand'
