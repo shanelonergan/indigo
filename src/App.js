@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // ==> Grommet <== \\
 import { Box, Grommet, ResponsiveContext } from 'grommet';
@@ -14,13 +14,20 @@ import CollapsableSidebar from './Components/CollapsableSidebar';
 import UserSidebar from './Components/UserSidebar';
 import MobileSidebar from './Components/MobileSidebar';
 import { persistUser } from './Redux/actions';
-import { getCategories, getBrands, getConditions, getMills, getWashes } from './Redux/actions/filterActions';
+import {
+    getCategories,
+    getBrands,
+    getConditions,
+    getMills,
+    getWashes
+} from './Redux/actions/filterActions';
 import LoginContainer from './Containers/LoginContainer';
 
 function App() {
     const [showSidebar, setShowSidebar] = useState(false);
     const [showUserInfo, setShowUserInfo] = useState(false);
     const [openLogIn, setOpenLogIn] = useState(false);
+
     const dispatch = useDispatch();
 
     const onOpenLogIn = () => setOpenLogIn(true);
@@ -30,11 +37,11 @@ function App() {
         if (localStorage.token) {
             dispatch(persistUser());
         }
-        dispatch(getCategories())
-        dispatch(getBrands())
-        dispatch(getConditions())
-        dispatch(getMills())
-        dispatch(getWashes())
+        dispatch(getCategories());
+        dispatch(getBrands());
+        dispatch(getConditions());
+        dispatch(getMills());
+        dispatch(getWashes());
     }, []);
 
     return (
@@ -58,14 +65,14 @@ function App() {
                             flex
                             overflow={{ horizontal: 'hidden' }}
                         >
-                          <Box fill align='center' justify='center'>
-                          <LoginContainer
-                            openLogIn={openLogIn}
-                            setOpenLogIn={setOpenLogIn}
-                            onOpenLogIn={onOpenLogIn}
-                            onCloseLogIn={onCloseLogIn}
-                          />
-                            <Routes />
+                            <Box fill align='center' justify='center'>
+                                <LoginContainer
+                                    openLogIn={openLogIn}
+                                    setOpenLogIn={setOpenLogIn}
+                                    onOpenLogIn={onOpenLogIn}
+                                    onCloseLogIn={onCloseLogIn}
+                                />
+                                <Routes />
                             </Box>
 
                             {!showSidebar || size !== 'small' ? (
@@ -88,6 +95,10 @@ function App() {
                                 <UserSidebar
                                     showUserInfo={showUserInfo}
                                     setShowUserInfo={setShowUserInfo}
+                                    openLogIn={openLogIn}
+                                    setOpenLogIn={setOpenLogIn}
+                                    onOpenLogIn={onOpenLogIn}
+                                    onCloseLogIn={onCloseLogIn}
                                 />
                             ) : (
                                 <MobileSidebar
