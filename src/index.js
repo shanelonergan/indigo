@@ -4,6 +4,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
+
 import filterReducer from './Redux/filterReducer.js'
 import userReducer from './Redux/userReducer.js'
 import listingReducer from './Redux/listingReducer.js'

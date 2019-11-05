@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { getListing } from '../Redux/actions/listingActions';
+import { createCharge } from '../Redux/actions/transactionActions';
 import { Shop } from 'grommet-icons'
 import {
     Box,
@@ -13,19 +15,29 @@ import {
 } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 
+
 const ListingContainer = props => {
+
     const dispatch = useDispatch();
+    // var stripe = Stripe('pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg');
+
 
     useEffect(() => {
         const urlArr = window.location.href.split('/');
         const listingId = urlArr[4];
         dispatch(getListing(listingId));
+        dispatch(createCharge())
     }, []);
 
     const listing = useSelector(state => state.listings.currentListing);
+    const transaction = useSelector(state => state.transaction)
 
     const onBuy = () => {
-        console.log('buying')
+        // console.log('buying')
+        // dispatch(createCharge())
+        // props.stripe.redirectToCheckout({
+        //     sessionId: transaction.id,
+        // }).then(result => console.log(result))
     }
 
     return (
@@ -53,7 +65,7 @@ const ListingContainer = props => {
         <Box size='medium'>
 
         </Box>
-        </>
+       </>
     );
 };
 

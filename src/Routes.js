@@ -1,9 +1,20 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
+import {StripeProvider, Elements} from 'react-stripe-elements'
 
 // import TestContainer from './Components/testContainer'
 
 import {HomeContainer, FormContainer, ShopContainer, NewListingContainer, ListingContainer} from './Containers'
+
+const renderListingContainer = () => {
+    return (
+        <StripeProvider apiKey="pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg">
+            <Elements>
+            <ListingContainer/>
+            </Elements>
+        </StripeProvider>
+    )
+}
 
 const Routes = () => {
     return (
@@ -12,7 +23,7 @@ const Routes = () => {
             <Route path='/signup' component={FormContainer}/>
             <Route path='/listings' exact component={ShopContainer} />
             <Route path='/listings/new' exact component={NewListingContainer} />
-            <Route path='/listings/:id' component={ListingContainer} />
+            <Route path='/listings/:id' render={renderListingContainer} />
 
         </Switch>
     )
