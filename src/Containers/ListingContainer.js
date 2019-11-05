@@ -4,7 +4,8 @@ import { getListing } from '../Redux/actions/listingActions';
 import {
     Box,
     Image,
-    Text
+    Text,
+    Grid
     // Form,
     // FormField,
     // RadioButtonGroup,
@@ -23,16 +24,23 @@ const ListingContainer = props => {
     console.log(listing);
 
     return (
-        <Box size='medium'>
-            { listing ?
-            <>
-            <Image src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745' />
-            <Text>{listing.brand.name}</Text>
-            <Text>{listing.name}</Text>
-            </>
-            :
-           'loading...'
-            }
+        <Box size='medium' direction='row'>
+            {listing ? (
+                <>
+                <Box margin='small'>
+                    <Image src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745' />
+                </Box>
+                <Box border={{'color':'brand', 'size':'medium'}} margin='small' pad='small' responsive='true' align='center' justify='center'>
+                    <Text>{listing.brand.name}</Text>
+                    <Text>{listing.name}</Text>
+                    <Text>wash: {listing.wash.name}</Text>
+                    <Text>mill: {listing.mill.name}</Text>
+                    <Text>condition: {listing.condition.name}</Text>
+                </Box>
+                </>
+            ) : (
+                'loading...'
+            )}
         </Box>
     );
 };
