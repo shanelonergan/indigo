@@ -13,7 +13,7 @@ import { getAllListings } from '../Redux/actions/listingActions';
 const ShopContainer = () => {
     const history = useHistory()
     const dispatch = useDispatch();
-    const listings = useSelector(state => state.listings);
+    const listings = useSelector(state => state.listings.allListings);
     // debugger
 
     useEffect(() => {

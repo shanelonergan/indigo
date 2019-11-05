@@ -4,9 +4,10 @@ export default (state = [], { type, payload }) => {
             return { ...state, ...payload };
         case 'SET_ALL_LISTINGS':
             console.log(payload, 'setting listings');
-            return [ ...payload ];
+            return {...state, allListings: [ ...payload ]};
         case 'SET_LISTING':
-            return {...state, listing: payload}
+            // console.log(payload, 'setting listing')
+            return {...state, currentListing: payload}
 
         default:
             console.log('default')

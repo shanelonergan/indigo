@@ -19,7 +19,7 @@ const ListingContainer = props => {
         dispatch(getListing(listingId));
     }, []);
 
-    const listing = useSelector(state => state.listing);
+    const listing = useSelector(state => state.listings.currentListing);
     console.log(listing);
 
     return (
