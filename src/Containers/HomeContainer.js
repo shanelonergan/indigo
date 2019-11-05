@@ -86,7 +86,7 @@ const HomeContainer = () => {
                         height='small'
                         justify='center'
                     >
-                        Categories
+                        pants
                     </Box>
                     <Box
                         justify='center'
@@ -94,7 +94,7 @@ const HomeContainer = () => {
                         align='center'
                         justify='center'
                     >
-                        Categories
+                        jackets
                     </Box>
                     <Box
                         justify='center'
@@ -102,7 +102,7 @@ const HomeContainer = () => {
                         align='center'
                         justify='center'
                     >
-                        Categories
+                        shirts
                     </Box>
                 </Grid>
             </Box>
