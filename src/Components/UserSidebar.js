@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../Redux/actions'
 import { useSelector } from 'react-redux';
 import {
   Box,
   Collapsible,
+  Button
 } from 'grommet';
 
 const UserSidebar = ({showUserInfo}) => {
@@ -13,6 +16,11 @@ const UserSidebar = ({showUserInfo}) => {
       ) : (
         'Nobody is logged in'
       );
+    const dispatch = useDispatch()
+
+    const onLogout = () => {
+      dispatch(logoutUser())
+    }
 
   return (
     <Collapsible direction='horizontal' open={showUserInfo}>
@@ -25,6 +33,8 @@ const UserSidebar = ({showUserInfo}) => {
         justify='center'
       >
         {text}
+
+        <Button label="log out" onClick={onLogout}/>
       </Box>
     </Collapsible>
   );

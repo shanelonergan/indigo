@@ -80,6 +80,7 @@ const persistUser = () => dispatch => {
 };
 
 const logoutUser = () => dispatch => {
+  console.log("logging out")
   dispatch(clearUserAction());
   localStorage.clear();
 };
