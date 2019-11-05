@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getListing } from '../Redux/actions/listingActions';
+import { Shop } from 'grommet-icons'
 import {
     Box,
     Image,
@@ -23,6 +24,10 @@ const ListingContainer = props => {
 
     const listing = useSelector(state => state.listings.currentListing);
 
+    const onBuy = () => {
+        console.log('buying')
+    }
+
     return (
         <>
         <Box size='medium' direction='row'>
@@ -38,7 +43,7 @@ const ListingContainer = props => {
                     <Text margin='small'>mill: {listing.mill.name}</Text>
                     <Text margin='small'>condition: {listing.condition.name}</Text>
                     <Text margin='small' color='red'>$ {listing.price}</Text>
-                    <Button size='medium' fill="horizontal" label='buy' color='brand' primary />
+            <Button size='medium' fill="horizontal" a11yTitle='purchase this item' color='brand' primary onClick={onBuy} icon={<Shop/>} label='purchase this item'/>
                 </Box>
                 </>
             ) : (
