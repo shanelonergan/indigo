@@ -13,7 +13,8 @@ import {
     CheckBox,
     Select,
     TextArea,
-    RangeSelector
+    RangeSelector,
+    Text
 } from 'grommet';
 
 const NewListingContainer = () => {
@@ -35,7 +36,8 @@ const NewListingContainer = () => {
         weight: 12,
         wash_id: '',
         mill_id: '',
-        condition_id: ''
+        condition_id: '',
+        price: ''
     });
 
     let renderBrandOptions = () => {
@@ -142,19 +144,19 @@ const NewListingContainer = () => {
                     /> */}
                     <label>
                         <select name='brand_id' onChange={handleChange}>
-                            <option value="" disabled selected hidden>brand</option>
+                            <option value="" disabled defaultValue hidden>brand</option>
                             {brands ? renderBrandOptions() : null}
                         </select>
                     </label>
                     <label>
                         <select name='category_id' onChange={handleChange}>
-                        <option value="" disabled selected hidden>category</option>
+                        <option value="" disabled defaultValue hidden>category</option>
                             {categories ? renderCategoryOptions() : null}
                         </select>
                     </label>
                     <label>
                         <select name='condition_id' onChange={handleChange}>
-                            <option value="" disabled selected hidden>condition</option>
+                            <option value="" disabled defaultValue hidden>condition</option>
                             {conditions ? renderConditionOptions() : null}
                         </select>
                     </label>
@@ -227,7 +229,7 @@ const NewListingContainer = () => {
                     /> */}
                     <label>
                         <select name='wash_id' onChange={handleChange}>
-                            <option value="" disabled selected hidden>wash</option>
+                            <option value="" disabled defaultValue hidden>wash</option>
                             {washes ? renderWashOptions() : null}
                         </select>
                     </label>
@@ -242,7 +244,7 @@ const NewListingContainer = () => {
                     /> */}
                     <label>
                         <select name='mill_id' onChange={handleChange}>
-                            <option value="" disabled selected hidden>mill</option>
+                            <option value="" disabled defaultValue hidden>mill</option>
                             {mills ? renderMillOptions() : null}
                         </select>
                     </label>
@@ -261,6 +263,14 @@ const NewListingContainer = () => {
                         value={newListingForm.description}
                         onChange={handleChange}
                     />
+                     <FormField
+                        label='price'
+                        placeholder='price'
+                        name='weight'
+                        type='number'
+                        value={newListingForm.price}
+                        onChange={handleChange}
+                    />
                     <Box margin={{ top: 'medium' }}>
                         <Button
                             type='submit'
@@ -268,7 +278,7 @@ const NewListingContainer = () => {
                             primary
                             color='brand'
                             alignSelf='center'
-                            fill='true'
+                            fill={true}
                             icon={<Checkmark />}
                         />
                     </Box>
