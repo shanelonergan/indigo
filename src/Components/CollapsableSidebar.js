@@ -15,7 +15,7 @@ const CollapsableSidebar = ({showSidebar}) => {
         align='center'
         justify='center'
       >
-        sidebar
+        cart
       </Box>
     </Collapsible>
   );
