@@ -10,6 +10,7 @@ import {
     // FormField,
     // RadioButtonGroup,
 } from 'grommet';
+import { ResizeSpinLoader } from 'react-css-loaders';
 
 const ListingContainer = props => {
     const dispatch = useDispatch();
@@ -21,7 +22,6 @@ const ListingContainer = props => {
     }, []);
 
     const listing = useSelector(state => state.listings.currentListing);
-    console.log(listing);
 
     return (
         <Box size='medium' direction='row'>
@@ -36,11 +36,11 @@ const ListingContainer = props => {
                     <Text margin='small'>wash: {listing.wash.name}</Text>
                     <Text margin='small'>mill: {listing.mill.name}</Text>
                     <Text margin='small'>condition: {listing.condition.name}</Text>
-                    <Text margin='small' color='red'>$ {listing.condition.price}</Text>
+                    <Text margin='small' color='red'>$ {listing.price}</Text>
                 </Box>
                 </>
             ) : (
-                'loading...'
+                <ResizeSpinLoader/>
             )}
         </Box>
     );

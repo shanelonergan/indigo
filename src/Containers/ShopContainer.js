@@ -8,6 +8,7 @@ import {
     Image,
     InfiniteScroll
 } from 'grommet';
+import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
 
 const ShopContainer = () => {
@@ -55,7 +56,7 @@ const ShopContainer = () => {
                             </Box>
                         )}
                     </InfiniteScroll>
-                    : <Text>Loading</Text>}
+                    : <ResizeSpinLoader/>}
                 </Grid>
             </Box>
         </Grid>

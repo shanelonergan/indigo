@@ -6,6 +6,7 @@
     "grommet": "^2.7.11",
     "grommet-icons": "^4.3.0",
     "react": "^16.11.0",
+    "react-css-loaders": "0.0.5",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
