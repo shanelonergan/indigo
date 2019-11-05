@@ -5,6 +5,8 @@ export default (state = [], { type, payload }) => {
         case 'SET_ALL_LISTINGS':
             console.log(payload, 'setting listings');
             return [ ...payload ];
+        case 'SET_LISTING':
+            return {...state, listing: payload}
 
         default:
             console.log('default')
