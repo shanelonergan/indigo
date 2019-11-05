@@ -17,6 +17,7 @@ import {
 } from 'grommet';
 
 const NewListingContainer = () => {
+    console.log('new listing container')
     const dispatch = useDispatch();
 
     const { brands, categories, conditions, mills, washes } = useSelector(

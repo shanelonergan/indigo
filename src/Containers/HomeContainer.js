@@ -18,6 +18,9 @@ const HomeContainer = () => {
     const  handleShop = () => {
         history.push('/listings')
     }
+    const  handleSell = () => {
+        history.push('/listings/new')
+    }
 
     return (
         <Box pad='small' gap='small' align='center' justify='center'>
@@ -39,6 +42,7 @@ const HomeContainer = () => {
                         shop
                     </Box>
                     <Box
+                        onClick={handleSell}
                         justify='center'
                         background='brand'
                         align='center'
