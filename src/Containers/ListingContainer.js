@@ -5,7 +5,7 @@ import {
     Box,
     Image,
     Text,
-    Grid
+    Button
     // Form,
     // FormField,
     // RadioButtonGroup,
@@ -24,6 +24,7 @@ const ListingContainer = props => {
     const listing = useSelector(state => state.listings.currentListing);
 
     return (
+        <>
         <Box size='medium' direction='row'>
             {listing ? (
                 <>
@@ -37,12 +38,17 @@ const ListingContainer = props => {
                     <Text margin='small'>mill: {listing.mill.name}</Text>
                     <Text margin='small'>condition: {listing.condition.name}</Text>
                     <Text margin='small' color='red'>$ {listing.price}</Text>
+                    <Button size='medium' fill="horizontal" label='buy' color='brand' primary />
                 </Box>
                 </>
             ) : (
                 <ResizeSpinLoader/>
             )}
         </Box>
+        <Box size='medium'>
+
+        </Box>
+        </>
     );
 };
 
