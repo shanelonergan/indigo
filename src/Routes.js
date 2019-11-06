@@ -2,15 +2,13 @@ import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import {StripeProvider, Elements} from 'react-stripe-elements'
 
-// import TestContainer from './Components/testContainer'
-
 import {HomeContainer, FormContainer, ShopContainer, NewListingContainer, ListingContainer} from './Containers'
 
 const renderListingContainer = () => {
     return (
         <StripeProvider apiKey="pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg">
             <Elements>
-            <ListingContainer/>
+                <ListingContainer/>
             </Elements>
         </StripeProvider>
     )

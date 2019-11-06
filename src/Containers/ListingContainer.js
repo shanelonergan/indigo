@@ -2,16 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { getListing } from '../Redux/actions/listingActions';
-import { createCharge } from '../Redux/actions/transactionActions';
 import { Shop } from 'grommet-icons';
 import {
     Box,
     Image,
     Text,
     Button
-    // Form,
-    // FormField,
-    // RadioButtonGroup,
 } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 
@@ -23,21 +19,11 @@ const ListingContainer = props => {
         const urlArr = window.location.href.split('/');
         const listingId = urlArr[4];
         dispatch(getListing(listingId));
-        // dispatch(createCharge());
     }, []);
 
     console.log(props);
 
     const listing = useSelector(state => state.listings.currentListing);
-    const transaction = useSelector(state => state.transaction);
-
-    const onBuy = () => {
-        // console.log('buying')
-        // dispatch(createCharge())
-        // props.stripe.redirectToCheckout({
-        //     sessionId: transaction.id,
-        // }).then(result => console.log(result))
-    };
 
     const onToken = token => {
         console.log(token);
@@ -95,16 +81,7 @@ const ListingContainer = props => {
                             <Text margin='small' color='red'>
                                 $ {listing.price}
                             </Text>
-                            <Button
-                                size='medium'
-                                fill='horizontal'
-                                a11yTitle='purchase this item'
-                                color='brand'
-                                primary
-                                onClick={onBuy}
-                                icon={<Shop />}
-                                label='purchase this item'
-                            />
+
                             <StripeCheckout
                                 stripeKey='pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg'
                                 token={onToken}
