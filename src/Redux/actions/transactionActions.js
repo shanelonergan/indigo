@@ -7,26 +7,27 @@ const CHARGES_URL = BASE_URL + '/charges';
 const setTransactionAction = session => ({
     type: 'SET_TRANSACTION',
     payload: session
-  });
+});
 
 // ==> FETCH <== \\
-const createCharge = charge => dispatch => {
+const createCharge = token => dispatch => {
+    const charge = {
+        token: token.id
+    };
     const config = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(charge)
+        body: JSON.stringify({ charge: charge })
     };
 
     fetch(CHARGES_URL, config)
-    .then(res => res.json())
-    .then(sessionObj => {
-        console.log(sessionObj)
-        dispatch(setTransactionAction(sessionObj))
-    })
-
+        .then(res => res.json())
+        .then(sessionObj => {
+            console.log(sessionObj);
+            dispatch(setTransactionAction(sessionObj));
+        });
 };
-
 
 export { createCharge };

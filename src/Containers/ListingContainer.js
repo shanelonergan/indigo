@@ -22,8 +22,10 @@ const ListingContainer = props => {
         const urlArr = window.location.href.split('/');
         const listingId = urlArr[4];
         dispatch(getListing(listingId));
-        dispatch(createCharge());
+        // dispatch(createCharge());
     }, []);
+
+    console.log(props)
 
     const listing = useSelector(state => state.listings.currentListing);
     const transaction = useSelector(state => state.transaction);
@@ -36,8 +38,9 @@ const ListingContainer = props => {
         // }).then(result => console.log(result))
     };
 
-    const onToken = () => {
-        dispatch(createCharge())
+    const onToken = (token) => {
+        console.log(token)
+        dispatch(createCharge(token))
     }
 
     return (
