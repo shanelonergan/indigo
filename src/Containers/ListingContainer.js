@@ -15,6 +15,7 @@ import {
 } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 
+const CHARGES_URL = 'http://localhost:3000/charges'
 const ListingContainer = props => {
     const dispatch = useDispatch();
 
@@ -25,7 +26,7 @@ const ListingContainer = props => {
         // dispatch(createCharge());
     }, []);
 
-    console.log(props)
+    console.log(props);
 
     const listing = useSelector(state => state.listings.currentListing);
     const transaction = useSelector(state => state.transaction);
@@ -38,10 +39,29 @@ const ListingContainer = props => {
         // }).then(result => console.log(result))
     };
 
-    const onToken = (token) => {
-        console.log(token)
-        dispatch(createCharge(token))
-    }
+    const onToken = token => {
+        console.log(token);
+        createCharge(token);
+    };
+
+    const createCharge = async token => {
+
+        const charge = {
+            token: token.id
+        };
+        const config = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ charge: charge })
+        };
+
+        let response = await fetch(CHARGES_URL, config);
+
+        fetch(token);
+        if (response.ok) console.log('purchase complete!');
+    };
 
     return (
         <>
