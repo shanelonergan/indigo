@@ -55,7 +55,7 @@ const ListingContainer = props => {
                             margin='small'
                             responsive={true}
                             height='80vh'
-                            width='35vw'
+                            width='37vw'
                             overflow='hidden'
                         >
                             <Carousel>
@@ -65,7 +65,8 @@ const ListingContainer = props => {
                                 />
                                 <Image
                                     fit='cover'
-                                    src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'/>
+                                    src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'
+                                />
                             </Carousel>
                         </Box>
                         <Box
@@ -74,48 +75,80 @@ const ListingContainer = props => {
                             pad='small'
                             responsive={true}
                             align='center'
-                            justify='center'
-                            height='medium'
+                            // justify='center'
+                            height='80vh'
                             width='large'
                         >
-                            <Text color='brand' weight='bold' margin='small'>
-                                {listing.brand.name}
-                            </Text>
-                            <Text margin='small'>{listing.name}</Text>
-                            <Text margin='small'>
-                                wash: {listing.wash.name}
-                            </Text>
-                            <Text margin='small'>
-                                mill: {listing.mill.name}
-                            </Text>
-                            <Text margin='small'>
-                                condition: {listing.condition.name}
-                            </Text>
-                            <Text margin='small' color='red'>
-                                $ {listing.price}
-                            </Text>
+                            <Box direction='column' >
+                                <Box>
+                                    <Text
+                                        color='brand'
+                                        weight='bold'
+                                        margin='small'
+                                    >
+                                        {listing.brand.name}
+                                    </Text>
+                                    <Text margin='small'>{listing.name}</Text>
+                                    <Text margin='small'>
+                                        wash: {listing.wash.name}
+                                    </Text>
+                                    <Text margin='small'>
+                                        mill: {listing.mill.name}
+                                    </Text>
+                                    <Text margin='small'>
+                                        condition: {listing.condition.name}
+                                    </Text>
+                                    <Text margin='small' color='red'>
+                                        $ {listing.price}
+                                    </Text>
 
-                            <StripeCheckout
-                                stripeKey='pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg'
-                                amount={listing.price * 100} //stripe price is in cents
-                                currency='USD'
-                                token={onToken}
-                                panelLabel='Purchase for {{amount}}'
-                                ComponentClass='div'
-                                name='indigo'
-                                shippingAddress
-                            >
-                                <Button icon={<Stripe />} label='Purchase' margin={{'right':'medium'}}/>
-                                <Favorite/>
-                            </StripeCheckout>
+                                    <StripeCheckout
+                                        stripeKey='pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg'
+                                        amount={listing.price * 100} //stripe price is in cents
+                                        currency='USD'
+                                        token={onToken}
+                                        panelLabel='Purchase for {{amount}}'
+                                        ComponentClass='div'
+                                        name='indigo'
+                                        shippingAddress
+                                    >
+                                        <Button
+                                            icon={<Stripe />}
+                                            label='Purchase'
+                                            margin={{ right: 'medium' }}
+                                            primary
+                                        />
+                                        <Favorite />
+                                    </StripeCheckout>
+                                </Box>
+                                <Box direction='column'margin={{'top':'medium'}}>
+                                <Text color='brand'
+                                        weight='bold'
+                                        margin='small'>listed by:</Text>
+                                    <Box direction='row'>
+                                    <Box height='xsmall' width='xsmall' margin={{'right':'small'}}>
+                                        <Image
+                                            // round='medium'
+                                            fit='cover'
+                                            src={listing.user.img_url}
+                                        />
+                                    </Box>
+                                    <Box justify='center'>
 
+                                    <Text>{listing.user.username}</Text>
+                                    <Text>{listing.user.location}</Text>
+                                    </Box>
+
+                                    </Box>
+                                </Box>
+                            </Box>
                         </Box>
                     </>
                 ) : (
                     <ResizeSpinLoader />
                 )}
             </Box>
-            <Box size='medium'></Box>
+            {/* <Box size='medium'></Box> */}
         </>
     );
 };
