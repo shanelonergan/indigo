@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { getListing } from '../Redux/actions/listingActions';
-import { Stripe } from 'grommet-icons';
+import { Stripe, Transaction } from 'grommet-icons';
 import {
     Box,
     Image,
@@ -26,7 +26,7 @@ const ListingContainer = props => {
 
     const onToken = token => {
         console.log(token);
-        // createCharge(token);
+        createCharge(token);
     };
 
     const createCharge = async token => {
@@ -42,10 +42,12 @@ const ListingContainer = props => {
             body: JSON.stringify({ charge: charge })
         };
 
-        let response = await fetch(CHARGES_URL, config);
-
-        fetch(token);
+        let response = await fetch(CHARGES_URL, config)
+        // .then(res => res.json())
+        // .then(console.log)
         if (response.ok) console.log('purchase complete!');
+
+        // Transaction.create()
     };
 
     return (
