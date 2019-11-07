@@ -24,7 +24,7 @@ const ListingContainer = props => {
     const onToken = token => {
         console.log(token);
         createCharge(token);
-        dispatch(createTransaction(listing, loggedInUser))
+        dispatch(createTransaction(listing, loggedInUser));
     };
 
     const createCharge = async token => {

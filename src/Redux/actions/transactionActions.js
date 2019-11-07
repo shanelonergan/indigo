@@ -3,12 +3,13 @@ const BASE_URL = 'http://localhost:3000';
 const TRANSACTIONS_URL = BASE_URL + '/transactions';
 
 // ==> FETCH <== \\
-const createTransaction = (loggedInUser, listingObj) => dispatch => {
-    transactionObj = {
+const createTransaction = (listing, loggedInUser) => dispatch => {
+    // debugger
+    const transactionObj = {
         buyer_id: loggedInUser.id,
-        seller_id: listingObj.user.username,
-        listing_id: listingObj.id,
-        final_price: listingObj.price
+        seller_id: listing.user.id,
+        listing_id: listing.id,
+        final_price: listing.price
     }
     const config = {
       method: 'POST',
@@ -24,3 +25,7 @@ const createTransaction = (loggedInUser, listingObj) => dispatch => {
           console.log(transactionObj, "create transaction")
       });
   };
+
+export {
+    createTransaction
+}
