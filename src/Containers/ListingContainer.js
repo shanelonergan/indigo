@@ -3,15 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { getListing } from '../Redux/actions/listingActions';
 import { Stripe, Transaction } from 'grommet-icons';
-import {
-    Box,
-    Image,
-    Text,
-    Button
-} from 'grommet';
+import { Box, Image, Text, Button, Carousel } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 
-const CHARGES_URL = 'http://localhost:3000/charges'
+const CHARGES_URL = 'http://localhost:3000/charges';
 
 const ListingContainer = props => {
     const dispatch = useDispatch();
@@ -30,6 +25,7 @@ const ListingContainer = props => {
     };
 
     const createCharge = async token => {
+        // TODO: Create a transaction to store history in database
 
         const charge = {
             token: token.id
@@ -42,7 +38,7 @@ const ListingContainer = props => {
             body: JSON.stringify({ charge: charge })
         };
 
-        let response = await fetch(CHARGES_URL, config)
+        let response = await fetch(CHARGES_URL, config);
         // .then(res => res.json())
         // .then(console.log)
         if (response.ok) console.log('purchase complete!');
@@ -55,8 +51,22 @@ const ListingContainer = props => {
             <Box size='medium' direction='row'>
                 {listing ? (
                     <>
-                        <Box margin='small' responsive={true}>
-                            <Image src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745' />
+                        <Box
+                            margin='small'
+                            responsive={true}
+                            height='80vh'
+                            width='35vw'
+                            overflow='hidden'
+                        >
+                            <Carousel>
+                                <Image
+                                    fit='cover'
+                                    src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745'
+                                />
+                                <Image
+                                    fit='cover'
+                                    src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'/>
+                            </Carousel>
                         </Box>
                         <Box
                             border={{ color: 'brand', size: 'medium' }}
@@ -65,6 +75,8 @@ const ListingContainer = props => {
                             responsive={true}
                             align='center'
                             justify='center'
+                            height='medium'
+                            width='large'
                         >
                             <Text color='brand' weight='bold' margin='small'>
                                 {listing.brand.name}
@@ -86,19 +98,19 @@ const ListingContainer = props => {
                             <StripeCheckout
                                 stripeKey='pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg'
                                 amount={listing.price * 100} //stripe price is in cents
-                                currency="USD"
+                                currency='USD'
                                 token={onToken}
-                                panelLabel="Purchase for {{amount}}"
+                                panelLabel='Purchase for {{amount}}'
                                 ComponentClass='div'
                                 name='indigo'
                                 shippingAddress
                             >
-                                <Button icon={<Stripe/>} label='Purchase'/>
+                                <Button icon={<Stripe />} label='Purchase' />
                             </StripeCheckout>
                         </Box>
                     </>
                 ) : (
-                <ResizeSpinLoader/>
+                    <ResizeSpinLoader />
                 )}
             </Box>
             <Box size='medium'></Box>
