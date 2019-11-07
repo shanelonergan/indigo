@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { getListing } from '../Redux/actions/listingActions';
-import { Stripe, Transaction } from 'grommet-icons';
+import { Stripe, Transaction, Favorite } from 'grommet-icons';
 import { Box, Image, Text, Button, Carousel } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 
@@ -105,8 +105,10 @@ const ListingContainer = props => {
                                 name='indigo'
                                 shippingAddress
                             >
-                                <Button icon={<Stripe />} label='Purchase' />
+                                <Button icon={<Stripe />} label='Purchase' margin={{'right':'medium'}}/>
+                                <Favorite/>
                             </StripeCheckout>
+
                         </Box>
                     </>
                 ) : (
