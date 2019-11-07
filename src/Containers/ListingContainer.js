@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { getListing } from '../Redux/actions/listingActions';
+import { createTransaction } from '../Redux/actions/transactionActions';
 import { Stripe, Transaction, Favorite } from 'grommet-icons';
 import { Box, Image, Text, Button, Carousel } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
@@ -18,10 +19,12 @@ const ListingContainer = props => {
     }, []);
 
     const listing = useSelector(state => state.listings.currentListing);
+    const loggedInUser = useSelector(state => state.user)
 
     const onToken = token => {
         console.log(token);
-        createCharge(token, listing);
+        createCharge(token);
+        dispatch(createTransaction(listing, loggedInUser))
     };
 
     const createCharge = async token => {
@@ -35,7 +38,7 @@ const ListingContainer = props => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ charge: charge })
+            body: JSON.stringify({ charge: charge, listing: listing, loggedInUser: loggedInUser })
         };
 
         let response = await fetch(CHARGES_URL, config);
@@ -137,6 +140,7 @@ const ListingContainer = props => {
                                                 icon={<Stripe />}
                                                 label='Purchase'
                                                 margin={{ right: 'medium' }}
+
                                                 primary
                                             />
                                         </StripeCheckout>
@@ -161,6 +165,7 @@ const ListingContainer = props => {
                                             height='xsmall'
                                             width='xsmall'
                                             margin={{ right: 'small' }}
+                                            border={{ color: 'brand', size: 'medium' }}
                                         >
                                             <Image
                                                 // round='medium'
