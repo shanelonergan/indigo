@@ -21,7 +21,7 @@ const ListingContainer = props => {
 
     const onToken = token => {
         console.log(token);
-        createCharge(token);
+        createCharge(token, listing);
     };
 
     const createCharge = async token => {
@@ -79,66 +79,99 @@ const ListingContainer = props => {
                             height='80vh'
                             width='large'
                         >
-                            <Box direction='column' >
+                            <Box direction='column'>
                                 <Box>
                                     <Text
                                         color='brand'
                                         weight='bold'
                                         margin='small'
+                                        alignSelf='center'
                                     >
                                         {listing.brand.name}
                                     </Text>
-                                    <Text margin='small'>{listing.name}</Text>
-                                    <Text margin='small'>
-                                        wash: {listing.wash.name}
-                                    </Text>
-                                    <Text margin='small'>
-                                        mill: {listing.mill.name}
-                                    </Text>
-                                    <Text margin='small'>
-                                        condition: {listing.condition.name}
-                                    </Text>
-                                    <Text margin='small' color='red'>
-                                        $ {listing.price}
-                                    </Text>
-
-                                    <StripeCheckout
-                                        stripeKey='pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg'
-                                        amount={listing.price * 100} //stripe price is in cents
-                                        currency='USD'
-                                        token={onToken}
-                                        panelLabel='Purchase for {{amount}}'
-                                        ComponentClass='div'
-                                        name='indigo'
-                                        shippingAddress
-                                    >
-                                        <Button
-                                            icon={<Stripe />}
-                                            label='Purchase'
-                                            margin={{ right: 'medium' }}
-                                            primary
-                                        />
+                                    <Box direction='row' justify='between' margin={{'top':'medium', 'bottom':'medium'}}>
+                                        <Box width='25vw'>
+                                        <Text margin={{'bottom':'small'}}>Details:</Text>
+                                            <Text margin={{'bottom':'small'}}>
+                                                {listing.name}
+                                            </Text>
+                                            <Text margin={{'bottom':'small'}}>
+                                                wash: {listing.wash.name}
+                                            </Text>
+                                            <Text margin={{'bottom':'small'}}>
+                                                mill: {listing.mill.name}
+                                            </Text>
+                                            <Text margin={{'bottom':'small'}}>
+                                                condition:{' '}
+                                                {listing.condition.name}
+                                            </Text>
+                                            <Text margin={{'bottom':'small'}} color='red'>
+                                                $ {listing.price}
+                                            </Text>
+                                        </Box>
+                                        <Box direction='column' width='25vw'>
+                                            <Text margin={{'bottom':'small'}}>Description:</Text>
+                                            <Text>
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Dolor ipsa cumque aut unde
+                                                aspernatur id non atque, iure
+                                                nesciunt voluptas corrupti porro
+                                                magni hic itaque saepe
+                                                laboriosam numquam odio placeat.
+                                            </Text>
+                                        </Box>
+                                    </Box>
+                                    <Box direction='row' align='center' alignSelf='center'>
+                                        <StripeCheckout
+                                            stripeKey='pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg'
+                                            amount={listing.price * 100} //stripe price is in cents
+                                            currency='USD'
+                                            token={onToken}
+                                            panelLabel='Purchase for {{amount}}'
+                                            ComponentClass='div'
+                                            name='indigo'
+                                            shippingAddress
+                                        >
+                                            <Button
+                                                icon={<Stripe />}
+                                                label='Purchase'
+                                                margin={{ right: 'medium' }}
+                                                primary
+                                            />
+                                        </StripeCheckout>
                                         <Favorite />
-                                    </StripeCheckout>
+                                    </Box>
                                 </Box>
-                                <Box direction='column'margin={{'top':'medium'}}>
-                                <Text color='brand'
+                                <Box
+                                    direction='column'
+                                    margin={{ 'top': 'medium' }}
+                                    alignSelf='center'
+                                >
+                                    <Text
+                                        color='brand'
                                         weight='bold'
-                                        margin='small'>listed by:</Text>
-                                    <Box direction='row'>
-                                    <Box height='xsmall' width='xsmall' margin={{'right':'small'}}>
-                                        <Image
-                                            // round='medium'
-                                            fit='cover'
-                                            src={listing.user.img_url}
-                                        />
-                                    </Box>
-                                    <Box justify='center'>
-
-                                    <Text>{listing.user.username}</Text>
-                                    <Text>{listing.user.location}</Text>
-                                    </Box>
-
+                                        margin='small'
+                                        alignSelf='center'
+                                    >
+                                        Listed by:
+                                    </Text>
+                                    <Box direction='row' >
+                                        <Box
+                                            height='xsmall'
+                                            width='xsmall'
+                                            margin={{ right: 'small' }}
+                                        >
+                                            <Image
+                                                // round='medium'
+                                                fit='cover'
+                                                src={listing.user.img_url}
+                                            />
+                                        </Box>
+                                        <Box justify='center'>
+                                            <Text>{listing.user.username}</Text>
+                                            <Text>{listing.user.location}</Text>
+                                        </Box>
                                     </Box>
                                 </Box>
                             </Box>
