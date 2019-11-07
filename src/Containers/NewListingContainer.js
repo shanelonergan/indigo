@@ -142,24 +142,24 @@ const NewListingContainer = () => {
                         value={newListingForm.brand}
                         options={brands ? brands : []}
                     /> */}
-                    <label>
+                    <div className='select is-small'>
                         <select name='brand_id' onChange={handleChange}>
                             <option value="" disabled defaultValue hidden>brand</option>
                             {brands ? renderBrandOptions() : null}
                         </select>
-                    </label>
-                    <label>
+                    </div>
+                    <div className='select is-small'>
                         <select name='category_id' onChange={handleChange}>
                         <option value="" disabled defaultValue hidden>category</option>
                             {categories ? renderCategoryOptions() : null}
                         </select>
-                    </label>
-                    <label>
+                    </div>
+                    <div className='select is-small'>
                         <select name='condition_id' onChange={handleChange}>
                             <option value="" disabled defaultValue hidden>condition</option>
                             {conditions ? renderConditionOptions() : null}
                         </select>
-                    </label>
+                    </div>
 
                     {/* <FormField
                         name='gender'

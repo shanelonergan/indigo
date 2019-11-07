@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { getListing } from '../Redux/actions/listingActions';
-import { Shop } from 'grommet-icons';
+import { Stripe } from 'grommet-icons';
 import {
     Box,
     Image,
@@ -12,6 +12,7 @@ import {
 import { ResizeSpinLoader } from 'react-css-loaders';
 
 const CHARGES_URL = 'http://localhost:3000/charges'
+
 const ListingContainer = props => {
     const dispatch = useDispatch();
 
@@ -21,13 +22,11 @@ const ListingContainer = props => {
         dispatch(getListing(listingId));
     }, []);
 
-    console.log(props);
-
     const listing = useSelector(state => state.listings.currentListing);
 
     const onToken = token => {
         console.log(token);
-        createCharge(token);
+        // createCharge(token);
     };
 
     const createCharge = async token => {
@@ -84,12 +83,20 @@ const ListingContainer = props => {
 
                             <StripeCheckout
                                 stripeKey='pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg'
+                                amount={listing.price * 100} //stripe price is in cents
+                                currency="USD"
                                 token={onToken}
-                            />
+                                panelLabel="Purchase for {{amount}}"
+                                ComponentClass='div'
+                                name='indigo'
+                                shippingAddress
+                            >
+                                <Button icon={<Stripe/>} label='Purchase'/>
+                            </StripeCheckout>
                         </Box>
                     </>
                 ) : (
-                    <ResizeSpinLoader />
+                <ResizeSpinLoader/>
                 )}
             </Box>
             <Box size='medium'></Box>
