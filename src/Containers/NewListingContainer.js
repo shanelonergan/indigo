@@ -260,7 +260,7 @@ const NewListingContainer = () => {
                     <h4>description</h4>
                     <FormField
                         placeholder='item description'
-                        name='descriptions'
+                        name='description'
                         component={TextArea}
                         value={newListingForm.description}
                         onChange={handleChange}

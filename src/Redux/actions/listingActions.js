@@ -25,15 +25,16 @@ const createListing = listingInfo => dispatch => {
         waist: parseInt(listingInfo.listing.waist),
         length: parseInt(listingInfo.listing.length),
         weight: parseInt(listingInfo.listing.weight),
-        wash_id: parseInt(listingInfo.listing.wash),
-        mill_id: parseInt(listingInfo.listing.mill),
-        category_id: parseInt(listingInfo.listing.category),
-        brand_id: parseInt(listingInfo.listing.brand),
-        condition_id: parseInt(listingInfo.listing.condition),
+        wash_id: parseInt(listingInfo.listing.wash_id),
+        mill_id: parseInt(listingInfo.listing.mill_id),
+        category_id: parseInt(listingInfo.listing.category_id),
+        brand_id: parseInt(listingInfo.listing.brand_id),
+        condition_id: parseInt(listingInfo.listing.condition_id),
         name: listingInfo.listing.name,
-        price: listingInfo.listing.price,
+        price: parseInt(listingInfo.listing.price),
         user_id: parseInt(listingInfo.user_id)
     }
+    console.log(listingObj)
     const config = {
         method: 'POST',
         headers: {
