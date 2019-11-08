@@ -23,28 +23,31 @@ const ListingContainer = props => {
 
     const onToken = token => {
         console.log(token);
-        createCharge(token);
+        createCharge(token, listing);
         dispatch(createTransaction(listing, loggedInUser));
     };
 
-    const createCharge = async token => {
+    const createCharge = async (token, listing) => {
         // TODO: Create a transaction to store history in database
 
         const charge = {
             token: token.id
         };
+        const price = listing.price
+
         const config = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ charge: charge, listing: listing, loggedInUser: loggedInUser })
+            body: JSON.stringify({ charge: charge, price: price })
         };
 
-        let response = await fetch(CHARGES_URL, config);
-        // .then(res => res.json())
-        // .then(console.log)
-        if (response.ok) console.log('purchase complete!');
+        fetch(CHARGES_URL, config)
+        .then(res => res.json())
+        .then(console.log)
+        // if (response.ok) console.log('purchase complete!');
+        // if (response.errors) console.log(response.errors)
 
         // Transaction.create()
     };
