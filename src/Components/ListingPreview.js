@@ -6,7 +6,7 @@ import { Box, Image, Text } from 'grommet';
 
 const ListingPreview = ({listing, handleListing}) => {
 
-    console.log(listing)
+    // console.log(listing)
 
     return (
         <Box

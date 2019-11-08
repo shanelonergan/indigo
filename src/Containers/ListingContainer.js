@@ -111,7 +111,7 @@ const ListingContainer = props => {
                                                 condition:{' '}
                                                 {listing.condition.name}
                                             </Text>
-                                            <Text margin={{'bottom':'small'}} color='red'>
+                                            <Text margin={{'bottom':'small'}} color='red' weight='bold'>
                                                 $ {listing.price}
                                             </Text>
                                         </Box>

@@ -42,9 +42,10 @@ const ShopContainer = () => {
 
             </Box>
 
-            <Box gridArea='main' justify='center' align='center'>
-                <Grid columns='xsmall' rows='small'>
-                    {listings ?
+            <Box gridArea='main' justify='center' align='center' overflow='scroll'>
+                {listings ?
+                <Grid columns='15vw' rows='25vh' fill='horizontal' align='center'>
+
                     <InfiniteScroll items={listings} step={8}>
                         {item => (
 
@@ -52,8 +53,9 @@ const ShopContainer = () => {
 
                         )}
                     </InfiniteScroll>
-                    : <ResizeSpinLoader color='#00004D'/>}
-                </Grid>
+
+                        </Grid>
+                : <ResizeSpinLoader color='#00004D'/>}
             </Box>
         </Grid>
     );
