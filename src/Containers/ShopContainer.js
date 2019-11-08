@@ -4,9 +4,10 @@ import { useHistory } from 'react-router-dom';
 import { Box, Grid, Text, Image, InfiniteScroll } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
-import { ListingPreview, FilterSelector} from '../Components/index';
+import { ListingPreview, FilterSelector } from '../Components/';
 
 const ShopContainer = () => {
+    console.log(ListingPreview)
     const listings = useSelector(state => state.listings.allListings);
     const dispatch = useDispatch();
     useEffect(() => {
