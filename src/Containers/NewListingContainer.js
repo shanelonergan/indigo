@@ -21,6 +21,8 @@ const NewListingContainer = () => {
     console.log('new listing container')
     const dispatch = useDispatch();
 
+    const loggedInUser = useSelector(state => state.user)
+
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
     );
@@ -111,10 +113,10 @@ const NewListingContainer = () => {
     };
 
     const handleSubmit = event => {
+        const listingInfo = {listing: newListingForm, user_id: loggedInUser.id}
         event.preventDefault();
-        console.log(newListingForm);
         setToListings(true)
-        dispatch(createListing(newListingForm));
+        dispatch(createListing(listingInfo));
         // history.push('/');
     };
 

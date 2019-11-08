@@ -10,12 +10,8 @@ const ListingPreview = ({listing, handleListing}) => {
 
     return (
         <Box
-            key={listing.id}
-            as='article'
-            pad='xsmall'
+            pad='small'
             onClick={handleListing}
-            id={listing.id}
-            listing={listing}
         >
             <Image src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745' />
             <Text>{listing.brand.name}</Text>

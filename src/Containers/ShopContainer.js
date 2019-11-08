@@ -49,7 +49,7 @@ const ShopContainer = () => {
                     <InfiniteScroll items={listings} step={8}>
                         {item => (
 
-                            <ListingPreview listing={item} handleListing={handleListing}/>
+                            <ListingPreview key={item.id}listing={item} handleListing={handleListing}/>
 
                         )}
                     </InfiniteScroll>

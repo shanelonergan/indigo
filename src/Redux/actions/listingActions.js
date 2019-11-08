@@ -14,20 +14,29 @@ const setAllListingsAction = listingsObj => ({
     payload: listingsObj
 });
 
+// const createListingAction = listingObj => ({
+//     type: 'SET'
+// })
+
 // ==> FETCH <== \\
-const createListing = listingObj => dispatch => {
+const createListing = listingInfo => dispatch => {
+    const listingObj = {
+        ...listingInfo.listing,
+        user_id: listingInfo.user_id
+    }
+    debugger
     const config = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(listingObj)
+        body: JSON.stringify()
     };
 
     fetch(LISTINGS_URL, config)
         .then(res => res.json())
         .then(listingObj => {
-            // dispatch()
+            console.log(listingObj)
         });
 };
 
