@@ -39,7 +39,7 @@ const NewListingContainer = () => {
         wash_id: '',
         mill_id: '',
         condition_id: '',
-        price: ''
+        price: 0
     });
 
     let renderBrandOptions = () => {
@@ -124,7 +124,7 @@ const NewListingContainer = () => {
         <Box fill align='center' justify='center'>
             { toListings ? <Redirect to='/listings'/> : null }
             <Box width='medium'>
-                <h1>Add a new listing</h1>
+                <Text size='large' weight='bold' color='brand' margin={{'bottom':'medium'}}>Add a new listing</Text>
                 <Form onSubmit={handleSubmit}>
                     <h4>item details</h4>
                     <FormField
@@ -229,12 +229,12 @@ const NewListingContainer = () => {
                         onChange={handleChange}
                         options={mills ? mills : []}
                     /> */}
-                    <label>
+                    <div className='select is-small'>
                         <select name='wash_id' onChange={handleChange}>
                             <option value="" disabled defaultValue hidden>wash</option>
                             {washes ? renderWashOptions() : null}
                         </select>
-                    </label>
+                    </div >
                     {/* <FormField
                         placeholder='wash'
                         name='wash'
@@ -244,12 +244,12 @@ const NewListingContainer = () => {
                         onChange={handleChange}
                         options={washes ? washes : []}
                     /> */}
-                    <label>
+                    <div className='select is-small'>
                         <select name='mill_id' onChange={handleChange}>
                             <option value="" disabled defaultValue hidden>mill</option>
                             {mills ? renderMillOptions() : null}
                         </select>
-                    </label>
+                    </div>
                     <FormField
                         placeholder='denim weight (oz)'
                         name='weight'
@@ -268,7 +268,7 @@ const NewListingContainer = () => {
                      <FormField
                         label='price'
                         placeholder='price'
-                        name='weight'
+                        name='price'
                         type='number'
                         value={newListingForm.price}
                         onChange={handleChange}

@@ -21,16 +21,25 @@ const setAllListingsAction = listingsObj => ({
 // ==> FETCH <== \\
 const createListing = listingInfo => dispatch => {
     const listingObj = {
-        ...listingInfo.listing,
-        user_id: listingInfo.user_id
+        description: listingInfo.listing.description,
+        waist: parseInt(listingInfo.listing.waist),
+        length: parseInt(listingInfo.listing.length),
+        weight: parseInt(listingInfo.listing.weight),
+        wash_id: parseInt(listingInfo.listing.wash),
+        mill_id: parseInt(listingInfo.listing.mill),
+        category_id: parseInt(listingInfo.listing.category),
+        brand_id: parseInt(listingInfo.listing.brand),
+        condition_id: parseInt(listingInfo.listing.condition),
+        name: listingInfo.listing.name,
+        price: listingInfo.listing.price,
+        user_id: parseInt(listingInfo.user_id)
     }
-    debugger
     const config = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify()
+        body: JSON.stringify(listingObj)
     };
 
     fetch(LISTINGS_URL, config)
