@@ -10,23 +10,21 @@ import {
 } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
+import ListingPreview from '../Components/ListingPreview';
 
 const ShopContainer = () => {
-    const history = useHistory()
-    const dispatch = useDispatch();
     const listings = useSelector(state => state.listings.allListings);
-    // debugger
-
+    const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllListings());
     }, []);
+    const history = useHistory()
+    // debugger
 
     const handleListing = (event) => {
         const listingId = event.target.parentNode.id
         history.push(`/listings/${listingId}`)
     }
-
-
 
     return (
 
@@ -49,14 +47,12 @@ const ShopContainer = () => {
                     {listings ?
                     <InfiniteScroll items={listings} step={8}>
                         {item => (
-                            <Box key={item.id} as='article' pad='xsmall' onClick={handleListing} id={item.id} listing={item}>
-                                <Image src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745' />
-                                <Text>{item.brand.name}</Text>
-                                <Text>{item.name}</Text>
-                            </Box>
+
+                            <ListingPreview listing={item} handleListing={handleListing}/>
+
                         )}
                     </InfiniteScroll>
-                    : <ResizeSpinLoader/>}
+                    : <ResizeSpinLoader color='#00004D'/>}
                 </Grid>
             </Box>
         </Grid>
