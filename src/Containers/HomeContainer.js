@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from "react-router-dom"
 
 import {
     Box,
-    Button,
-    FormField,
-    Heading,
-    Layer,
-    TextInput,
+    // Button,
+    // FormField,
+    // Heading,
+    // Layer,
+    // TextInput,
     Grid
 } from 'grommet';
-import LoginForm from '../Components/LoginForm';
+
 
 const HomeContainer = () => {
     // TODO: refactor into one large grid

@@ -14,8 +14,8 @@ const ListingPreview = ({listing, handleListing}) => {
             onClick={handleListing}
         >
             <Image src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745' />
-            <Text>{listing.brand.name}</Text>
-            <Text>{listing.name}</Text>
+            <Text color='brand' size='xsmall' weight='bold'>{listing.brand.name}</Text>
+            <Text size='xsmall'>{listing.name}</Text>
         </Box>
     );
 };

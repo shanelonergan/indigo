@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router'
-import { createListing } from '../Redux/actions/listingActions.js';
+import { createListing } from '../Redux/actions/listingActions';
 import { Checkmark } from 'grommet-icons';
+import { FilterSelector } from '../Components/index'
+import { ResizeSpinLoader } from 'react-css-loaders';
 
 import {
     Box,
@@ -29,6 +31,8 @@ const NewListingContainer = () => {
 
     const [toListings, setToListings] = useState(false)
 
+    const [loaded, setLoaded] = useState(false)
+
     const [newListingForm, setNewListingForm] = useState({
         name: '',
         category_id: '',
@@ -42,66 +46,67 @@ const NewListingContainer = () => {
         price: 0
     });
 
-    let renderBrandOptions = () => {
-        return []
-    }
-    let renderCategoryOptions = () => {
-        return []
-    }
-    let renderMillOptions = () => {
-        return []
-    }
-    let renderWashOptions = () => {
-        return []
-    }
-    let renderConditionOptions = () => {
-        return []
-    }
+    // let renderBrandOptions = () => {
+    //     return []
+    // }
+    // let renderCategoryOptions = () => {
+    //     return []
+    // }
+    // let renderMillOptions = () => {
+    //     return []
+    // }
+    // let renderWashOptions = () => {
+    //     return []
+    // }
+    // let renderConditionOptions = () => {
+    //     return []
+    // }
 
     if (brands && categories && conditions && mills && washes) {
-         renderBrandOptions = () => {
-            return brands.map(brand => (
-                <option key={brand.id} value={brand.id} name={brand.name}>
-                    {brand.name}
-                </option>
-            ));
-        };
-         renderCategoryOptions = () => {
-            return categories.map(category => (
-                <option
-                    key={category.id}
-                    value={category.id}
-                    name={category.name}
-                >
-                    {category.name}
-                </option>
-            ));
-        };
-         renderConditionOptions = () => {
-            return conditions.map(condition => (
-                <option
-                    key={condition.id}
-                    value={condition.id}
-                    name={condition.name}
-                >
-                    {condition.name}
-                </option>
-            ));
-        };
-         renderMillOptions = () => {
-            return mills.map(mill => (
-                <option key={mill.id} value={mill.id} name={mill.name}>
-                    {mill.name}
-                </option>
-            ));
-        };
-         renderWashOptions = () => {
-            return washes.map(wash => (
-                <option key={wash.id} value={wash.id} name={wash.name}>
-                    {wash.name}
-                </option>
-            ));
-        };
+        if (!loaded){setLoaded(true)}
+        //  renderBrandOptions = () => {
+        //     return brands.map(brand => (
+        //         <option key={brand.id} value={brand.id} name={brand.name}>
+        //             {brand.name}
+        //         </option>
+        //     ));
+        // };
+        //  renderCategoryOptions = () => {
+        //     return categories.map(category => (
+        //         <option
+        //             key={category.id}
+        //             value={category.id}
+        //             name={category.name}
+        //         >
+        //             {category.name}
+        //         </option>
+        //     ));
+        // };
+        //  renderConditionOptions = () => {
+        //     return conditions.map(condition => (
+        //         <option
+        //             key={condition.id}
+        //             value={condition.id}
+        //             name={condition.name}
+        //         >
+        //             {condition.name}
+        //         </option>
+        //     ));
+        // };
+        //  renderMillOptions = () => {
+        //     return mills.map(mill => (
+        //         <option key={mill.id} value={mill.id} name={mill.name}>
+        //             {mill.name}
+        //         </option>
+        //     ));
+        // };
+        //  renderWashOptions = () => {
+        //     return washes.map(wash => (
+        //         <option key={wash.id} value={wash.id} name={wash.name}>
+        //             {wash.name}
+        //         </option>
+        //     ));
+        // };
     }
 
     const handleChange = event => {
@@ -121,10 +126,14 @@ const NewListingContainer = () => {
     };
 
     return (
+
         <Box fill align='center' justify='center'>
             { toListings ? <Redirect to='/listings'/> : null }
+            { loaded === true ?
+
             <Box width='medium'>
                 <Text size='large' weight='bold' color='brand' margin={{'bottom':'medium'}}>Add a new listing</Text>
+
                 <Form onSubmit={handleSubmit}>
                     <h4>item details</h4>
                     <FormField
@@ -144,24 +153,35 @@ const NewListingContainer = () => {
                         value={newListingForm.brand}
                         options={brands ? brands : []}
                     /> */}
-                    <div className='select is-small'>
+                    {/* <div className='select is-small'>
                         <select name='brand_id' onChange={handleChange}>
                             <option value="" disabled defaultValue hidden>brand</option>
                             {brands ? renderBrandOptions() : null}
                         </select>
-                    </div>
-                    <div className='select is-small'>
+                    </div> */}
+                    {brands ?
+                    <FilterSelector handleChange={handleChange} filterObj={brands}/>
+                    :
+                    null }
+                    {/* <div className='select is-small'>
                         <select name='category_id' onChange={handleChange}>
                         <option value="" disabled defaultValue hidden>category</option>
                             {categories ? renderCategoryOptions() : null}
                         </select>
-                    </div>
-                    <div className='select is-small'>
+                    </div> */}
+
+                    <FilterSelector handleChange={handleChange} filterObj={categories}/>
+
+                    {/* <div className='select is-small'>
                         <select name='condition_id' onChange={handleChange}>
                             <option value="" disabled defaultValue hidden>condition</option>
                             {conditions ? renderConditionOptions() : null}
                         </select>
-                    </div>
+                    </div> */}
+
+
+                    <FilterSelector handleChange={handleChange} filterObj={conditions}/>
+
 
                     {/* <FormField
                         name='gender'
@@ -229,12 +249,15 @@ const NewListingContainer = () => {
                         onChange={handleChange}
                         options={mills ? mills : []}
                     /> */}
-                    <div className='select is-small'>
+                    {/* <div className='select is-small'>
                         <select name='wash_id' onChange={handleChange}>
                             <option value="" disabled defaultValue hidden>wash</option>
                             {washes ? renderWashOptions() : null}
                         </select>
-                    </div >
+                    </div > */}
+
+                    <FilterSelector handleChange={handleChange} filterObj={washes}/>
+
                     {/* <FormField
                         placeholder='wash'
                         name='wash'
@@ -244,12 +267,15 @@ const NewListingContainer = () => {
                         onChange={handleChange}
                         options={washes ? washes : []}
                     /> */}
-                    <div className='select is-small'>
+                    {/* <div className='select is-small'>
                         <select name='mill_id' onChange={handleChange}>
                             <option value="" disabled defaultValue hidden>mill</option>
                             {mills ? renderMillOptions() : null}
                         </select>
-                    </div>
+                    </div> */}
+
+                    <FilterSelector handleChange={handleChange} filterObj={mills}/>
+
                     <FormField
                         placeholder='denim weight (oz)'
                         name='weight'
@@ -285,7 +311,10 @@ const NewListingContainer = () => {
                         />
                     </Box>
                 </Form>
+
             </Box>
+            :
+            <ResizeSpinLoader color='#00004D' /> }
         </Box>
     );
 };
