@@ -76,14 +76,13 @@ const NewListingContainer = () => {
                         value={newListingForm.name}
                         onChange={handleChange}
                         required
-                        // validate={{ regexp: /^[a-z]/i }}
                     />
 
-                    <FilterSelector handleChange={handleChange} filterObj={brands}/>
+                    <FilterSelector handleChange={handleChange} filterObj={brands} name='brand'/>
 
-                    <FilterSelector handleChange={handleChange} filterObj={categories}/>
+                    <FilterSelector handleChange={handleChange} filterObj={categories} name='category'/>
 
-                    <FilterSelector handleChange={handleChange} filterObj={conditions}/>
+                    <FilterSelector handleChange={handleChange} filterObj={conditions} name='condition'/>
 
                     {/* <FormField
                         name='gender'
@@ -111,9 +110,9 @@ const NewListingContainer = () => {
                     <h4>denim details</h4>
 
 
-                    <FilterSelector handleChange={handleChange} filterObj={washes}/>
+                    <FilterSelector handleChange={handleChange} filterObj={washes} name='wash'/>
 
-                    <FilterSelector handleChange={handleChange} filterObj={mills}/>
+                    <FilterSelector handleChange={handleChange} filterObj={mills}  name='mill'/>
 
                     <FormField
                         placeholder='denim weight (oz)'

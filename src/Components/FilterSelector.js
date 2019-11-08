@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FilterSelector = ({filterObj, handleChange}) => {
+const FilterSelector = ({filterObj, handleChange, name}) => {
     console.log(filterObj)
     const renderOptions = (filterObj) => {
         return filterObj.map(filter => (
@@ -12,10 +12,7 @@ const FilterSelector = ({filterObj, handleChange}) => {
 
     return (
         <div className='select is-small'>
-            <select name='brand_id' onChange={handleChange}>
-                <option value='' disabled defaultValue hidden>
-                    brand
-                </option>
+            <select name={name + '_id'} onChange={handleChange}>
                 {renderOptions(filterObj)}
             </select>
         </div>
