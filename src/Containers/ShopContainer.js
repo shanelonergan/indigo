@@ -16,6 +16,8 @@ const ShopContainer = () => {
         state => state.filters
     );
 
+    const [loaded, setLoaded] = useState(false)
+
     const [filters, setFilters] = useState({
 
         category_id: '',
@@ -28,6 +30,10 @@ const ShopContainer = () => {
         condition_id: '',
 
     });
+
+    if (brands && categories && conditions && mills && washes) {
+        if (!loaded){setLoaded(true)}
+    }
 
     useEffect(() => {
         dispatch(getAllListings());
@@ -57,6 +63,7 @@ const ShopContainer = () => {
                 { name: 'main', start: [1, 1], end: [1, 1] }
             ]}
         >
+            { loaded ?
             <Box
                 gridArea='sidebar'
                 background='c2'
@@ -82,6 +89,9 @@ const ShopContainer = () => {
                     name='condition'
                 />
             </Box>
+            :
+
+            null }
 
             <Box
                 gridArea='main'
