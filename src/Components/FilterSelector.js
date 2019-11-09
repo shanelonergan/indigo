@@ -12,13 +12,13 @@ const FilterSelector = ({filterObj, handleChange, name}) => {
     };
 
     return (
-        <Box>
-        <div className='select is-small'>
+
+        <Box className='select is-small' width='10vw'>
             <select name={name + '_id'} onChange={handleChange}>
                 {renderOptions(filterObj)}
             </select>
-        </div>
         </Box>
+
     );
 };
 

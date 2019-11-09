@@ -67,7 +67,7 @@ const ShopContainer = () => {
             <Box
                 gridArea='sidebar'
                 background='c2'
-                width='small'
+                width='15vw'
                 justify='center'
                 align='center'
             >
@@ -90,7 +90,6 @@ const ShopContainer = () => {
                 />
             </Box>
             :
-
             null }
 
             <Box
