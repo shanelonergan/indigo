@@ -15,7 +15,6 @@ const renderListingContainer = () => {
 }
 
 const Routes = () => {
-    console.log(ShopContainer)
     return (
         <Switch>
             <Route path='/' exact component={HomeContainer} />

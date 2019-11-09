@@ -18,6 +18,8 @@ const ShopContainer = () => {
 
     const handleListing = event => {
         const listingId = event.target.parentNode.id;
+        // debugger
+        console.log(listingId)
         history.push(`/listings/${listingId}`);
     };
 
