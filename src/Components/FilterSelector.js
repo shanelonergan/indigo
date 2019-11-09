@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from 'grommet'
 
 const FilterSelector = ({filterObj, handleChange, name}) => {
     console.log(filterObj)
@@ -11,11 +12,13 @@ const FilterSelector = ({filterObj, handleChange, name}) => {
     };
 
     return (
+        <Box>
         <div className='select is-small'>
             <select name={name + '_id'} onChange={handleChange}>
                 {renderOptions(filterObj)}
             </select>
         </div>
+        </Box>
     );
 };
 
