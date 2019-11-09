@@ -101,6 +101,7 @@ const ShopContainer = () => {
                 {listings ? (
                     <>
                         <Box>filters</Box>
+                        <Box fill>
                         <Grid
                             columns='15vw'
                             rows='25vh'
@@ -117,6 +118,7 @@ const ShopContainer = () => {
                                 )}
                             </InfiniteScroll>
                         </Grid>
+                        </Box>
                     </>
                 ) : (
                     <ResizeSpinLoader color='#00004D' />
