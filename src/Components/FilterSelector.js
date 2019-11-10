@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box } from 'grommet'
+import { Box, Select } from 'grommet'
 
-const FilterSelector = ({filterObj, handleChange, name}) => {
+const FilterSelector = ({ filterObj, handleChange, name, multiple, setFilters }) => {
 
     const renderOptions = (filterObj) => {
         return filterObj.map(filter => (
@@ -13,11 +13,14 @@ const FilterSelector = ({filterObj, handleChange, name}) => {
 
     return (
 
-        <Box className='select is-small' width='10vw' margin='small'>
-            <select name={name + '_id'} onChange={handleChange}>
+
+        <Box className='' width='10vw' margin='small'>
+            <select name={name + '_id'} onChange={handleChange} multiple>
                 {renderOptions(filterObj)}
             </select>
         </Box>
+
+
 
     );
 };
