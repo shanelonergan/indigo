@@ -23,7 +23,7 @@ const ShopContainer = () => {
     const [loaded, setLoaded] = useState(false);
 
     const [filters, setFilters] = useState({
-        category_id: [],
+        category_id: [1, 2],
         brand_id: [],
         waist: 30,
         length: 32,
@@ -74,16 +74,26 @@ const ShopContainer = () => {
         filteredListings = listings
 
         const filterListings = (currentListings, filter) => {
-            currentListings.filter(listing =>
-                  filters[filter + '_id'].includes(listing[filter].id)
-              )
+            // filteredListings.filter(listing => {
+            //     debugger
+            //       filters[filter + '_id'].includes(listing[filter].id)
+            // })
+            filters[filter + '_id'].forEach(filter_id => {
+                // debugger
+                filteredListings = currentListings.filter(listing => listing[filter].id === filter_id)
+            })
         }
 
-        if (filters.category_id !== []){
+        // if (filters.category_id !== []){
             filterListings(filteredListings, 'category')
-        } else if (filters.category_id !== []){
+        // } else if (filters.category_id !== []){
+            console.log(filteredListings)
+        // }
 
-        }
+    }
+
+    if (listings) {
+        renderListings()
 
     }
 
