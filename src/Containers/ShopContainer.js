@@ -37,15 +37,12 @@ const ShopContainer = () => {
         if (!loaded) {
             setLoaded(true);
         }
+
     }
 
-    if (listings) {
-        filteredListings = filters
-            ? filteredListings.filter(listing =>
-                  filters.brand_id.includes(listing.brand.id)
-              )
-            : filteredListings;
-    }
+    // if (listings) {
+
+    // }
 
     console.log('filtered listings', filteredListings);
 
@@ -72,6 +69,23 @@ const ShopContainer = () => {
         console.log(listingId);
         history.push(`/listings/${listingId}`);
     };
+
+    const renderListings = () => {
+        filteredListings = listings
+
+        const filterListings = (currentListings, filter) => {
+            currentListings.filter(listing =>
+                  filters[filter + '_id'].includes(listing[filter].id)
+              )
+        }
+
+        if (filters.category_id !== []){
+            filterListings(filteredListings, 'category')
+        } else if (filters.category_id !== []){
+
+        }
+
+    }
 
     return (
         <Grid
@@ -129,6 +143,7 @@ const ShopContainer = () => {
                         filterObj={brands}
                         name='brand'
                         setFilters={setFilters}
+                        listings={listings}
                     />
 
                     <FilterSelector
