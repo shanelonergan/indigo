@@ -8,10 +8,13 @@ import { ListingPreview, FilterSelector } from '../Components/';
 
 const ShopContainer = () => {
     const dispatch = useDispatch();
-
-    const [value, setValue] = useState("");
-
+    const history = useHistory();
+    let filteredListings = [];
     const listings = useSelector(state => state.listings.allListings);
+
+
+    // const [value, setValue] = useState("");
+
 
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
@@ -20,14 +23,14 @@ const ShopContainer = () => {
     const [loaded, setLoaded] = useState(false);
 
     const [filters, setFilters] = useState({
-        category_id: '',
-        brand_id: '',
+        category_id: [],
+        brand_id: [],
         waist: 30,
         length: 32,
         weight: 12,
-        wash_id: '',
-        mill_id: '',
-        condition_id: ''
+        wash_id: [],
+        mill_id: [],
+        condition_id: []
     });
 
     if (brands && categories && conditions && mills && washes) {
@@ -36,17 +39,31 @@ const ShopContainer = () => {
         }
     }
 
+    if (listings) {
+        filteredListings = filters
+            ? filteredListings.filter(listing =>
+                  filters.brand_id.includes(listing.brand.id)
+              )
+            : filteredListings;
+    }
+
+    console.log('filtered listings', filteredListings);
+
     useEffect(() => {
         dispatch(getAllListings());
     }, []);
-    const history = useHistory();
 
     const handleChange = event => {
-        // debugger
-        // dispatch()
+        const { options } = event.target;
+        const value = [];
+        for (let i = 0, l = options.length; i < l; i += 1) {
+            if (options[i].selected) {
+                value.push(options[i].value);
+            }
+        }
         setFilters({
             ...filters,
-            [event.target.name]: event.target.value
+            [event.target.name]: value
         });
     };
 
@@ -74,7 +91,7 @@ const ShopContainer = () => {
                     justify='center'
                     align='center'
                 >
-                    <Box fill align='center' justify='start' pad='large'>
+                    {/* <Box fill align='center' justify='start' pad='large'>
                         <Select
                             size='medium'
                             placeholder='Select'
@@ -88,7 +105,7 @@ const ShopContainer = () => {
                             onChange={({ value: nextValue }) =>
                                 setValue(nextValue)
                             }
-                            onClose={() => setOptions(objectOptions)}
+                            onClose={() => setFilters(filters)}
                             onSearch={text => {
                                 // The line below escapes regular expression special characters:
                                 // [ \ ^ $ . | ? * + ( )
@@ -97,16 +114,16 @@ const ShopContainer = () => {
                                     '\\$&'
                                 );
 
-                                // Create the regular expression with modified value which
-                                // handles escaping special characters. Without escaping special
-                                // characters, errors will appear in the console
+                                Create the regular expression with modified value which
+                                handles escaping special characters. Without escaping special
+                                characters, errors will appear in the console
                                 const exp = new RegExp(escapedText, 'i');
                                 setOptions(
                                     objectOptions.filter(o => exp.test(o.lab))
                                 );
                             }}
                         />
-                    </Box>
+                    </Box> */}
                     <FilterSelector
                         handleChange={handleChange}
                         filterObj={brands}
