@@ -40,12 +40,6 @@ const ShopContainer = () => {
 
     }
 
-    // if (listings) {
-
-    // }
-
-    console.log('filtered listings', filteredListings);
-
     useEffect(() => {
         dispatch(getAllListings());
     }, []);
@@ -79,23 +73,54 @@ const ShopContainer = () => {
             //       filters[filter + '_id'].includes(listing[filter].id)
             // })
             filters[filter + '_id'].forEach(filter_id => {
-                // debugger
-                filteredListings = currentListings.filter(listing => listing[filter].id === filter_id)
+                debugger
+                filteredListings = currentListings.filter(listing => listing[filter].id === parseInt(filter_id))
             })
         }
 
-        // if (filters.category_id !== []){
+        if (filters.brand_id !== []) {
+            filterListings(filteredListings, 'brand')
+            console.log('filtering by brand')
+        } else if (filters.category_id !== []) {
+            console.log('filtering by category')
             filterListings(filteredListings, 'category')
-        // } else if (filters.category_id !== []){
-            console.log(filteredListings)
-        // }
+        } else if (filters.conditon_id !== []) {
+            console.log('filtering by condition')
+            filterListings(filteredListings, 'condition')
+        }
+
+        console.log(filteredListings)
+
+        return (
+            <>
+                        <Box>filters</Box>
+                        <Box fill>
+                            <Grid
+                                columns='15vw'
+                                rows='25vh'
+                                fill='horizontal'
+                                align='center'
+                            >
+                                <InfiniteScroll items={filteredListings} step={8}>
+                                    {item => (
+                                        <ListingPreview
+                                            key={item.id}
+                                            listing={item}
+                                            handleListing={handleListing}
+                                        />
+                                    )}
+                                </InfiniteScroll>
+                            </Grid>
+                        </Box>
+                    </>
+        )
 
     }
 
-    if (listings) {
-        renderListings()
+    // if (listings) {
+    //     renderListings()
 
-    }
+    // }
 
     return (
         <Grid
@@ -176,29 +201,29 @@ const ShopContainer = () => {
                 align='center'
                 overflow='scroll'
             >
-                {listings ? (
-                    <>
-                        <Box>filters</Box>
-                        <Box fill>
-                            <Grid
-                                columns='15vw'
-                                rows='25vh'
-                                fill='horizontal'
-                                align='center'
-                            >
-                                <InfiniteScroll items={listings} step={8}>
-                                    {item => (
-                                        <ListingPreview
-                                            key={item.id}
-                                            listing={item}
-                                            handleListing={handleListing}
-                                        />
-                                    )}
-                                </InfiniteScroll>
-                            </Grid>
-                        </Box>
-                    </>
-                ) : (
+                {listings ? renderListings()
+                    // <>
+                    //     <Box>filters</Box>
+                    //     <Box fill>
+                    //         <Grid
+                    //             columns='15vw'
+                    //             rows='25vh'
+                    //             fill='horizontal'
+                    //             align='center'
+                    //         >
+                    //             <InfiniteScroll items={listings} step={8}>
+                    //                 {item => (
+                    //                     <ListingPreview
+                    //                         key={item.id}
+                    //                         listing={item}
+                    //                         handleListing={handleListing}
+                    //                     />
+                    //                 )}
+                    //             </InfiniteScroll>
+                    //         </Grid>
+                    //     </Box>
+                    // </>
+                 : (
                     <ResizeSpinLoader color='#00004D' />
                 )}
             </Box>
