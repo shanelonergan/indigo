@@ -208,29 +208,34 @@ const ShopContainer = () => {
                         filterObj={brands}
                         setValues={setBrandValues}
                         values={brandValues}
+                        name='brands'
                     />
                     <FilterSelector
                         filterObj={categories}
                         setValues={setCategoryValues}
                         values={categoryValues}
+                        name='categories'
                     />
                     <FilterSelector
                         filterObj={conditions}
                         setValues={setConditionValues}
                         values={conditionValues}
+                        name='conditions'
                     />
                     <FilterSelector
                         filterObj={mills}
                         setValues={setMillValues}
                         values={millValues}
+                        name='mills'
                     />
                     <FilterSelector
                         filterObj={washes}
                         setValues={setWashValues}
                         values={washValues}
+                        name='washes'
                     />
 
-                    <Button onClick={clearFilters} size='small' label='clear filters'/>
+                    <Button onClick={clearFilters} size='small' label='clear filters' margin='small'/>
 
                 </Box>
             ) : null}
