@@ -10,7 +10,15 @@ const FilterSelector = ({
     filters
 }) => {
     const allFilterIds = filterObj.map(filter => filter.id)
-    // console.log(allFilterIds)
+    const filterIdObj = {...allFilterIds}
+
+    // const setAll = (filter) => {
+    //     setFilters({
+    //         ...filters,
+    //         [`${filter.name}_id`]: allFilterIds
+    //     })
+    // }
+
     const renderOptions = filterObj => {
         return filterObj.map(filter => (
             <option key={filter.id} value={filter.id} name={filter.name}>
@@ -22,9 +30,9 @@ const FilterSelector = ({
     return (
         <Box className='' width='10vw' margin='small'>
             <select name={name + '_id'} onChange={handleChange} multiple>
-                <option key='all' value={allFilterIds} name='name' selected>
+                {/* <option key='all' value={null} name='name' selected>
                     all brands
-                </option>
+                </option> */}
                 {renderOptions(filterObj)}
             </select>
         </Box>

@@ -68,21 +68,12 @@ const ShopContainer = () => {
         filteredListings = listings
 
         const filterListings = (currentListings, filter) => {
-            // let tempArr = []
 
-            // filters[filter + '_id'].forEach(filter_id => {
-            //     currentListings.forEach(listing => {
-            //         if (listing[filter].id === parseInt(filter_id)) {
-
-            //         }
-            //     })
-            //     // debugger
-            // })
+            // debugger
 
             const intFilterIds = filters[filter + '_id'].map(stringFilterId => parseInt(stringFilterId))
 
             filteredListings = currentListings.filter(listing => {
-                // debugger
                 return intFilterIds.includes(listing[filter].id)
             })
 
@@ -97,9 +88,17 @@ const ShopContainer = () => {
             console.log('filtering by category')
             filterListings(filteredListings, 'category')
         }
-        if (filters.conditon_id) {
+        if (filters.condition_id) {
             console.log('filtering by condition')
             filterListings(filteredListings, 'condition')
+        }
+        if (filters.mill_id) {
+            console.log('filtering by condition')
+            filterListings(filteredListings, 'mill')
+        }
+        if (filters.wash_id) {
+            console.log('filtering by condition')
+            filterListings(filteredListings, 'wash')
         }
 
         console.log(filteredListings)
@@ -200,6 +199,16 @@ const ShopContainer = () => {
                         filterObj={conditions}
                         name='condition'
                     />
+                    <FilterSelector
+                        handleChange={handleChange}
+                        filterObj={mills}
+                        name='mill'
+                    />
+                    <FilterSelector
+                        handleChange={handleChange}
+                        filterObj={washes}
+                        name='wash'
+                    />
                 </Box>
             ) : null}
 
@@ -210,29 +219,7 @@ const ShopContainer = () => {
                 overflow='scroll'
             >
                 {listings ? renderListings()
-                    // <>
-                    //     <Box>filters</Box>
-                    //     <Box fill>
-                    //         <Grid
-                    //             columns='15vw'
-                    //             rows='25vh'
-                    //             fill='horizontal'
-                    //             align='center'
-                    //         >
-                    //             <InfiniteScroll items={listings} step={8}>
-                    //                 {item => (
-                    //                     <ListingPreview
-                    //                         key={item.id}
-                    //                         listing={item}
-                    //                         handleListing={handleListing}
-                    //                     />
-                    //                 )}
-                    //             </InfiniteScroll>
-                    //         </Grid>
-                    //     </Box>
-                    // </>
-                 : (
-                    <ResizeSpinLoader color='#00004D' />
+                 : (<ResizeSpinLoader color='#00004D' />
                 )}
             </Box>
         </Grid>

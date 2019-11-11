@@ -66,9 +66,9 @@ const NewListingContainer = () => {
             { loaded === true ?
 
             <Box width='medium'>
-                <Text size='large' weight='bold' color='brand' margin={{'bottom':'medium'}}>Add a new listing</Text>
+                <Text size='large' weight='bold' color='brand' margin={{'top':'small', 'bottom':'small'}}>Add a new listing</Text>
 
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit} >
                     <h4>item details</h4>
                     <FormField
                         placeholder='item name'
@@ -137,7 +137,7 @@ const NewListingContainer = () => {
                         value={newListingForm.price}
                         onChange={handleChange}
                     />
-                    <Box margin={{ top: 'medium' }}>
+                    <Box margin={{ top: 'medium', bottom: 'medium' }}>
                         <Button
                             type='submit'
                             label='submit'
