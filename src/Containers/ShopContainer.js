@@ -6,13 +6,16 @@ import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
 import { ListingPreview, FilterSelector } from '../Components/';
 
-
 const ShopContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     let filteredListings = [];
     const listings = useSelector(state => state.listings.allListings);
-    const [brandValues, setBrandValues] = useState("");
+    const [brandValues, setBrandValues] = useState('');
+    const [categoryValues, setCategoryValues] = useState('');
+    const [conditionValues, setConditionValues] = useState('');
+    const [millValues, setMillValues] = useState('');
+    const [washValues, setWashValues] = useState('');
 
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
@@ -56,15 +59,42 @@ const ShopContainer = () => {
     };
 
     useEffect(() => {
-        if(brandValues) {
-            console.log('setting brands')
+        if (brandValues) {
+            console.log('setting brands');
             setFilters({
                 ...filters,
                 brand_id: brandValues.map(valueObj => valueObj.id)
-            })
+            });
         }
-
-    }, [brandValues])
+        if (categoryValues) {
+            console.log('setting categorys');
+            setFilters({
+                ...filters,
+                category_id: categoryValues.map(valueObj => valueObj.id)
+            });
+        }
+        if (conditionValues) {
+            console.log('setting conditions');
+            setFilters({
+                ...filters,
+                condition_id: conditionValues.map(valueObj => valueObj.id)
+            });
+        }
+        if (millValues) {
+            console.log('setting mills');
+            setFilters({
+                ...filters,
+                mill_id: millValues.map(valueObj => valueObj.id)
+            });
+        }
+        if (washValues) {
+            console.log('setting washes');
+            setFilters({
+                ...filters,
+                wash_id: washValues.map(valueObj => valueObj.id)
+            });
+        }
+    }, [brandValues, categoryValues, conditionValues, millValues, washValues]);
 
     const handleListing = event => {
         const listingId = event.target.parentNode.id;
@@ -110,7 +140,7 @@ const ShopContainer = () => {
             filterListings(filteredListings, 'wash');
         }
 
-        console.log(filteredListings);
+        // console.log(filteredListings);
 
         return (
             <>
@@ -155,32 +185,48 @@ const ShopContainer = () => {
                     justify='center'
                     align='center'
                 >
-
-                        <Select
-                            size='small'
-                            margin='small'
-                            placeholder='brands'
-                            multiple
-                            closeOnChange={false}
-                            disabledKey='dis'
-                            labelKey='name'
-                            valueKey='id'
-                            value={brandValues}
-                            options={brands}
-                            onChange={({ value: nextValue }) => {
-                                // setValue(...value, nextValue[0].id)
-                                setBrandValues(nextValue)
-
-                            }}
-                            // onClose={() => setFilters(filters)}
-                        />
+                    <Select
+                        size='small'
+                        margin='small'
+                        placeholder='brands'
+                        multiple
+                        closeOnChange={false}
+                        disabledKey='dis'
+                        labelKey='name'
+                        valueKey='id'
+                        value={brandValues}
+                        options={brands}
+                        onChange={({ value: nextValue }) => {
+                            // setValue(...value, nextValue[0].id)
+                            setBrandValues(nextValue);
+                        }}
+                        // onClose={() => setFilters(filters)}
+                    />
 
                     <FilterSelector
-                        // handleChange={handleChange}
                         filterObj={brands}
-                        // name='brand'
                         setValues={setBrandValues}
                         values={brandValues}
+                    />
+                    <FilterSelector
+                        filterObj={categories}
+                        setValues={setCategoryValues}
+                        values={categoryValues}
+                    />
+                    <FilterSelector
+                        filterObj={conditions}
+                        setValues={setConditionValues}
+                        values={conditionValues}
+                    />
+                    <FilterSelector
+                        filterObj={mills}
+                        setValues={setMillValues}
+                        values={millValues}
+                    />
+                    <FilterSelector
+                        filterObj={washes}
+                        setValues={setWashValues}
+                        values={washValues}
                     />
 
                     {/* <FilterSelector

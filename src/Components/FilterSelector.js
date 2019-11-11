@@ -6,8 +6,8 @@ const FilterSelector = ({
     values,
     setValues
 }) => {
-    const allFilterIds = filterObj.map(filter => filter.id);
-    const filterIdObj = { ...allFilterIds };
+    // const allFilterIds = filterObj.map(filter => filter.id);
+    // const filterIdObj = { ...allFilterIds };
 
     // const setAll = (filter) => {
     //     setFilters({
@@ -36,7 +36,7 @@ const FilterSelector = ({
         <Select
             size='small'
             margin='small'
-            placeholder='brands'
+            placeholder='select multiple'
             multiple
             closeOnChange={false}
             disabledKey='dis'
