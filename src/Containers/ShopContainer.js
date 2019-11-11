@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Box, Grid, Text, Image, InfiniteScroll, Select } from 'grommet';
+import { Box, Grid, Text, Image, InfiniteScroll, Select, Button } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
 import { ListingPreview, FilterSelector } from '../Components/';
@@ -102,6 +102,25 @@ const ShopContainer = () => {
         history.push(`/listings/${listingId}`);
     };
 
+    const clearFilters = () => {
+        setFilters({
+        category_id: null,
+        brand_id: '',
+        waist: 30,
+        length: 32,
+        weight: 12,
+        wash_id: null,
+        mill_id: null,
+        condition_id: null
+        })
+
+        setBrandValues('')
+        setCategoryValues('')
+        setConditionValues('')
+        setMillValues('')
+        setWashValues('')
+    }
+
     const renderListings = () => {
         filteredListings = listings;
 
@@ -140,7 +159,6 @@ const ShopContainer = () => {
             filterListings(filteredListings, 'wash');
         }
 
-        // console.log(filteredListings);
 
         return (
             <>
@@ -185,23 +203,6 @@ const ShopContainer = () => {
                     justify='center'
                     align='center'
                 >
-                    <Select
-                        size='small'
-                        margin='small'
-                        placeholder='brands'
-                        multiple
-                        closeOnChange={false}
-                        disabledKey='dis'
-                        labelKey='name'
-                        valueKey='id'
-                        value={brandValues}
-                        options={brands}
-                        onChange={({ value: nextValue }) => {
-                            // setValue(...value, nextValue[0].id)
-                            setBrandValues(nextValue);
-                        }}
-                        // onClose={() => setFilters(filters)}
-                    />
 
                     <FilterSelector
                         filterObj={brands}
@@ -229,27 +230,8 @@ const ShopContainer = () => {
                         values={washValues}
                     />
 
-                    {/* <FilterSelector
-                        handleChange={handleChange}
-                        filterObj={categories}
-                        name='category'
-                    />
+                    <Button onClick={clearFilters} size='small' label='clear filters'/>
 
-                    <FilterSelector
-                        handleChange={handleChange}
-                        filterObj={conditions}
-                        name='condition'
-                    />
-                    <FilterSelector
-                        handleChange={handleChange}
-                        filterObj={mills}
-                        name='mill'
-                    />
-                    <FilterSelector
-                        handleChange={handleChange}
-                        filterObj={washes}
-                        name='wash'
-                    /> */}
                 </Box>
             ) : null}
 
