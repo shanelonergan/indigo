@@ -6,15 +6,14 @@ import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
 import { ListingPreview, FilterSelector } from '../Components/';
 
+
 const ShopContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     let filteredListings = [];
     const listings = useSelector(state => state.listings.allListings);
-
-
-    // const [value, setValue] = useState("");
-
+    const [value, setValue] = useState("");
+    console.log(value)
 
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
@@ -24,7 +23,7 @@ const ShopContainer = () => {
 
     const [filters, setFilters] = useState({
         category_id: null,
-        brand_id: null,
+        brand_id: '',
         waist: 30,
         length: 32,
         weight: 12,
@@ -37,7 +36,6 @@ const ShopContainer = () => {
         if (!loaded) {
             setLoaded(true);
         }
-
     }
 
     useEffect(() => {
@@ -58,6 +56,16 @@ const ShopContainer = () => {
         });
     };
 
+    useEffect(() => {
+        if(value) {
+            setFilters({
+                ...filters,
+                brand_id: value.map(valueObj => valueObj.id)
+            })
+        }
+
+    }, [value])
+
     const handleListing = event => {
         const listingId = event.target.parentNode.id;
         console.log(listingId);
@@ -65,69 +73,69 @@ const ShopContainer = () => {
     };
 
     const renderListings = () => {
-        filteredListings = listings
+        filteredListings = listings;
 
         const filterListings = (currentListings, filter) => {
-
             // debugger
 
-            const intFilterIds = filters[filter + '_id'].map(stringFilterId => parseInt(stringFilterId))
+            const intFilterIds = filters[filter + '_id'].map(stringFilterId =>
+                parseInt(stringFilterId)
+            );
 
             filteredListings = currentListings.filter(listing => {
-                return intFilterIds.includes(listing[filter].id)
-            })
+                return intFilterIds.includes(listing[filter].id);
+            });
 
-            console.log(filteredListings)
-        }
+            console.log(filteredListings);
+        };
 
         if (filters.brand_id) {
-            filterListings(filteredListings, 'brand')
-            console.log('filtering by brand')
+            filterListings(filteredListings, 'brand');
+            console.log('filtering by brand');
         }
         if (filters.category_id) {
-            console.log('filtering by category')
-            filterListings(filteredListings, 'category')
+            console.log('filtering by category');
+            filterListings(filteredListings, 'category');
         }
         if (filters.condition_id) {
-            console.log('filtering by condition')
-            filterListings(filteredListings, 'condition')
+            console.log('filtering by condition');
+            filterListings(filteredListings, 'condition');
         }
         if (filters.mill_id) {
-            console.log('filtering by condition')
-            filterListings(filteredListings, 'mill')
+            console.log('filtering by condition');
+            filterListings(filteredListings, 'mill');
         }
         if (filters.wash_id) {
-            console.log('filtering by condition')
-            filterListings(filteredListings, 'wash')
+            console.log('filtering by condition');
+            filterListings(filteredListings, 'wash');
         }
 
-        console.log(filteredListings)
+        console.log(filteredListings);
 
         return (
             <>
-                        <Box>filters</Box>
-                        <Box fill>
-                            <Grid
-                                columns='15vw'
-                                rows='25vh'
-                                fill='horizontal'
-                                align='center'
-                            >
-                                <InfiniteScroll items={filteredListings} step={8}>
-                                    {item => (
-                                        <ListingPreview
-                                            key={item.id}
-                                            listing={item}
-                                            handleListing={handleListing}
-                                        />
-                                    )}
-                                </InfiniteScroll>
-                            </Grid>
-                        </Box>
-                    </>
-        )
-
-    }
+                <Box>filters</Box>
+                <Box fill>
+                    <Grid
+                        columns='15vw'
+                        rows='25vh'
+                        fill='horizontal'
+                        align='center'
+                    >
+                        <InfiniteScroll items={filteredListings} step={8}>
+                            {item => (
+                                <ListingPreview
+                                    key={item.id}
+                                    listing={item}
+                                    handleListing={handleListing}
+                                />
+                            )}
+                        </InfiniteScroll>
+                    </Grid>
+                </Box>
+            </>
+        );
+    };
 
     return (
         <Grid
@@ -147,9 +155,9 @@ const ShopContainer = () => {
                     justify='center'
                     align='center'
                 >
-                    {/* <Box fill align='center' justify='start' pad='large'>
+                    <Box fill align='center' justify='start' pad='large'>
                         <Select
-                            size='medium'
+                            size='small'
                             placeholder='Select'
                             multiple
                             closeOnChange={false}
@@ -157,29 +165,29 @@ const ShopContainer = () => {
                             labelKey='name'
                             valueKey='id'
                             value={value}
-                            options={filters}
-                            onChange={({ value: nextValue }) =>
+                            options={brands}
+                            onChange={async ({ value: nextValue }) => {
+                                // setValue(...value, nextValue[0].id)
                                 setValue(nextValue)
-                            }
-                            onClose={() => setFilters(filters)}
-                            onSearch={text => {
-                                // The line below escapes regular expression special characters:
-                                // [ \ ^ $ . | ? * + ( )
-                                const escapedText = text.replace(
-                                    /[-\\^$*+?.()|[\]{}]/g,
-                                    '\\$&'
-                                );
 
-                                Create the regular expression with modified value which
-                                handles escaping special characters. Without escaping special
-                                characters, errors will appear in the console
-                                const exp = new RegExp(escapedText, 'i');
-                                setOptions(
-                                    objectOptions.filter(o => exp.test(o.lab))
-                                );
                             }}
+                            onClose={() => setFilters(filters)}
+                            // onSearch={text => {
+                            //     // The line below escapes regular expression special characters:
+                            //     // [ \ ^ $ . | ? * + ( )
+                            //     const escapedText = text.replace(
+                            //         /[-\\^$*+?.()|[\]{}]/g,
+                            //         '\\$&'
+                            //     );
+
+
+                            //     const exp = new RegExp(escapedText, 'i');
+                            //     setFilters(
+                            //         filters.filter(o => exp.test(o.lab))
+                            //     );
+                            // }}
                         />
-                    </Box> */}
+                    </Box>
                     <FilterSelector
                         handleChange={handleChange}
                         filterObj={brands}
@@ -218,8 +226,10 @@ const ShopContainer = () => {
                 align='center'
                 overflow='scroll'
             >
-                {listings ? renderListings()
-                 : (<ResizeSpinLoader color='#00004D' />
+                {listings ? (
+                    renderListings()
+                ) : (
+                    <ResizeSpinLoader color='#00004D' />
                 )}
             </Box>
         </Grid>
