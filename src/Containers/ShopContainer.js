@@ -12,8 +12,7 @@ const ShopContainer = () => {
     const history = useHistory();
     let filteredListings = [];
     const listings = useSelector(state => state.listings.allListings);
-    const [value, setValue] = useState("");
-    console.log(value)
+    const [brandValues, setBrandValues] = useState("");
 
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
@@ -57,14 +56,15 @@ const ShopContainer = () => {
     };
 
     useEffect(() => {
-        if(value) {
+        if(brandValues) {
+            console.log('setting brands')
             setFilters({
                 ...filters,
-                brand_id: value.map(valueObj => valueObj.id)
+                brand_id: brandValues.map(valueObj => valueObj.id)
             })
         }
 
-    }, [value])
+    }, [brandValues])
 
     const handleListing = event => {
         const listingId = event.target.parentNode.id;
@@ -151,52 +151,39 @@ const ShopContainer = () => {
                 <Box
                     gridArea='sidebar'
                     background='c2'
-                    width='15vw'
+                    width='250px'
                     justify='center'
                     align='center'
                 >
-                    <Box fill align='center' justify='start' pad='large'>
+
                         <Select
                             size='small'
-                            placeholder='Select'
+                            margin='small'
+                            placeholder='brands'
                             multiple
                             closeOnChange={false}
                             disabledKey='dis'
                             labelKey='name'
                             valueKey='id'
-                            value={value}
+                            value={brandValues}
                             options={brands}
-                            onChange={async ({ value: nextValue }) => {
+                            onChange={({ value: nextValue }) => {
                                 // setValue(...value, nextValue[0].id)
-                                setValue(nextValue)
+                                setBrandValues(nextValue)
 
                             }}
-                            onClose={() => setFilters(filters)}
-                            // onSearch={text => {
-                            //     // The line below escapes regular expression special characters:
-                            //     // [ \ ^ $ . | ? * + ( )
-                            //     const escapedText = text.replace(
-                            //         /[-\\^$*+?.()|[\]{}]/g,
-                            //         '\\$&'
-                            //     );
-
-
-                            //     const exp = new RegExp(escapedText, 'i');
-                            //     setFilters(
-                            //         filters.filter(o => exp.test(o.lab))
-                            //     );
-                            // }}
+                            // onClose={() => setFilters(filters)}
                         />
-                    </Box>
+
                     <FilterSelector
-                        handleChange={handleChange}
+                        // handleChange={handleChange}
                         filterObj={brands}
-                        name='brand'
-                        setFilters={setFilters}
-                        listings={listings}
+                        // name='brand'
+                        setValues={setBrandValues}
+                        values={brandValues}
                     />
 
-                    <FilterSelector
+                    {/* <FilterSelector
                         handleChange={handleChange}
                         filterObj={categories}
                         name='category'
@@ -216,7 +203,7 @@ const ShopContainer = () => {
                         handleChange={handleChange}
                         filterObj={washes}
                         name='wash'
-                    />
+                    /> */}
                 </Box>
             ) : null}
 
