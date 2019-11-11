@@ -3,11 +3,7 @@ import { useHistory } from "react-router-dom"
 
 import {
     Box,
-    // Button,
-    // FormField,
-    // Heading,
-    // Layer,
-    // TextInput,
+    Button,
     Grid
 } from 'grommet';
 
@@ -31,32 +27,27 @@ const HomeContainer = () => {
                     gap='small'
                 >
                     <Box
-                        // as='button'
-                        onClick={handleShop}
                         align='center'
                         justify='center'
-                        background='brand'
                         height='xxsmall'
                         justify='center'
                     >
-                        shop
-                    </Box>
-                    <Box
-                        onClick={handleSell}
-                        justify='center'
-                        background='brand'
-                        align='center'
-                        justify='center'
-                    >
-                        sell
+                        <Button label='shop' fill={true} onClick={handleShop} color='brand' primary/>
+
                     </Box>
                     <Box
                         justify='center'
-                        background='brand'
                         align='center'
                         justify='center'
                     >
-                        learn
+                        <Button label='sell' fill={true} onClick={handleSell} color='brand' primary/>
+                    </Box>
+                    <Box
+                        justify='center'
+                        align='center'
+                        justify='center'
+                    >
+                        <Button label='learn' fill={true} onClick={() => {}} color='brand' primary/>
                     </Box>
                 </Grid>
             </Box>
@@ -105,6 +96,9 @@ const HomeContainer = () => {
                         shirts
                     </Box>
                 </Grid>
+            </Box>
+            <Box>
+            <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </Box>
         </Box>
     );
