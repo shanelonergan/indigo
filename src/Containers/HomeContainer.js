@@ -96,9 +96,9 @@ const HomeContainer = () => {
                             height='medium'
                             justify='center'
                         >
-                            <Image src='https://cache.mrporter.com/variants/images/5983760397903497/in/w2000_q80.jpg' />
+                            <Image src='https://cache.mrporter.com/variants/images/4068790126428847/in/w2000_q80.jpg' />
                         </Box>
-                        <Text color='brand' size='xxlarge'>shirts</Text>
+                        <Text color='control' size='xxlarge'>pants</Text>
                     </Stack>
                     <Stack anchor='center'>
                         <Box
@@ -108,9 +108,9 @@ const HomeContainer = () => {
                             height='medium'
                             justify='center'
                         >
-                            <Image src='https://cache.mrporter.com/variants/images/5983760397903497/in/w2000_q80.jpg' />
+                            <Image src='https://www.allenedmonds.com/on/demandware.static/-/Sites-allenedmonds-catalog/default/dwa6158513/images/2.1/accessories/jackets/Jacket_1015831_Civilianaire_Raw_Denim_Front_web.jpg' />
                         </Box>
-                        <Text color='brand' size='xxlarge'>shirts</Text>
+                        <Text color='control' size='xxlarge'>jackets</Text>
                     </Stack>
                     <Stack anchor='center'>
                         <Box
