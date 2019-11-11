@@ -23,14 +23,14 @@ const ShopContainer = () => {
     const [loaded, setLoaded] = useState(false);
 
     const [filters, setFilters] = useState({
-        category_id: [1, 2],
-        brand_id: [],
+        category_id: null,
+        brand_id: null,
         waist: 30,
         length: 32,
         weight: 12,
-        wash_id: [],
-        mill_id: [],
-        condition_id: []
+        wash_id: null,
+        mill_id: null,
+        condition_id: null
     });
 
     if (brands && categories && conditions && mills && washes) {
@@ -68,23 +68,36 @@ const ShopContainer = () => {
         filteredListings = listings
 
         const filterListings = (currentListings, filter) => {
-            // filteredListings.filter(listing => {
-            //     debugger
-            //       filters[filter + '_id'].includes(listing[filter].id)
+            // let tempArr = []
+
+            // filters[filter + '_id'].forEach(filter_id => {
+            //     currentListings.forEach(listing => {
+            //         if (listing[filter].id === parseInt(filter_id)) {
+
+            //         }
+            //     })
+            //     // debugger
             // })
-            filters[filter + '_id'].forEach(filter_id => {
-                debugger
-                filteredListings = currentListings.filter(listing => listing[filter].id === parseInt(filter_id))
+
+            const intFilterIds = filters[filter + '_id'].map(stringFilterId => parseInt(stringFilterId))
+
+            filteredListings = currentListings.filter(listing => {
+                // debugger
+                return intFilterIds.includes(listing[filter].id)
             })
+
+            console.log(filteredListings)
         }
 
-        if (filters.brand_id !== []) {
+        if (filters.brand_id) {
             filterListings(filteredListings, 'brand')
             console.log('filtering by brand')
-        } else if (filters.category_id !== []) {
+        }
+        if (filters.category_id) {
             console.log('filtering by category')
             filterListings(filteredListings, 'category')
-        } else if (filters.conditon_id !== []) {
+        }
+        if (filters.conditon_id) {
             console.log('filtering by condition')
             filterListings(filteredListings, 'condition')
         }
@@ -116,11 +129,6 @@ const ShopContainer = () => {
         )
 
     }
-
-    // if (listings) {
-    //     renderListings()
-
-    // }
 
     return (
         <Grid
