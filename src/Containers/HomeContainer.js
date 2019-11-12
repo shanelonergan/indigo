@@ -15,47 +15,50 @@ const HomeContainer = () => {
 
     return (
         <Box pad='small' gap='small' align='center' justify='center'>
-            <Box pad='small'>
-                <Grid
-                    rows={['flex']}
-                    columns={['31.37vw', '31.37vw', '31.37vw']}
-                    gap='small'
-                >
-                    <Box
-                        align='center'
-                        justify='center'
-                        height='xxsmall'
-                        justify='center'
+            <Box pad={{ top: 'medium' }}>
+                <Box width='96vw' height='auto' align='center'>
+                    <Grid
+                        rows={['flex']}
+                        // columns={['31.37vw', '31.37vw', '31.37vw']}
+                        columns={['20vw', '20vw', '20vw']}
+                        gap='xlarge'
                     >
-                        <Button
-                            label='shop'
-                            fill={true}
-                            onClick={handleShop}
-                            color='brand'
-                            primary
-                        />
-                    </Box>
-                    <Box justify='center' align='center' justify='center'>
-                        <Button
-                            label='sell'
-                            fill={true}
-                            onClick={handleSell}
-                            color='brand'
-                            primary
-                        />
-                    </Box>
-                    <Box justify='center' align='center' justify='center'>
-                        <Button
-                            label='learn'
-                            fill={true}
-                            onClick={() => {}}
-                            color='brand'
-                            primary
-                        />
-                    </Box>
-                </Grid>
+                        <Box
+                            align='center'
+                            justify='center'
+                            height='xxsmall'
+                            justify='center'
+                        >
+                            <Button
+                                label='shop'
+                                fill={true}
+                                onClick={handleShop}
+                                color='brand'
+                                primary
+                            />
+                        </Box>
+                        <Box justify='center' align='center' justify='center'>
+                            <Button
+                                label='sell'
+                                fill={true}
+                                onClick={handleSell}
+                                color='brand'
+                                primary
+                            />
+                        </Box>
+                        <Box justify='center' align='center' justify='center'>
+                            <Button
+                                label='learn'
+                                fill={true}
+                                onClick={() => {}}
+                                color='brand'
+                                primary
+                            />
+                        </Box>
+                    </Grid>
+                </Box>
             </Box>
-            <Box >
+            <Box pad={{ top: 'medium' }}>
                 <Box
                     // background='brand'
                     // pad='medium'
@@ -126,78 +129,95 @@ const HomeContainer = () => {
                     </Box>
                 </Box>
             </Box>
-            <Box pad={{'right':'small', 'left':'small'}} direction='column' height='auto'
-                    align='center'>
+            <Box
+                pad={{ top: 'medium' }}
+                direction='column'
+                // height='auto'
+                // align='center'
+                width='96vw'
+                height='auto'
+                align='center'
+                justify='around'
+                direction='column'
+            >
                 <Box>
                     <Text size='xxlarge' color='brand'>
                         Shop by category:
                     </Text>
                 </Box>
 
-                <Grid
+                {/* <Grid
                     rows={['flex']}
                     columns={['31.37vw', '31.37vw', '31.37vw']}
                     gap='small'
                     align='stretch'
-                >
-                    <Stack
-                        anchor='center'
-                        onClick={() => {
-                            history.push('/listings/pants');
-                        }}
-                    >
-                        <Box
-                            align='center'
-                            justify='center'
-                            // background='brand'
-                            height='medium'
-                            justify='center'
+                > */}
+                <Box direction='row' justify='around'>
+                    <Box width='30vw'>
+                        <Stack
+                            anchor='center'
+                            onClick={() => {
+                                history.push('/listings/pants');
+                            }}
                         >
-                            <Image src='https://cdn.shopify.com/s/files/1/0070/1922/products/LINEN_JEANS_SLIM_1024x1024.jpg?v=1547508728' />
-                        </Box>
-                        <Text color='white' size='xxlarge'>
-                            pants
-                        </Text>
-                    </Stack>
-                    <Stack
-                        anchor='center'
-                        onClick={() => {
-                            history.push('/listings/shirts');
-                        }}
-                    >
-                        <Box
-                            align='center'
-                            justify='center'
-                            // background='brand'
-                            height='medium'
-                            justify='center'
+                            <Box
+                                align='center'
+                                justify='center'
+                                // background='brand'
+                                height='medium'
+                                justify='center'
+                            >
+                                <Image src='https://cdn.shopify.com/s/files/1/0070/1922/products/LINEN_JEANS_SLIM_1024x1024.jpg?v=1547508728' />
+                            </Box>
+                            <Text color='white' size='xxlarge'>
+                                pants
+                            </Text>
+                        </Stack>
+                    </Box>
+                    <Box width='30vw'>
+                        <Stack
+                            anchor='center'
+                            onClick={() => {
+                                history.push('/listings/shirts');
+                            }}
                         >
-                            <Image src='https://www.urbanrider.co.uk/media/catalog/product/cache/1/image/85e4522595efc69f496374d01ef2bf13/r/o/rokker-denim-rider-shirt-raw-main.jpg' />
-                        </Box>
-                        <Text color='white' size='xxlarge'>
-                            shirts
-                        </Text>
-                    </Stack>
-                    <Stack
-                        anchor='center'
-                        onClick={() => {
-                            history.push('/listings/jackets');
-                        }}
-                    >
-                        <Box
-                            align='center'
-                            justify='center'
-                            // background='brand'
-                            height='medium'
-                            justify='center'
+                            <Box
+                                align='center'
+                                justify='center'
+                                // background='brand'
+                                height='medium'
+                                justify='center'
+                            >
+                                <Image src='https://www.urbanrider.co.uk/media/catalog/product/cache/1/image/85e4522595efc69f496374d01ef2bf13/r/o/rokker-denim-rider-shirt-raw-main.jpg' />
+                            </Box>
+                            <Text color='white' size='xxlarge'>
+                                shirts
+                            </Text>
+                        </Stack>
+                    </Box>
+                    <Box width='30vw'>
+                        <Stack
+                            anchor='center'
+                            onClick={() => {
+                                history.push('/listings/jackets');
+                            }}
                         >
-                            <Image src='https://media.endclothing.com/media/catalog/product/0/6/06-07-2015_apc_rawdenimjacket_indigo_1_jtl.jpg' />
-                        </Box>
-                        <Text color='white' size='xxlarge'>
-                            jackets
-                        </Text>
-                    </Stack>
-                </Grid>
+                            <Box
+                                align='center'
+                                justify='center'
+                                // background='brand'
+                                height='medium'
+                                justify='center'
+                            >
+                                <Image src='https://media.endclothing.com/media/catalog/product/0/6/06-07-2015_apc_rawdenimjacket_indigo_1_jtl.jpg' />
+                            </Box>
+                            <Text color='white' size='xxlarge'>
+                                jackets
+                            </Text>
+                        </Stack>
+                    </Box>
+                    {/* </Grid> */}
+                </Box>
             </Box>
             <Box>
                 <div>footer</div>
