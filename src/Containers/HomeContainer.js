@@ -66,7 +66,7 @@ const HomeContainer = () => {
                     direction='column'
                 >
                     <Box>
-                        <Text size='medium' color='brand'>
+                        <Text size='xxlarge' color='brand'>
                             Featured collections:
                         </Text>
                     </Box>
@@ -81,18 +81,18 @@ const HomeContainer = () => {
                                 <Carousel fill>
                                     <Image
                                         fit='cover'
-                                        src='//v2.grommet.io/assets/Wilderpeople_Ricky.jpg'
+                                        src='https://i.pinimg.com/originals/c8/33/e7/c833e7442bcd0547f69ee3353bad4c85.jpg'
                                     />
                                     <Image
                                         fit='cover'
-                                        src='//v2.grommet.io/assets/IMG_4245.jpg'
+                                        src='https://i.pinimg.com/originals/2f/c3/ea/2fc3eaf30218381402388b15536a3249.jpg'
                                     />
                                     <Image
                                         fit='cover'
-                                        src='//v2.grommet.io/assets/IMG_4210.jpg'
+                                        src='https://i.pinimg.com/originals/82/12/73/821273bc6c2f54f6fa5e55060c4314e1.jpg'
                                     />
                                 </Carousel>
-                                <Text weight='bold' color='white'>
+                                <Text weight='bold' color='focus' size='10vw'>
                                     Kuroki Mills
                                 </Text>
                             </Stack>
@@ -107,7 +107,7 @@ const HomeContainer = () => {
                                 <Carousel fill>
                                     <Image
                                         fit='cover'
-                                        src='//v2.grommet.io/assets/Wilderpeople_Ricky.jpg'
+                                        src='https://i2.wp.com/auntay.com/wp-content/uploads/2018/01/20180119-DSCF6843-2-e1525548321456.jpg?ssl=1'
                                     />
                                     <Image
                                         fit='cover'
@@ -118,7 +118,7 @@ const HomeContainer = () => {
                                         src='//v2.grommet.io/assets/IMG_4210.jpg'
                                     />
                                 </Carousel>
-                                <Text weight='bold' color='white'>
+                                <Text weight='bold' color='focus' size='10vw'>
                                     3Sixteen
                                 </Text>
                             </Stack>
@@ -129,7 +129,7 @@ const HomeContainer = () => {
             <Box pad={{'right':'small', 'left':'small'}} direction='column' height='auto'
                     align='center'>
                 <Box>
-                    <Text size='medium' color='brand'>
+                    <Text size='xxlarge' color='brand'>
                         Shop by category:
                     </Text>
                 </Box>
@@ -155,7 +155,7 @@ const HomeContainer = () => {
                         >
                             <Image src='https://cache.mrporter.com/variants/images/4068790126428847/in/w2000_q80.jpg' />
                         </Box>
-                        <Text color='control' size='xxlarge'>
+                        <Text color='focus' size='6.5vw'>
                             pants
                         </Text>
                     </Stack>
@@ -174,7 +174,7 @@ const HomeContainer = () => {
                         >
                             <Image src='https://cache.mrporter.com/variants/images/5983760397903497/in/w2000_q80.jpg' />
                         </Box>
-                        <Text color='brand' size='xxlarge'>
+                        <Text color='focus' size='6.5vw'>
                             shirts
                         </Text>
                     </Stack>
@@ -193,7 +193,7 @@ const HomeContainer = () => {
                         >
                             <Image src='https://media.endclothing.com/media/catalog/product/0/6/06-07-2015_apc_rawdenimjacket_indigo_1_jtl.jpg' />
                         </Box>
-                        <Text color='control' size='xxlarge'>
+                        <Text color='focus' size='6.5vw'>
                             jackets
                         </Text>
                     </Stack>
