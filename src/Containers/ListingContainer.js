@@ -61,7 +61,7 @@ const ListingContainer = props => {
                             margin='small'
                             responsive={true}
                             height='80vh'
-                            width='37vw'
+                            width='36vw'
                             overflow='hidden'
                         >
                             <Carousel>
@@ -78,7 +78,7 @@ const ListingContainer = props => {
                         <Box
                             border={{ color: 'brand', size: 'medium' }}
                             margin='small'
-                            pad='small'
+                            pad='medium'
                             responsive={true}
                             align='center'
                             // justify='center'
@@ -155,6 +155,7 @@ const ListingContainer = props => {
                                     margin={{ 'top': 'medium' }}
                                     alignSelf='center'
                                 >
+
                                     <Text
                                         color='brand'
                                         weight='bold'
@@ -181,12 +182,13 @@ const ListingContainer = props => {
                                             <Text>{listing.user.location}</Text>
                                         </Box>
                                     </Box>
+
                                 </Box>
                             </Box>
                         </Box>
                     </>
                 ) : (
-                    <ResizeSpinLoader />
+                    <ResizeSpinLoader color='#00004D'/>
                 )}
             </Box>
             {/* <Box size='medium'></Box> */}

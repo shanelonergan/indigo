@@ -6,6 +6,8 @@ import { Box, Grommet, ResponsiveContext } from 'grommet';
 
 // ==> Themes \\
 import light from './Themes/light';
+import { grommet, dark } from "grommet/themes";
+import { dxc } from 'grommet-theme-dxc';
 
 // ==> Components <== \\
 import Routes from './Routes';

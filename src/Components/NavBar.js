@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from "react-router-dom"
 import { Cart, User, Login, Add } from 'grommet-icons';
-import { Box, Button, Heading } from 'grommet';
+import { Box, Button, Heading, Image } from 'grommet';
 
 const NavBar = ({
     onOpenLogIn,
@@ -25,7 +25,7 @@ const NavBar = ({
             elevation='medium'
             style={{ zIndex: '1' }}
         >
-            <Heading level='3' margin='none' onClick={handleHome}>
+            <Heading level='3' margin='none' onClick={handleHome} responsive={true} direction='row'>
                 indigo
             </Heading>
 

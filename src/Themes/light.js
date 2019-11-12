@@ -12,7 +12,12 @@ const light = {
         family: 'Roboto',
         size: '18px',
         height: '20px'
-      }
+      },
+      button: {
+        border: {
+          radius: '0px'
+        }
+      },
     }
   };
 
