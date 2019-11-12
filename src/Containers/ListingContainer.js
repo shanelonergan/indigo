@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { getListing } from '../Redux/actions/listingActions';
@@ -8,6 +8,7 @@ import { Box, Image, Text, Button, Carousel } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 
 const CHARGES_URL = 'http://localhost:3000/charges';
+const FAVORITES_URL = 'http://localhost:3000/favorites';
 
 const ListingContainer = props => {
     const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const ListingContainer = props => {
 
     const listing = useSelector(state => state.listings.currentListing);
     const loggedInUser = useSelector(state => state.user)
+    const [favorited, setFavorited] = useState(false)
 
     const onToken = token => {
         console.log(token);
@@ -28,7 +30,6 @@ const ListingContainer = props => {
     };
 
     const createCharge = async (token, listing) => {
-        // TODO: Create a transaction to store history in database
 
         const charge = {
             token: token.id
@@ -46,11 +47,32 @@ const ListingContainer = props => {
         fetch(CHARGES_URL, config)
         .then(res => res.json())
         .then(console.log)
-        // if (response.ok) console.log('purchase complete!');
-        // if (response.errors) console.log(response.errors)
-
-        // Transaction.create()
     };
+
+    const createFavorite = (listing) => {
+        console.log(listing)
+        const body = {
+            listing_id: listing.id,
+            user_id: loggedInUser.id
+        }
+
+        console.log(body)
+
+        const config = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        }
+
+        if (!favorited) {
+            fetch(FAVORITES_URL, config)
+            .then(res => res.json())
+            .then(console.log)
+            .then(setFavorited(true))
+        }
+    }
 
     return (
         <>
@@ -147,7 +169,7 @@ const ListingContainer = props => {
                                                 primary
                                             />
                                         </StripeCheckout>
-                                        <Favorite />
+                                        <Favorite onClick={() => createFavorite(listing)}/>
                                     </Box>
                                 </Box>
                                 <Box
