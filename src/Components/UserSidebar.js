@@ -4,7 +4,8 @@ import { logoutUser } from '../Redux/actions'
 import {
   Box,
   Collapsible,
-  Button
+  Button,
+  Text
 } from 'grommet';
 
 const UserSidebar = ({showUserInfo, onOpenLogIn, setOpenLogIn, openLogIn}) => {
@@ -12,7 +13,7 @@ const UserSidebar = ({showUserInfo, onOpenLogIn, setOpenLogIn, openLogIn}) => {
     const username = loggedInUser.username
     console.log(username)
     const text = username ? (
-        username + ' is currently logged in'
+        `Welcome, ${username}`
       ) : (
         'Nobody is logged in'
       );
@@ -27,12 +28,12 @@ const UserSidebar = ({showUserInfo, onOpenLogIn, setOpenLogIn, openLogIn}) => {
       <Box
         flex
         width='medium'
-        background='light-2'
+        background='c2'
         elevation='small'
         align='center'
         justify='center'
       >
-        {text}
+        <Text margin='medium'>{text}</Text>
         {username ?
         <Button label="log out" onClick={onLogout}/>
         :

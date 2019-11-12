@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom"
 import { Cart, User, Login, Add } from 'grommet-icons';
 import { Box, Button, Heading, Image } from 'grommet';
@@ -10,10 +11,14 @@ const NavBar = ({
     showUserInfo,
     setShowUserInfo
 }) => {
+    const loggedInUser = useSelector(state => state.user)
+
     const history = useHistory()
+
     const handleHome = () => {
         history.push('/')
     }
+
     return (
         <Box
             tag='header'
@@ -32,11 +37,14 @@ const NavBar = ({
             <Button icon={<Add />} label='search' gap="xlarge" onClick={() => {}} />
 
             <Box direction='row' align='center' justify='between'>
-                <Button icon={<Login />} onClick={onOpenLogIn} />
+                { loggedInUser.username ?
                 <Button
                     icon={<User />}
                     onClick={() => setShowUserInfo(!showUserInfo)}
                 />
+                :
+                <Button icon={<Login />} onClick={onOpenLogIn} />
+                }
 
                 <Button
                     icon={<Cart />}
