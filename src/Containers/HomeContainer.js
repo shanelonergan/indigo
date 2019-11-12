@@ -153,9 +153,9 @@ const HomeContainer = () => {
                             height='medium'
                             justify='center'
                         >
-                            <Image src='https://cache.mrporter.com/variants/images/4068790126428847/in/w2000_q80.jpg' />
+                            <Image src='https://cdn.shopify.com/s/files/1/0070/1922/products/LINEN_JEANS_SLIM_1024x1024.jpg?v=1547508728' />
                         </Box>
-                        <Text color='focus' size='6.5vw'>
+                        <Text color='white' size='xxlarge'>
                             pants
                         </Text>
                     </Stack>
@@ -172,9 +172,9 @@ const HomeContainer = () => {
                             height='medium'
                             justify='center'
                         >
-                            <Image src='https://cache.mrporter.com/variants/images/5983760397903497/in/w2000_q80.jpg' />
+                            <Image src='https://www.urbanrider.co.uk/media/catalog/product/cache/1/image/85e4522595efc69f496374d01ef2bf13/r/o/rokker-denim-rider-shirt-raw-main.jpg' />
                         </Box>
-                        <Text color='focus' size='6.5vw'>
+                        <Text color='white' size='xxlarge'>
                             shirts
                         </Text>
                     </Stack>
@@ -193,7 +193,7 @@ const HomeContainer = () => {
                         >
                             <Image src='https://media.endclothing.com/media/catalog/product/0/6/06-07-2015_apc_rawdenimjacket_indigo_1_jtl.jpg' />
                         </Box>
-                        <Text color='focus' size='6.5vw'>
+                        <Text color='white' size='xxlarge'>
                             jackets
                         </Text>
                     </Stack>
