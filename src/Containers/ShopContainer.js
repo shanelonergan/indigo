@@ -62,14 +62,22 @@ const ShopContainer = () => {
             setLoaded(true);
         }
         if (slug === 'pants') {
-            console.log(appliedFilters.category_id);
+
             if (!appliedFilters.category_id) {
                 dispatch(setCategoriesAction([1]));
             }
-            // if (appliedFilters.category_id === '') {
-            //     console.log(categoryValues)
-            //     setCategoryValues(categories.first)
-            // }
+        }
+        if (slug === 'shirts') {
+
+            if (!appliedFilters.category_id) {
+                dispatch(setCategoriesAction([3]));
+            }
+        }
+        if (slug === 'jackets') {
+
+            if (!appliedFilters.category_id) {
+                dispatch(setCategoriesAction([2]));
+            }
         }
     }
 
