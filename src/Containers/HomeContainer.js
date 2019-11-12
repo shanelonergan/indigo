@@ -55,10 +55,10 @@ const HomeContainer = () => {
                     </Box>
                 </Grid>
             </Box>
-            <Box pad='small'>
+            <Box >
                 <Box
                     // background='brand'
-                    pad='medium'
+                    // pad='medium'
                     width='96vw'
                     height='auto'
                     align='center'
@@ -66,56 +66,74 @@ const HomeContainer = () => {
                     direction='column'
                 >
                     <Box>
-                        <Text>Spotlight</Text>
+                        <Text size='medium' color='brand'>
+                            Featured collections:
+                        </Text>
                     </Box>
                     <Box direction='row'>
-
-                    <Box height='medium' width='large' overflow='hidden'>
-                        <Stack anchor='center'>
-                            <Carousel fill>
-                                <Image
-                                    fit='cover'
-                                    src='//v2.grommet.io/assets/Wilderpeople_Ricky.jpg'
-                                />
-                                <Image
-                                    fit='cover'
-                                    src='//v2.grommet.io/assets/IMG_4245.jpg'
-                                />
-                                <Image
-                                    fit='cover'
-                                    src='//v2.grommet.io/assets/IMG_4210.jpg'
-                                />
-                            </Carousel>
-                            <Text weight='bold' color='white'>
-                                Kuroki Mills
-                            </Text>
-                        </Stack>
-                    </Box>
-                    <Box height='medium' width='large' overflow='hidden'>
-                        <Stack anchor='center'>
-                            <Carousel fill>
-                                <Image
-                                    fit='cover'
-                                    src='//v2.grommet.io/assets/Wilderpeople_Ricky.jpg'
-                                />
-                                <Image
-                                    fit='cover'
-                                    src='//v2.grommet.io/assets/IMG_4245.jpg'
-                                />
-                                <Image
-                                    fit='cover'
-                                    src='//v2.grommet.io/assets/IMG_4210.jpg'
-                                />
-                            </Carousel>
-                            <Text weight='bold' color='white'>
-                                3Sixteen
-                            </Text>
-                        </Stack>
-                    </Box>
+                        <Box
+                            height='medium'
+                            width='large'
+                            overflow='hidden'
+                            margin='small'
+                        >
+                            <Stack anchor='center'>
+                                <Carousel fill>
+                                    <Image
+                                        fit='cover'
+                                        src='//v2.grommet.io/assets/Wilderpeople_Ricky.jpg'
+                                    />
+                                    <Image
+                                        fit='cover'
+                                        src='//v2.grommet.io/assets/IMG_4245.jpg'
+                                    />
+                                    <Image
+                                        fit='cover'
+                                        src='//v2.grommet.io/assets/IMG_4210.jpg'
+                                    />
+                                </Carousel>
+                                <Text weight='bold' color='white'>
+                                    Kuroki Mills
+                                </Text>
+                            </Stack>
+                        </Box>
+                        <Box
+                            height='medium'
+                            width='large'
+                            overflow='hidden'
+                            margin='small'
+                        >
+                            <Stack anchor='center'>
+                                <Carousel fill>
+                                    <Image
+                                        fit='cover'
+                                        src='//v2.grommet.io/assets/Wilderpeople_Ricky.jpg'
+                                    />
+                                    <Image
+                                        fit='cover'
+                                        src='//v2.grommet.io/assets/IMG_4245.jpg'
+                                    />
+                                    <Image
+                                        fit='cover'
+                                        src='//v2.grommet.io/assets/IMG_4210.jpg'
+                                    />
+                                </Carousel>
+                                <Text weight='bold' color='white'>
+                                    3Sixteen
+                                </Text>
+                            </Stack>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
-            <Box pad='small'>
+            <Box pad={{'right':'small', 'left':'small'}} direction='column' height='auto'
+                    align='center'>
+                <Box>
+                    <Text size='medium' color='brand'>
+                        Shop by category:
+                    </Text>
+                </Box>
+
                 <Grid
                     rows={['flex']}
                     columns={['31.37vw', '31.37vw', '31.37vw']}

@@ -50,7 +50,7 @@ function App() {
         <Grommet theme={light} full>
             <ResponsiveContext.Consumer>
                 {size => (
-                    <Box fill>
+                    <Box >
                         <NavBar
                             showSidebar={showSidebar}
                             setShowSidebar={setShowSidebar}
