@@ -88,7 +88,7 @@ const HomeContainer = () => {
                     gap='small'
                     align='stretch'
                 >
-                    <Stack anchor='center'>
+                    <Stack anchor='center' onClick={() => {history.push('/listings/pants')}}>
                         <Box
                             align='center'
                             justify='center'
@@ -100,19 +100,7 @@ const HomeContainer = () => {
                         </Box>
                         <Text color='control' size='xxlarge'>pants</Text>
                     </Stack>
-                    <Stack anchor='center'>
-                        <Box
-                            align='center'
-                            justify='center'
-                            // background='brand'
-                            height='medium'
-                            justify='center'
-                        >
-                            <Image src='https://www.allenedmonds.com/on/demandware.static/-/Sites-allenedmonds-catalog/default/dwa6158513/images/2.1/accessories/jackets/Jacket_1015831_Civilianaire_Raw_Denim_Front_web.jpg' />
-                        </Box>
-                        <Text color='control' size='xxlarge'>jackets</Text>
-                    </Stack>
-                    <Stack anchor='center'>
+                    <Stack anchor='center' onClick={() => {history.push('/listings/shirts')}}>
                         <Box
                             align='center'
                             justify='center'
@@ -124,6 +112,19 @@ const HomeContainer = () => {
                         </Box>
                         <Text color='brand' size='xxlarge'>shirts</Text>
                     </Stack>
+                    <Stack anchor='center' onClick={() => {history.push('/listings/jackets')}}>
+                        <Box
+                            align='center'
+                            justify='center'
+                            // background='brand'
+                            height='medium'
+                            justify='center'
+                        >
+                            <Image src='https://media.endclothing.com/media/catalog/product/0/6/06-07-2015_apc_rawdenimjacket_indigo_1_jtl.jpg' />
+                        </Box>
+                        <Text color='control' size='xxlarge'>jackets</Text>
+                    </Stack>
+
                 </Grid>
             </Box>
             <Box>
