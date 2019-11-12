@@ -5,6 +5,7 @@ import { Box, Grid, Text, Image, InfiniteScroll, Select, Button } from 'grommet'
 import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
 import { ListingPreview, FilterSelector } from '../Components/';
+import { setCategoriesAction, setBrandsAction, setConditionsAction, setMillsAction, setWashesAction } from '../Redux/actions/appliedFilterActions'
 
 const ShopContainer = () => {
     const dispatch = useDispatch();
@@ -16,6 +17,9 @@ const ShopContainer = () => {
     const [conditionValues, setConditionValues] = useState('');
     const [millValues, setMillValues] = useState('');
     const [washValues, setWashValues] = useState('');
+
+    const appliedFilters = useSelector(state => state.appliedFilters)
+    console.log(appliedFilters)
 
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
@@ -60,7 +64,9 @@ const ShopContainer = () => {
 
     useEffect(() => {
         if (brandValues) {
-            console.log('setting brands');
+            const brandIds = brandValues.map(valueObj => valueObj.id)
+            console.log(brandIds)
+            dispatch(setBrandsAction(brandIds))
             setFilters({
                 ...filters,
                 brand_id: brandValues.map(valueObj => valueObj.id)

@@ -8,13 +8,15 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import filterReducer from './Redux/filterReducer.js'
 import userReducer from './Redux/userReducer.js'
 import listingReducer from './Redux/listingReducer.js'
+import appliedFilterReducer from './Redux/appliedFilterReducer.js'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const reducer = combineReducers({
     user: userReducer,
     filters: filterReducer,
-    listings: listingReducer
+    listings: listingReducer,
+    appliedFilters: appliedFilterReducer
 })
 
 const store = createStore(reducer, applyMiddleware(thunk))
