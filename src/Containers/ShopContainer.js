@@ -253,6 +253,7 @@ const ShopContainer = () => {
                     gridArea='sidebar'
                     background='c2'
                     width='250px'
+                    height='100vh'
                     justify='center'
                     align='center'
                 >
