@@ -60,11 +60,16 @@ const HomeContainer = () => {
                     // background='brand'
                     pad='medium'
                     width='96vw'
-                    height='medium'
+                    height='auto'
                     align='center'
                     justify='around'
-                    direction='row'
+                    direction='column'
                 >
+                    <Box>
+                        <Text>Spotlight</Text>
+                    </Box>
+                    <Box direction='row'>
+
                     <Box height='medium' width='large' overflow='hidden'>
                         <Stack anchor='center'>
                             <Carousel fill>
@@ -106,6 +111,7 @@ const HomeContainer = () => {
                                 3Sixteen
                             </Text>
                         </Stack>
+                    </Box>
                     </Box>
                 </Box>
             </Box>
