@@ -65,7 +65,6 @@ const ShopContainer = () => {
     useEffect(() => {
         if (brandValues) {
             const brandIds = brandValues.map(valueObj => valueObj.id)
-            console.log(brandIds)
             dispatch(setBrandsAction(brandIds))
             setFilters({
                 ...filters,
@@ -73,6 +72,8 @@ const ShopContainer = () => {
             });
         }
         if (categoryValues) {
+            const categoryIds = categoryValues.map(valueObj => valueObj.id)
+            dispatch(setCategoriesAction(categoryIds))
             console.log('setting categorys');
             setFilters({
                 ...filters,
@@ -80,6 +81,8 @@ const ShopContainer = () => {
             });
         }
         if (conditionValues) {
+            const conditionIds = conditionValues.map(valueObj => valueObj.id)
+            dispatch(setConditionsAction(conditionIds))
             console.log('setting conditions');
             setFilters({
                 ...filters,
@@ -87,6 +90,8 @@ const ShopContainer = () => {
             });
         }
         if (millValues) {
+            const millIds = millValues.map(valueObj => valueObj.id)
+            dispatch(setMillsAction(millIds))
             console.log('setting mills');
             setFilters({
                 ...filters,
@@ -94,6 +99,8 @@ const ShopContainer = () => {
             });
         }
         if (washValues) {
+            const brandIds = brandValues.map(valueObj => valueObj.id)
+            dispatch(setBrandsAction(brandIds))
             console.log('setting washes');
             setFilters({
                 ...filters,
