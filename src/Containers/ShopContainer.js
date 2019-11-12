@@ -1,11 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Box, Grid, Text, Image, InfiniteScroll, Select, Button } from 'grommet';
+import {
+    Box,
+    Grid,
+    Text,
+    Image,
+    InfiniteScroll,
+    Select,
+    Button
+} from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
 import { ListingPreview, FilterSelector } from '../Components/';
-import { setCategoriesAction, setBrandsAction, setConditionsAction, setMillsAction, setWashesAction, clearAppliedFiltersAction } from '../Redux/actions/appliedFilterActions'
+import {
+    setCategoriesAction,
+    setBrandsAction,
+    setConditionsAction,
+    setMillsAction,
+    setWashesAction,
+    clearAppliedFiltersAction
+} from '../Redux/actions/appliedFilterActions';
 
 const ShopContainer = () => {
     const dispatch = useDispatch();
@@ -18,15 +33,18 @@ const ShopContainer = () => {
     const [millValues, setMillValues] = useState('');
     const [washValues, setWashValues] = useState('');
 
-
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
     );
 
     const [loaded, setLoaded] = useState(false);
 
-    const appliedFilters = useSelector(state => state.appliedFilters)
-    console.log(appliedFilters)
+    const appliedFilters = useSelector(state => state.appliedFilters);
+    console.log(appliedFilters);
+
+    const urlArr = window.location.href.split('/');
+    const slug = urlArr[4];
+    console.log(slug);
 
     // const [filters, setFilters] = useState({
     //     category_id: null,
@@ -42,6 +60,16 @@ const ShopContainer = () => {
     if (brands && categories && conditions && mills && washes) {
         if (!loaded) {
             setLoaded(true);
+        }
+        if (slug === 'pants') {
+            console.log(appliedFilters.category_id);
+            if (!appliedFilters.category_id) {
+                dispatch(setCategoriesAction([1]));
+            }
+            // if (appliedFilters.category_id === '') {
+            //     console.log(categoryValues)
+            //     setCategoryValues(categories.first)
+            // }
         }
     }
 
@@ -65,16 +93,16 @@ const ShopContainer = () => {
 
     useEffect(() => {
         if (brandValues) {
-            const brandIds = brandValues.map(valueObj => valueObj.id)
-            dispatch(setBrandsAction(brandIds))
+            const brandIds = brandValues.map(valueObj => valueObj.id);
+            dispatch(setBrandsAction(brandIds));
             // setFilters({
             //     ...filters,
             //     brand_id: brandValues.map(valueObj => valueObj.id)
             // });
         }
         if (categoryValues) {
-            const categoryIds = categoryValues.map(valueObj => valueObj.id)
-            dispatch(setCategoriesAction(categoryIds))
+            const categoryIds = categoryValues.map(valueObj => valueObj.id);
+            dispatch(setCategoriesAction(categoryIds));
             console.log('setting categorys');
             // setFilters({
             //     ...filters,
@@ -82,8 +110,8 @@ const ShopContainer = () => {
             // });
         }
         if (conditionValues) {
-            const conditionIds = conditionValues.map(valueObj => valueObj.id)
-            dispatch(setConditionsAction(conditionIds))
+            const conditionIds = conditionValues.map(valueObj => valueObj.id);
+            dispatch(setConditionsAction(conditionIds));
             console.log('setting conditions');
             // setFilters({
             //     ...filters,
@@ -91,8 +119,8 @@ const ShopContainer = () => {
             // });
         }
         if (millValues) {
-            const millIds = millValues.map(valueObj => valueObj.id)
-            dispatch(setMillsAction(millIds))
+            const millIds = millValues.map(valueObj => valueObj.id);
+            dispatch(setMillsAction(millIds));
             console.log('setting mills');
             // setFilters({
             //     ...filters,
@@ -100,14 +128,15 @@ const ShopContainer = () => {
             // });
         }
         if (washValues) {
-            const washIds = washValues.map(valueObj => valueObj.id)
-            dispatch(setBrandsAction(washIds))
+            const washIds = washValues.map(valueObj => valueObj.id);
+            dispatch(setBrandsAction(washIds));
             console.log('setting washes');
             // setFilters({
             //     ...filters,
             //     wash_id: washValues.map(valueObj => valueObj.id)
             // });
         }
+
     }, [brandValues, categoryValues, conditionValues, millValues, washValues]);
 
     const handleListing = event => {
@@ -128,14 +157,15 @@ const ShopContainer = () => {
         // condition_id: null
         // })
 
-        dispatch(clearAppliedFiltersAction())
+        dispatch(clearAppliedFiltersAction());
 
-        setBrandValues('')
-        setCategoryValues('')
-        setConditionValues('')
-        setMillValues('')
-        setWashValues('')
-    }
+        setBrandValues('');
+        setCategoryValues('');
+        setConditionValues('');
+        setMillValues('');
+        setWashValues('');
+        history.push('/listings')
+    };
 
     const renderListings = () => {
         filteredListings = listings;
@@ -143,8 +173,8 @@ const ShopContainer = () => {
         const filterListings = (currentListings, filter) => {
             // debugger
 
-            const intFilterIds = appliedFilters[filter + '_id'].map(stringFilterId =>
-                parseInt(stringFilterId)
+            const intFilterIds = appliedFilters[filter + '_id'].map(
+                stringFilterId => parseInt(stringFilterId)
             );
 
             filteredListings = currentListings.filter(listing => {
@@ -174,7 +204,6 @@ const ShopContainer = () => {
             console.log('filtering by condition');
             filterListings(filteredListings, 'wash');
         }
-
 
         return (
             <>
@@ -219,7 +248,6 @@ const ShopContainer = () => {
                     justify='center'
                     align='center'
                 >
-
                     <FilterSelector
                         filterObj={brands}
                         setValues={setBrandValues}
@@ -251,8 +279,12 @@ const ShopContainer = () => {
                         name='washes'
                     />
 
-                    <Button onClick={clearFilters} size='small' label='clear filters' margin='small'/>
-
+                    <Button
+                        onClick={clearFilters}
+                        size='small'
+                        label='clear filters'
+                        margin='small'
+                    />
                 </Box>
             ) : null}
 
