@@ -26,4 +26,8 @@ const setWashesAction = filterIds => ({
     payload: filterIds
 })
 
-export {setCategoriesAction, setBrandsAction, setConditionsAction, setMillsAction, setWashesAction}
+const clearAppliedFiltersAction = () => ({
+    type: 'CLEAR_APPLIED_FILTERS'
+})
+
+export {setCategoriesAction, setBrandsAction, setConditionsAction, setMillsAction, setWashesAction, clearAppliedFiltersAction}

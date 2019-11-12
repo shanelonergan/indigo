@@ -5,7 +5,7 @@ import { Box, Grid, Text, Image, InfiniteScroll, Select, Button } from 'grommet'
 import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
 import { ListingPreview, FilterSelector } from '../Components/';
-import { setCategoriesAction, setBrandsAction, setConditionsAction, setMillsAction, setWashesAction } from '../Redux/actions/appliedFilterActions'
+import { setCategoriesAction, setBrandsAction, setConditionsAction, setMillsAction, setWashesAction, clearAppliedFiltersAction } from '../Redux/actions/appliedFilterActions'
 
 const ShopContainer = () => {
     const dispatch = useDispatch();
@@ -18,8 +18,6 @@ const ShopContainer = () => {
     const [millValues, setMillValues] = useState('');
     const [washValues, setWashValues] = useState('');
 
-    const appliedFilters = useSelector(state => state.appliedFilters)
-    console.log(appliedFilters)
 
     const { brands, categories, conditions, mills, washes } = useSelector(
         state => state.filters
@@ -27,16 +25,19 @@ const ShopContainer = () => {
 
     const [loaded, setLoaded] = useState(false);
 
-    const [filters, setFilters] = useState({
-        category_id: null,
-        brand_id: '',
-        waist: 30,
-        length: 32,
-        weight: 12,
-        wash_id: null,
-        mill_id: null,
-        condition_id: null
-    });
+    const appliedFilters = useSelector(state => state.appliedFilters)
+    console.log(appliedFilters)
+
+    // const [filters, setFilters] = useState({
+    //     category_id: null,
+    //     brand_id: '',
+    //     waist: 30,
+    //     length: 32,
+    //     weight: 12,
+    //     wash_id: null,
+    //     mill_id: null,
+    //     condition_id: null
+    // });
 
     if (brands && categories && conditions && mills && washes) {
         if (!loaded) {
@@ -48,64 +49,64 @@ const ShopContainer = () => {
         dispatch(getAllListings());
     }, []);
 
-    const handleChange = event => {
-        const { options } = event.target;
-        const value = [];
-        for (let i = 0, l = options.length; i < l; i += 1) {
-            if (options[i].selected) {
-                value.push(options[i].value);
-            }
-        }
-        setFilters({
-            ...filters,
-            [event.target.name]: value
-        });
-    };
+    // const handleChange = event => {
+    //     const { options } = event.target;
+    //     const value = [];
+    //     for (let i = 0, l = options.length; i < l; i += 1) {
+    //         if (options[i].selected) {
+    //             value.push(options[i].value);
+    //         }
+    //     }
+    //     setFilters({
+    //         ...filters,
+    //         [event.target.name]: value
+    //     });
+    // };
 
     useEffect(() => {
         if (brandValues) {
             const brandIds = brandValues.map(valueObj => valueObj.id)
             dispatch(setBrandsAction(brandIds))
-            setFilters({
-                ...filters,
-                brand_id: brandValues.map(valueObj => valueObj.id)
-            });
+            // setFilters({
+            //     ...filters,
+            //     brand_id: brandValues.map(valueObj => valueObj.id)
+            // });
         }
         if (categoryValues) {
             const categoryIds = categoryValues.map(valueObj => valueObj.id)
             dispatch(setCategoriesAction(categoryIds))
             console.log('setting categorys');
-            setFilters({
-                ...filters,
-                category_id: categoryValues.map(valueObj => valueObj.id)
-            });
+            // setFilters({
+            //     ...filters,
+            //     category_id: categoryValues.map(valueObj => valueObj.id)
+            // });
         }
         if (conditionValues) {
             const conditionIds = conditionValues.map(valueObj => valueObj.id)
             dispatch(setConditionsAction(conditionIds))
             console.log('setting conditions');
-            setFilters({
-                ...filters,
-                condition_id: conditionValues.map(valueObj => valueObj.id)
-            });
+            // setFilters({
+            //     ...filters,
+            //     condition_id: conditionValues.map(valueObj => valueObj.id)
+            // });
         }
         if (millValues) {
             const millIds = millValues.map(valueObj => valueObj.id)
             dispatch(setMillsAction(millIds))
             console.log('setting mills');
-            setFilters({
-                ...filters,
-                mill_id: millValues.map(valueObj => valueObj.id)
-            });
+            // setFilters({
+            //     ...filters,
+            //     mill_id: millValues.map(valueObj => valueObj.id)
+            // });
         }
         if (washValues) {
-            const brandIds = brandValues.map(valueObj => valueObj.id)
-            dispatch(setBrandsAction(brandIds))
+            const washIds = washValues.map(valueObj => valueObj.id)
+            dispatch(setBrandsAction(washIds))
             console.log('setting washes');
-            setFilters({
-                ...filters,
-                wash_id: washValues.map(valueObj => valueObj.id)
-            });
+            // setFilters({
+            //     ...filters,
+            //     wash_id: washValues.map(valueObj => valueObj.id)
+            // });
         }
     }, [brandValues, categoryValues, conditionValues, millValues, washValues]);
 
@@ -116,16 +117,18 @@ const ShopContainer = () => {
     };
 
     const clearFilters = () => {
-        setFilters({
-        category_id: null,
-        brand_id: '',
-        waist: 30,
-        length: 32,
-        weight: 12,
-        wash_id: null,
-        mill_id: null,
-        condition_id: null
-        })
+        // setFilters({
+        // category_id: null,
+        // brand_id: '',
+        // waist: 30,
+        // length: 32,
+        // weight: 12,
+        // wash_id: null,
+        // mill_id: null,
+        // condition_id: null
+        // })
+
+        dispatch(clearAppliedFiltersAction())
 
         setBrandValues('')
         setCategoryValues('')
@@ -140,7 +143,7 @@ const ShopContainer = () => {
         const filterListings = (currentListings, filter) => {
             // debugger
 
-            const intFilterIds = filters[filter + '_id'].map(stringFilterId =>
+            const intFilterIds = appliedFilters[filter + '_id'].map(stringFilterId =>
                 parseInt(stringFilterId)
             );
 
@@ -151,23 +154,23 @@ const ShopContainer = () => {
             console.log(filteredListings);
         };
 
-        if (filters.brand_id) {
+        if (appliedFilters.brand_id) {
             filterListings(filteredListings, 'brand');
             console.log('filtering by brand');
         }
-        if (filters.category_id) {
+        if (appliedFilters.category_id) {
             console.log('filtering by category');
             filterListings(filteredListings, 'category');
         }
-        if (filters.condition_id) {
+        if (appliedFilters.condition_id) {
             console.log('filtering by condition');
             filterListings(filteredListings, 'condition');
         }
-        if (filters.mill_id) {
+        if (appliedFilters.mill_id) {
             console.log('filtering by condition');
             filterListings(filteredListings, 'mill');
         }
-        if (filters.wash_id) {
+        if (appliedFilters.wash_id) {
             console.log('filtering by condition');
             filterListings(filteredListings, 'wash');
         }
