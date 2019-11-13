@@ -83,6 +83,7 @@ const ShopContainer = () => {
 
     useEffect(() => {
         dispatch(getAllListings());
+        window.scrollTo(0, 0)
     }, []);
 
     // const handleChange = event => {
@@ -240,26 +241,29 @@ const ShopContainer = () => {
 
     return (
 
-        <>
+        <Box fill>
         {loaded ?
         <Grid
-            fill
+            fill={true}
+            // overflow='hidden'
             rows={['auto', 'flex']}
             columns={['auto', 'flex']}
             areas={[
                 { name: 'sidebar', start: [0, 1], end: [0, 1] },
                 { name: 'main', start: [1, 1], end: [1, 1] }
             ]}
+            // flex='grow'
         >
 
                 <Box
                     gridArea='sidebar'
+                    flex='grow'
                     background='c2'
                     width='250px'
                     height='100vh'
                     justify='center'
                     align='center'
-                    position='fixed'
+
                 >
                     <FilterSelector
                         filterObj={brands}
@@ -304,13 +308,12 @@ const ShopContainer = () => {
                         margin='small'
                     />
                 </Box>
-            )
 
             <Box
                 gridArea='main'
                 justify='center'
                 align='center'
-                overflow='scroll'
+                // overflow='scroll'
             >
                 {listings ? (
                     renderListings()
@@ -322,7 +325,7 @@ const ShopContainer = () => {
         : (<Box justify='center' align='center' height='100vh'>
             <ResizeSpinLoader color='#00004D' />
         </Box>)}
-        </>
+        </Box>
     );
 };
 
