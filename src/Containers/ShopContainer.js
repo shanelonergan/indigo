@@ -28,6 +28,7 @@ const ShopContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     let filteredListings = [];
+    let favorites = []
     const urlArr = window.location.href.split('/');
     const slug = urlArr[4];
 
@@ -35,6 +36,7 @@ const ShopContainer = () => {
     const { brands, categories, conditions, mills, washes } = useSelector(state => state.filters);
     const listings = useSelector(state => state.listings.allListings);
     const appliedFilters = useSelector(state => state.appliedFilters);
+    const loggedInUser = useSelector(state => state.user)
 
     // -> LOCAL STATE <- \\
     const [brandValues, setBrandValues] = useState('');
@@ -44,11 +46,14 @@ const ShopContainer = () => {
     const [washValues, setWashValues] = useState('');
     const [loaded, setLoaded] = useState(false);
 
-    const favorites = listings.filter(listing => {
-        const favorites = listing.favorites.all;
-        const favoriteUserIds = favorites.map(favorite => favorite.user_id);
-        return favoriteUserIds.contains(loggedInUser.id);
-    });
+    if (listings) {
+        let favorites = listings.filter(listing => {
+        const allFavorites = listing.favorites.all;
+        const favoriteUserIds = allFavorites.map(favorite => favorite.user_id);
+        console.log(favoriteUserIds)
+        return favoriteUserIds.includes(loggedInUser.id);
+        })
+    }
 
     // -> LOGS <- \\
     console.log(favorites);
