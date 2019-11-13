@@ -239,6 +239,9 @@ const ShopContainer = () => {
     };
 
     return (
+
+        <>
+        {loaded ?
         <Grid
             fill
             rows={['auto', 'flex']}
@@ -248,7 +251,7 @@ const ShopContainer = () => {
                 { name: 'main', start: [1, 1], end: [1, 1] }
             ]}
         >
-            {loaded ? (
+
                 <Box
                     gridArea='sidebar'
                     background='c2'
@@ -256,6 +259,7 @@ const ShopContainer = () => {
                     height='100vh'
                     justify='center'
                     align='center'
+                    position='fixed'
                 >
                     <FilterSelector
                         filterObj={brands}
@@ -300,7 +304,7 @@ const ShopContainer = () => {
                         margin='small'
                     />
                 </Box>
-            ) : null}
+            )
 
             <Box
                 gridArea='main'
@@ -311,10 +315,14 @@ const ShopContainer = () => {
                 {listings ? (
                     renderListings()
                 ) : (
-                    <ResizeSpinLoader color='#00004D' />
+                     null
                 )}
             </Box>
         </Grid>
+        : (<Box justify='center' align='center' height='100vh'>
+            <ResizeSpinLoader color='#00004D' />
+        </Box>)}
+        </>
     );
 };
 
