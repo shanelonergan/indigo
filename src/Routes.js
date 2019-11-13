@@ -24,6 +24,7 @@ const Routes = () => {
             <Route path='/listings/pants' exact component={ShopContainer} />
             <Route path='/listings/shirts' exact component={ShopContainer} />
             <Route path='/listings/jackets' exact component={ShopContainer} />
+            <Route path='/listings/favorites' exact component={ShopContainer} />
             <Route path='/listings/:id' render={renderListingContainer} />
 
 

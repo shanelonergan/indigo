@@ -11,5 +11,5 @@ export {
     HomeContainer,
     ShopContainer,
     NewListingContainer,
-    ListingContainer
+    ListingContainer,
 }
