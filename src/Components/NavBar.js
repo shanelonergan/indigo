@@ -1,8 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
-import { useHistory } from "react-router-dom"
-import { Cart, User, Login, Add, Favorite } from 'grommet-icons';
-import { Box, Button, Heading, Image } from 'grommet';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { Cart, User, Login, Search, Favorite } from 'grommet-icons';
+import { Box, Button, Heading, Image, DropButton } from 'grommet';
 
 const NavBar = ({
     onOpenLogIn,
@@ -11,15 +11,13 @@ const NavBar = ({
     showUserInfo,
     setShowUserInfo
 }) => {
-    const loggedInUser = useSelector(state => state.user)
+    const loggedInUser = useSelector(state => state.user);
 
-    const history = useHistory()
+    const history = useHistory();
 
-    const handleFavorites = () => history.push('/favorites')
+    const handleFavorites = () => history.push('/listings/favorites');
 
-    const handleHome = () => {
-        history.push('/')
-    }
+    const handleHome = () => history.push('/');
 
     return (
         <Box
@@ -31,28 +29,40 @@ const NavBar = ({
             pad={{ left: 'medium', right: 'small', vertical: 'small' }}
             elevation='medium'
             style={{ zIndex: '1' }}
+            resposive={true}
         >
-            <Heading level='3' margin='none' onClick={handleHome} responsive={true} direction='row'>
+            <Heading
+                level='3'
+                margin='none'
+                onClick={handleHome}
+                responsive={true}
+                direction='row'
+            >
                 indigo
             </Heading>
 
-            <Button icon={<Add />} label='search' gap="xlarge" onClick={() => {}} />
+            <DropButton
+                icon={<Search />}
+                label='search'
+                gap='5vw'
+                onClick={() => {}}
+                margin={{ left: 'small' }}
+                dropAlign={{ top: 'bottom', right: 'right' }}
+                dropContent={<Box pad='large' background='light-2' />}
+            />
 
             <Box direction='row' align='center' justify='between'>
-                { loggedInUser.username ?
-                <>
-                <Button
-                    icon={<Favorite/>}
-                    onClick={handleFavorites}
-                />
-                <Button
-                    icon={<User />}
-                    onClick={() => setShowUserInfo(!showUserInfo)}
-                />
-                </>
-                :
-                <Button icon={<Login />} onClick={onOpenLogIn} />
-                }
+                {loggedInUser.username ? (
+                    <>
+                        <Button icon={<Favorite />} onClick={handleFavorites} />
+                        <Button
+                            icon={<User />}
+                            onClick={() => setShowUserInfo(!showUserInfo)}
+                        />
+                    </>
+                ) : (
+                    <Button icon={<Login />} onClick={onOpenLogIn} />
+                )}
 
                 <Button
                     icon={<Cart />}

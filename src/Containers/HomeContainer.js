@@ -19,7 +19,6 @@ const HomeContainer = () => {
                 <Box width='96vw' height='auto' align='center'>
                     <Grid
                         rows={['flex']}
-                        // columns={['31.37vw', '31.37vw', '31.37vw']}
                         columns={['20vw', '20vw', '20vw']}
                         gap='xlarge'
                     >
