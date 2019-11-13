@@ -89,11 +89,11 @@ const NewListingContainer = () => {
                         required
                     />
 
-                    <FilterSelector handleChange={handleDropDownChange} filterObj={brands} name='brand' singleSelectValue={newListingForm.brand_id}/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={brands} name='brand' singleSelectValue={newListingForm.brand_id} multiple={false} required/>
 
-                    <FilterSelector handleChange={handleDropDownChange} filterObj={categories} name='category'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={categories} name='category'singleSelectValue={newListingForm.category_id} multiple={false} required/>
 
-                    <FilterSelector handleChange={handleDropDownChange} filterObj={conditions} name='condition'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={conditions} name='condition'singleSelectValue={newListingForm.consition_id} multiple={false} required/>
 
                     {/* <FormField
                         name='gender'
@@ -121,9 +121,9 @@ const NewListingContainer = () => {
                     <h4>denim details</h4>
 
 
-                    <FilterSelector handleChange={handleDropDownChange} filterObj={washes} name='wash'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={washes} name='wash'singleSelectValue={newListingForm.wash_id} multiple={false} required/>
 
-                    <FilterSelector handleChange={handleDropDownChange} filterObj={mills}  name='mill'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={mills}  name='mill'singleSelectValue={newListingForm.mill_id} multiple={false} required/>
 
                     <FormField
                         placeholder='denim weight (oz)'

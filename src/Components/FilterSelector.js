@@ -11,6 +11,10 @@ const FilterSelector = ({
     singleSelectValue
 }) => {
 
+    const singleSelectObj = filterObj.filter(filter => filter.id === singleSelectValue)
+    console.log(singleSelectObj)
+    console.log(multiple)
+
     if (multiple) {
         return (
              <Select
@@ -38,7 +42,7 @@ const FilterSelector = ({
             disabledKey='dis'
             labelKey='name'
             valueKey='id'
-            value={singleSelectValue}
+            value={singleSelectObj ? singleSelectObj : null}
             options={filterObj}
             onChange={({ value: nextValue }) => {
                 handleChange(nextValue, name);
