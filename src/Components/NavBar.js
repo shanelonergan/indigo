@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom"
-import { Cart, User, Login, Add } from 'grommet-icons';
+import { Cart, User, Login, Add, Favorite } from 'grommet-icons';
 import { Box, Button, Heading, Image } from 'grommet';
 
 const NavBar = ({
@@ -14,6 +14,8 @@ const NavBar = ({
     const loggedInUser = useSelector(state => state.user)
 
     const history = useHistory()
+
+    const handleFavorites = () => history.push('/favorites')
 
     const handleHome = () => {
         history.push('/')
@@ -38,10 +40,16 @@ const NavBar = ({
 
             <Box direction='row' align='center' justify='between'>
                 { loggedInUser.username ?
+                <>
+                <Button
+                    icon={<Favorite/>}
+                    onClick={handleFavorites}
+                />
                 <Button
                     icon={<User />}
                     onClick={() => setShowUserInfo(!showUserInfo)}
                 />
+                </>
                 :
                 <Button icon={<Login />} onClick={onOpenLogIn} />
                 }
