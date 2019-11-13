@@ -169,7 +169,7 @@ const ListingContainer = props => {
                                                 primary
                                             />
                                         </StripeCheckout>
-                                        <Favorite onClick={() => createFavorite(listing)}/>
+                                        <Favorite onClick={() => createFavorite(listing)} background='focus'/>
                                     </Box>
                                 </Box>
                                 <Box

@@ -5,12 +5,15 @@ const FilterSelector = ({
     filterObj,
     values,
     setValues,
-    name
+    name,
+    multiple,
+    handleChange,
+    singleSelectValue
 }) => {
 
-    return (
-
-        <Select
+    if (multiple) {
+        return (
+             <Select
             size='small'
             margin='small'
             placeholder={name}
@@ -25,7 +28,23 @@ const FilterSelector = ({
                 setValues(nextValue);
             }}
         />
-    );
+        )
+    } else {
+        return (
+         <Select
+            size='small'
+            margin='small'
+            placeholder={name}
+            disabledKey='dis'
+            labelKey='name'
+            valueKey='id'
+            value={singleSelectValue}
+            options={filterObj}
+            onChange={({ value: nextValue }) => {
+                handleChange(nextValue, name);
+            }}
+        />)
+    }
 };
 
 export default FilterSelector;

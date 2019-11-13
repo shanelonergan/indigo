@@ -45,7 +45,17 @@ const NewListingContainer = () => {
         if (!loaded){setLoaded(true)}
     }
 
-    const handleChange = event => {
+    const handleDropDownChange = (event, name) => {
+        // debugger
+        const filterId= event.id;
+        const nameWithId = name +'_id'
+        setNewListingForm({
+            ...newListingForm,
+            [nameWithId]: filterId
+        });
+    };
+
+        const handleChange = event => {
         setNewListingForm({
             ...newListingForm,
             [event.target.name]: event.target.value
@@ -54,6 +64,7 @@ const NewListingContainer = () => {
 
     const handleSubmit = event => {
         const listingInfo = {listing: newListingForm, user_id: loggedInUser.id}
+        console.log(listingInfo)
         event.preventDefault();
         setToListings(true)
         dispatch(createListing(listingInfo));
@@ -78,11 +89,11 @@ const NewListingContainer = () => {
                         required
                     />
 
-                    <FilterSelector handleChange={handleChange} filterObj={brands} name='brand'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={brands} name='brand' singleSelectValue={newListingForm.brand_id}/>
 
-                    <FilterSelector handleChange={handleChange} filterObj={categories} name='category'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={categories} name='category'/>
 
-                    <FilterSelector handleChange={handleChange} filterObj={conditions} name='condition'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={conditions} name='condition'/>
 
                     {/* <FormField
                         name='gender'
@@ -110,9 +121,9 @@ const NewListingContainer = () => {
                     <h4>denim details</h4>
 
 
-                    <FilterSelector handleChange={handleChange} filterObj={washes} name='wash'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={washes} name='wash'/>
 
-                    <FilterSelector handleChange={handleChange} filterObj={mills}  name='mill'/>
+                    <FilterSelector handleChange={handleDropDownChange} filterObj={mills}  name='mill'/>
 
                     <FormField
                         placeholder='denim weight (oz)'
