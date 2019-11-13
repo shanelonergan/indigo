@@ -5,6 +5,7 @@ import MobileSidebar from './MobileSidebar'
 import NavBar from './NavBar'
 import UserSidebar from './UserSidebar'
 import LoginForm from './LoginForm'
+import SearchBar from './SearchBar'
 
 export {
     CollapsableSidebar,
@@ -13,5 +14,6 @@ export {
     MobileSidebar,
     NavBar,
     UserSidebar,
-    LoginForm
+    LoginForm,
+    SearchBar
 }

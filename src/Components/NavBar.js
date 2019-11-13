@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Cart, User, Login, Search, Favorite } from 'grommet-icons';
 import { Box, Button, Heading, Image, DropButton } from 'grommet';
+import { SearchBar } from '../Components'
 
 const NavBar = ({
     onOpenLogIn,
@@ -41,15 +42,7 @@ const NavBar = ({
                 indigo
             </Heading>
 
-            <DropButton
-                icon={<Search />}
-                label='search'
-                gap='5vw'
-                onClick={() => {}}
-                margin={{ left: 'small' }}
-                dropAlign={{ top: 'bottom', right: 'right' }}
-                dropContent={<Box pad='large' background='light-2' />}
-            />
+            <SearchBar/>
 
             <Box direction='row' align='center' justify='between'>
                 {loggedInUser.username ? (
