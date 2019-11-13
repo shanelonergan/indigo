@@ -28,7 +28,7 @@ const ShopContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     let filteredListings = [];
-    let favorites = []
+    // let favorites = []
     const urlArr = window.location.href.split('/');
     const slug = urlArr[4];
 
@@ -45,14 +45,16 @@ const ShopContainer = () => {
     const [millValues, setMillValues] = useState('');
     const [washValues, setWashValues] = useState('');
     const [loaded, setLoaded] = useState(false);
+    const [favorites, setFavorites] = useState('')
 
-    if (listings) {
-        let favorites = listings.filter(listing => {
-        const allFavorites = listing.favorites.all;
-        const favoriteUserIds = allFavorites.map(favorite => favorite.user_id);
-        console.log(favoriteUserIds)
-        return favoriteUserIds.includes(loggedInUser.id);
+    if (listings && !favorites) {
+        const favArr = listings.filter(listing => {
+            const allFavorites = listing.favorites.all;
+            const favoriteUserIds = allFavorites.map(favorite => favorite.user_id);
+            console.log(favoriteUserIds)
+            return favoriteUserIds.includes(loggedInUser.id);
         })
+        setFavorites(favArr)
     }
 
     // -> LOGS <- \\
@@ -79,6 +81,7 @@ const ShopContainer = () => {
                 dispatch(setCategoriesAction([2]));
             }
         }
+
     }
 
     useEffect(() => {
@@ -137,7 +140,11 @@ const ShopContainer = () => {
     };
 
     const renderListings = () => {
-        filteredListings = listings;
+        if (favorites) {
+            filteredListings = favorites
+        } else {
+            filteredListings = listings;
+        }
 
         const filterListings = (currentListings, filter) => {
             // debugger
