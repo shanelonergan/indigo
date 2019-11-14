@@ -96,6 +96,11 @@ const ShopContainer = () => {
                 dispatch(setMillsAction([[2]]))
             }
         }
+        if (searchPhrase === '3sixteen') {
+            if (!appliedFilters.brand_id) {
+                dispatch(setBrandsAction([[3]]))
+            }
+        }
 
     }
 
