@@ -27,10 +27,19 @@ import {
 const ShopContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const queryString = require('query-string')
     let filteredListings = [];
-    // let favorites = []
+
+    // -> URL VARIABLES
     const urlArr = window.location.href.split('/');
     const slug = urlArr[4];
+    const searchParamsString = urlArr[3].split('=')[1]
+    let searchParamsArr = []
+    let searchPhrase = ''
+    if (searchParamsString) {
+        searchParamsArr = searchParamsString.split('+')
+        searchPhrase = searchParamsArr.join(' ')
+    }
 
     // -> REDUX STATE <- \\
     const { brands, categories, conditions, mills, washes } = useSelector(state => state.filters);
@@ -61,6 +70,7 @@ const ShopContainer = () => {
     console.log(favorites);
     console.log(appliedFilters);
     console.log(slug);
+    console.log(searchPhrase)
 
     if (brands && categories && conditions && mills && washes) {
         if (!loaded) {

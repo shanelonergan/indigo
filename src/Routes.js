@@ -20,7 +20,8 @@ const Routes = () => {
             <Route path='/' exact component={HomeContainer} />
             <Route path='/signup' component={FormContainer}/>
             <Route path='/learn' component={LearnContainer}/>
-            <Route path='/listings' component={ShopContainer}/>
+            <Route path='/listings' exact component={ShopContainer}/>
+            <Route path='/listings?' component={ShopContainer}/>
             <Route path='/listings/new' exact component={NewListingContainer} />
             <Route path='/listings/pants' exact component={ShopContainer} />
             <Route path='/listings/shirts' exact component={ShopContainer} />
