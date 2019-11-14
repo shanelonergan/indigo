@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { loginUser } from '../Redux/actions';
 import { Box, Button, FormField, Heading, Layer, TextInput, Text, Anchor } from 'grommet';
 import { Close } from 'grommet-icons';
 
-const LoginForm = ({ onCloseLogIn, history }) => {
+const LoginForm = ({ setOpenLogin, onCloseLogIn, history }) => {
+    const user = useSelector(state => state.user)
+    if (user.username) {
+        onCloseLogIn(false)
+    }
 
     const dispatch = useDispatch();
 
@@ -18,7 +22,10 @@ const LoginForm = ({ onCloseLogIn, history }) => {
         console.log('submit')
         event.preventDefault()
         dispatch(loginUser(loginForm))
-        history.push('/')
+          setLoginForm({
+            username: '',
+            password: ''
+        })
     }
 
     const onChange = event => {

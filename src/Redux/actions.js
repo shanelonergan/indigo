@@ -15,6 +15,11 @@ const clearUserAction = () => ({
   type: 'CLEAR_USER'
 });
 
+const setErrorAction = (error) => ({
+  type: 'SET_ERROR',
+  payload: error
+})
+
 // ==> FETCH <== \\
 
 const createUser = userObj => dispatch => {
@@ -29,7 +34,7 @@ const createUser = userObj => dispatch => {
   fetch(USERS_URL, config)
     .then(res => res.json())
     .then(userObj => {
-        console.log(userObj, "create user")
+      console.log(userObj, "create user")
       dispatch(setUserAction(userObj.user));
       localStorage.setItem('token', userObj.token);
     });
@@ -59,8 +64,16 @@ const loginUser = userCredentials => dispatch => {
   fetch(LOGIN_URL, config)
     .then(res => res.json())
     .then(userObj => {
-      dispatch(setUserAction(userObj.user));
-      localStorage.setItem('token', userObj.token);
+      console.log(userObj)
+      if (userObj.error) {
+        console.log(userObj.error)
+        // dispatch(setErrorAction(userObj))
+        localStorage.setItem('error', userObj.error)
+      } else {
+        dispatch(setUserAction(userObj.user));
+        localStorage.clear()
+        localStorage.setItem('token', userObj.token);
+      }
     });
 };
 
