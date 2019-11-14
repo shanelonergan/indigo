@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { loginUser } from '../Redux/actions';
-import { Box, Button, FormField, Heading, Layer, TextInput } from 'grommet';
+import { Box, Button, FormField, Heading, Layer, TextInput, Text, Anchor } from 'grommet';
 import { Close } from 'grommet-icons';
 
 const LoginForm = ({ onCloseLogIn, history }) => {
@@ -42,6 +42,7 @@ const LoginForm = ({ onCloseLogIn, history }) => {
                 width='medium'
                 pad='medium'
                 onSubmit={ onSubmit }
+                background='c2'
             >
                 <Box flex={false} direction='row' justify='between'>
                     <Heading level={2} margin='none'>
@@ -69,6 +70,10 @@ const LoginForm = ({ onCloseLogIn, history }) => {
                             onChange={onChange}
                         />
                     </FormField>
+                    <Box direction='row' align='center' justify='center'>
+                        <Text margin='small'>New? </Text>
+                        <Anchor href="/signup" primary label="Sign up" margin='small' color='control'/>
+                    </Box>
                 </Box>
                 <Box flex={false} as='footer' align='start'>
                     <Button

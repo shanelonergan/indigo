@@ -8,7 +8,7 @@ import {
   Text
 } from 'grommet';
 
-const UserSidebar = ({showUserInfo, onOpenLogIn, setOpenLogIn, openLogIn}) => {
+const UserSidebar = ({showUserInfo, onOpenLogIn, setOpenLogIn, openLogIn, setShowUserInfo}) => {
     const loggedInUser = useSelector(state => state.user)
     const username = loggedInUser.username
     console.log(username)
@@ -21,6 +21,7 @@ const UserSidebar = ({showUserInfo, onOpenLogIn, setOpenLogIn, openLogIn}) => {
 
     const onLogout = () => {
       dispatch(logoutUser())
+      setShowUserInfo(false)
     }
 
   return (

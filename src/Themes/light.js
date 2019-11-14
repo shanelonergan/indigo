@@ -13,11 +13,18 @@ const light = {
         size: '18px',
         height: '20px'
       },
-      button: {
+    },
+    button: {
         border: {
           radius: '0px'
         }
-      },
+    },
+    anchor: {
+      hover: {
+        extend: {
+          color: '#CC0000'
+        }
+      }
     }
   };
 
