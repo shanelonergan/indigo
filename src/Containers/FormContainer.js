@@ -8,6 +8,7 @@ import {
   Form,
   FormField,
   RadioButtonGroup,
+  Text
 } from "grommet";
 
 const FormContainer = ({history}) => {
@@ -31,11 +32,14 @@ const FormContainer = ({history}) => {
 
     const { username, password } = signupForm;
 
-    return (<Box fill align="center" justify="center">
-      <Box width="medium">
+    return (
+    <Box fill align="center" justify="center">
+      <Box height='90vh' width="medium">
+      <Text size='6vh' margin={{top:'medium', bottom:'medium', left: 'small'}} color='brand' weight='bold'>Sign Up</Text>
         <Form
         //   onReset={event => console.log(event)}
           onSubmit={handleSubmit}
+
         >
             <FormField
                 label="Username"
@@ -49,6 +53,7 @@ const FormContainer = ({history}) => {
                 label="Email"
                 name="email"
                 type="email"
+                placeholder='Email'
                 // required
             />
             <FormField
@@ -68,7 +73,7 @@ const FormContainer = ({history}) => {
                 options={["clothing made for men", "clothing made for women", "both"]}
             />
             <Box direction="row" justify="between" margin={{ top: "medium" }}>
-                <Button type="submit" label="Sign Up" primary />
+                <Button type="submit" label="Sign Up" fill color='brand'/>
             </Box>
         </Form>
       </Box>
