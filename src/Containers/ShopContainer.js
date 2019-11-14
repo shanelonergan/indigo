@@ -232,7 +232,7 @@ const ShopContainer = () => {
     };
 
     return (
-        <Box fill>
+        <Box fill overflow='hidden'>
             {loaded ? (
                 <Grid
                     fill={true}
@@ -247,7 +247,8 @@ const ShopContainer = () => {
                 >
                     <Box
                         gridArea='sidebar'
-                        flex='grow'
+                        // fill='vertical'
+                        // position='fixed'
                         background='c2'
                         width='250px'
                         height='100vh'
@@ -302,6 +303,7 @@ const ShopContainer = () => {
                         gridArea='main'
                         justify='center'
                         align='center'
+                        overflow='scroll'
                     >
                         {listings ? renderListings() : null}
                     </Box>
