@@ -81,7 +81,7 @@ const LoginForm = ({ onCloseLogIn, history }) => {
                         label='Submit'
                         fill={true}
                         onClick={onSubmit}
-                        primary
+
                     />
                 </Box>
             </Box>

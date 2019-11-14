@@ -27,7 +27,8 @@ const SearchBar = () => {
                     <Button
                         type='submit'
                         label='Submit'
-                        primary
+                        // primary
+                        fill='horizontal'
                         onSubmit={handleSubmit}
                     />
                 </Form>

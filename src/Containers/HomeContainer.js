@@ -36,7 +36,7 @@ const HomeContainer = () => {
                                 fill={true}
                                 onClick={handleShop}
                                 color='brand'
-                                primary
+                                // primary
                             />
                         </Box>
                         <Box justify='center' align='center' justify='center'>
@@ -54,7 +54,7 @@ const HomeContainer = () => {
                                 fill={true}
                                 onClick={handleLearn}
                                 color='brand'
-                                primary
+                                // primary
                             />
                         </Box>
                     </Grid>
