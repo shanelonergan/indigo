@@ -14,22 +14,30 @@ import {
 const SearchBar = () => {
     const history = useHistory();
     const [searchParams, setSearchParams] = useState({
-        text: []
+        text: ''
     });
+    const handleChange = event => {
+        setSearchParams({
+            ...searchParams,
+            [event.target.name]: event.target.value
+        });
+    }
     const handleSubmit = () => {
-        history.push('/listings?');
+        const textArr = searchParams.text.split(' ')
+        const textSlug = textArr.join('+')
+        console.log(textSlug)
+        history.push(`/listings?text=${textSlug}`);
     };
     const renderDropContent = () => {
         return (
-            <Box pad='large' background='brand'>
+            <Box pad='large' background='brand' onSubmit={handleSubmit}>
                 <Form>
-                    <FormField name='text' />
+                    <FormField name='text' onChange={handleChange}/>
                     <Button
                         type='submit'
                         label='Submit'
                         // primary
                         fill='horizontal'
-                        onSubmit={handleSubmit}
                     />
                 </Form>
             </Box>
