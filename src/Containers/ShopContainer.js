@@ -147,6 +147,10 @@ const ShopContainer = () => {
         history.push(`/listings/${listingId}`);
     };
 
+    useEffect(() => {
+        dispatch(clearAppliedFiltersAction());
+    }, []);
+
     const clearFilters = () => {
 
         dispatch(clearAppliedFiltersAction());
