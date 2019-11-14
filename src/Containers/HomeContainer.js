@@ -15,6 +15,12 @@ const HomeContainer = () => {
     const handleLearn = () => {
         history.push('/learn');
     };
+    const handleMill = millName => {
+        history.push(`/listings/${millName}`)
+    }
+    const handleBrand = brandName => {
+        history.push(`/listings/${brandName}`)
+    }
 
     return (
         <Box pad='small' gap='small' align='center' justify='center'>
@@ -82,7 +88,7 @@ const HomeContainer = () => {
                             overflow='auto'
                             margin='small'
                         >
-                            <Stack anchor='center'>
+                            <Stack anchor='center' onClick={() => handleMill('Kuroki Mills')}>
                                 <Carousel play={4000}>
                                     <Image
                                         src='https://i.pinimg.com/originals/c8/33/e7/c833e7442bcd0547f69ee3353bad4c85.jpg'
@@ -108,7 +114,7 @@ const HomeContainer = () => {
                             overflow='hidden'
                             margin='small'
                         >
-                            <Stack anchor='center'>
+                            <Stack anchor='center' onClick={() => handleBrand('3sixteen')}>
                                 <Carousel fill play={4000}>
                                     <Image
                                         fit='cover'
