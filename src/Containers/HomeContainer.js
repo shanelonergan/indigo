@@ -16,10 +16,14 @@ const HomeContainer = () => {
         history.push('/learn');
     };
     const handleMill = millName => {
-        history.push(`/listings/${millName}`)
+        const textArr = millName.split(' ')
+        const textSlug = textArr.join('+')
+        history.push(`/listings?mill=${textSlug}`)
     }
     const handleBrand = brandName => {
-        history.push(`/listings/${brandName}`)
+        const textArr = brandName.split(' ')
+        const textSlug = textArr.join('+')
+        history.push(`/listings?brand=${textSlug}`)
     }
 
     return (
