@@ -47,7 +47,7 @@ const ShopContainer = () => {
     const [loaded, setLoaded] = useState(false);
     const [favorites, setFavorites] = useState('')
 
-    if (listings && !favorites) {
+    if (listings && !favorites && slug ==='favorites') {
         const favArr = listings.filter(listing => {
             const allFavorites = listing.favorites.all;
             const favoriteUserIds = allFavorites.map(favorite => favorite.user_id);
@@ -136,6 +136,7 @@ const ShopContainer = () => {
         setConditionValues('');
         setMillValues('');
         setWashValues('');
+        setFavorites('')
         history.push('/listings');
     };
 
