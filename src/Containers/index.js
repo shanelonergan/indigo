@@ -4,6 +4,7 @@ import HomeContainer from './HomeContainer'
 import ShopContainer from './ShopContainer'
 import NewListingContainer from './NewListingContainer'
 import ListingContainer from './ListingContainer'
+import LearnContainer from './LearnContainer'
 
 export {
     MainContainer,
@@ -12,4 +13,5 @@ export {
     ShopContainer,
     NewListingContainer,
     ListingContainer,
+    LearnContainer
 }

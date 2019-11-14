@@ -12,6 +12,9 @@ const HomeContainer = () => {
     const handleSell = () => {
         history.push('/listings/new');
     };
+    const handleLearn = () => {
+        history.push('/learn');
+    };
 
     return (
         <Box pad='small' gap='small' align='center' justify='center'>
@@ -49,7 +52,7 @@ const HomeContainer = () => {
                             <Button
                                 label='learn'
                                 fill={true}
-                                onClick={() => {}}
+                                onClick={handleLearn}
                                 color='brand'
                                 primary
                             />
