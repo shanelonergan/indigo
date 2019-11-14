@@ -84,9 +84,9 @@ const ListingContainer = props => {
                             responsive={true}
                             height='80vh'
                             width='36vw'
-                            overflow='hidden'
+                            overflow='auto'
                         >
-                            <Carousel>
+                            <Carousel fill>
                                 <Image
                                     fit='cover'
                                     src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745'
@@ -166,6 +166,7 @@ const ListingContainer = props => {
                                                 label='Purchase'
                                                 margin={{ right: 'medium' }}
 
+                                                color='brand'
                                                 primary
                                             />
                                         </StripeCheckout>

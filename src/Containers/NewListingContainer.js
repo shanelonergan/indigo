@@ -77,10 +77,14 @@ const NewListingContainer = () => {
             { loaded === true ?
 
             <Box width='medium'>
-                <Text size='6vh' margin={{top:'medium', bottom:'medium'}} color='brand' weight='bold'>Create a listing</Text>
+                <Box width='100vw' align='center'>
+                    <Text size='6vh' margin={{top:'medium', bottom:'medium'}} color='brand' weight='bold'>Create a listing</Text>
+                </Box>
+
 
                 <Form onSubmit={handleSubmit} >
-                    <Text>Item Details</Text>
+                <Text>Item Details</Text>
+
                     <FormField
                         placeholder='item name'
                         name='name'
@@ -103,7 +107,7 @@ const NewListingContainer = () => {
                     /> */}
 
                     <FormField
-                        placeholder='waist'
+                        label='waist'
                         name='waist'
                         type='number'
                         value={newListingForm.waist}
@@ -111,6 +115,7 @@ const NewListingContainer = () => {
 
                     />
                     <FormField
+                        label='length'
                         placeholder='length'
                         name='length'
                         type='number'
@@ -118,7 +123,6 @@ const NewListingContainer = () => {
                         onChange={handleChange}
 
                     />
-                    <Text>Denim details</Text>
 
 
                     <FilterSelector handleChange={handleDropDownChange} filterObj={washes} name='wash'singleSelectValue={newListingForm.wash_id} multiple={false} required/>
@@ -126,13 +130,13 @@ const NewListingContainer = () => {
                     <FilterSelector handleChange={handleDropDownChange} filterObj={mills}  name='mill'singleSelectValue={newListingForm.mill_id} multiple={false} required/>
 
                     <FormField
-                        placeholder='denim weight (oz)'
+                        label='denim weight (oz)'
                         name='weight'
                         type='number'
                         value={newListingForm.weight}
                         onChange={handleChange}
                     />
-                    <h4>description</h4>
+
                     <FormField
                         placeholder='item description'
                         name='description'
