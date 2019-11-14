@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Cart, User, Login, Search, Favorite } from 'grommet-icons';
-import { Box, Button, Heading, Image, DropButton, Form, FormField } from 'grommet';
-
-const renderDropContent = () => {
-    return (
-        <Box pad='large' background='light-2'>
-            <Form>
-                <FormField name='text' label='Search' />
-                <Button type='submit' label='Submit' primary />
-            </Form>
-        </Box>
-    )
-}
+import {
+    Box,
+    Button,
+    Heading,
+    Image,
+    DropButton,
+    Form,
+    FormField
+} from 'grommet';
 
 const SearchBar = () => {
+    const history = useHistory();
+    const [searchParams, setSearchParams] = useState({
+        text: []
+    });
+    const handleSubmit = () => {
+        history.push('/listings?');
+    };
+    const renderDropContent = () => {
+        return (
+            <Box pad='large' background='brand'>
+                <Form>
+                    <FormField name='text' />
+                    <Button
+                        type='submit'
+                        label='Submit'
+                        primary
+                        onSubmit={handleSubmit}
+                    />
+                </Form>
+            </Box>
+        );
+    };
     return (
         <DropButton
             icon={<Search />}

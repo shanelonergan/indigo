@@ -7,6 +7,7 @@
     "grommet": "^2.7.11",
     "grommet-icons": "^4.3.0",
     "grommet-theme-dxc": "^0.1.2",
+    "query-string": "^6.9.0",
     "react": "^16.11.0",
     "react-css-loaders": "0.0.5",
     "react-dom": "^16.11.0",
