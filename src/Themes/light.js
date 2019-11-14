@@ -17,7 +17,7 @@ const light = {
     button: {
         border: {
           radius: '0px'
-        }
+        },
     },
     anchor: {
       hover: {
@@ -25,6 +25,11 @@ const light = {
           color: '#CC0000'
         }
       }
+    },
+    text: {
+      medium: {
+          size: '1.25vw'
+        }
     }
   };
 
