@@ -91,6 +91,11 @@ const ShopContainer = () => {
                 dispatch(setCategoriesAction([2]));
             }
         }
+        if (searchPhrase === 'Kuroki Mills') {
+            if (!appliedFilters.mill_id) {
+                dispatch(setMillsAction([[2]]))
+            }
+        }
 
     }
 
