@@ -212,14 +212,14 @@ const ShopContainer = () => {
             {loaded ? (
                 <Grid
                     fill={true}
-                    // overflow='hidden'
+
                     rows={['auto', 'flex']}
                     columns={['auto', 'flex']}
                     areas={[
                         { name: 'sidebar', start: [0, 1], end: [0, 1] },
                         { name: 'main', start: [1, 1], end: [1, 1] }
                     ]}
-                    // flex='grow'
+
                 >
                     <Box
                         gridArea='sidebar'
@@ -278,7 +278,6 @@ const ShopContainer = () => {
                         gridArea='main'
                         justify='center'
                         align='center'
-                        // overflow='scroll'
                     >
                         {listings ? renderListings() : null}
                     </Box>
