@@ -77,16 +77,16 @@ const HomeContainer = () => {
                     </Box>
                     <Box direction='row'>
                         <Box
-                            height='medium'
+                            height='auto'
                             width='large'
-                            overflow='hidden'
+                            overflow='auto'
                             margin='small'
                         >
                             <Stack anchor='center'>
-                                <Carousel fill>
+                                <Carousel play={4000}>
                                     <Image
-                                        fit='cover'
                                         src='https://i.pinimg.com/originals/c8/33/e7/c833e7442bcd0547f69ee3353bad4c85.jpg'
+
                                     />
                                     <Image
                                         fit='cover'
@@ -97,34 +97,34 @@ const HomeContainer = () => {
                                         src='https://i.pinimg.com/originals/82/12/73/821273bc6c2f54f6fa5e55060c4314e1.jpg'
                                     />
                                 </Carousel>
-                                <Text weight='bold' color='focus' size='10vw'>
+                                <Text weight='bold' color='focus' size='9vw'>
                                     Kuroki Mills
                                 </Text>
                             </Stack>
                         </Box>
                         <Box
-                            height='medium'
+                            height='auto'
                             width='large'
                             overflow='hidden'
                             margin='small'
                         >
                             <Stack anchor='center'>
-                                <Carousel fill>
+                                <Carousel fill play={4000}>
                                     <Image
                                         fit='cover'
                                         src='https://i2.wp.com/auntay.com/wp-content/uploads/2018/01/20180119-DSCF6843-2-e1525548321456.jpg?ssl=1'
                                     />
                                     <Image
                                         fit='cover'
-                                        src='//v2.grommet.io/assets/IMG_4245.jpg'
+                                        src='https://www.gessato.com/wp-content/uploads/2019/05/3sixteen-rinsed-kibata-jeans-2.jpg'
                                     />
                                     <Image
                                         fit='cover'
-                                        src='//v2.grommet.io/assets/IMG_4210.jpg'
+                                        src='https://pbs.twimg.com/media/CF-B25XWgAAyuKA.jpg'
                                     />
                                 </Carousel>
-                                <Text weight='bold' color='focus' size='10vw'>
-                                    3Sixteen
+                                <Text weight='bold' color='focus' size='9vw'>
+                                    3sixteen
                                 </Text>
                             </Stack>
                         </Box>
