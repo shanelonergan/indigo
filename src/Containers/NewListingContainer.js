@@ -77,10 +77,10 @@ const NewListingContainer = () => {
             { loaded === true ?
 
             <Box width='medium'>
-                <Text size='large' weight='bold' color='brand' margin={{'top':'small', 'bottom':'small'}}>Add a new listing</Text>
+                <Text size='6vh' margin={{top:'medium', bottom:'medium'}} color='brand' weight='bold'>Create a listing</Text>
 
                 <Form onSubmit={handleSubmit} >
-                    <h4>item details</h4>
+                    <Text>Item Details</Text>
                     <FormField
                         placeholder='item name'
                         name='name'
@@ -118,7 +118,7 @@ const NewListingContainer = () => {
                         onChange={handleChange}
 
                     />
-                    <h4>denim details</h4>
+                    <Text>Denim details</Text>
 
 
                     <FilterSelector handleChange={handleDropDownChange} filterObj={washes} name='wash'singleSelectValue={newListingForm.wash_id} multiple={false} required/>
@@ -163,7 +163,9 @@ const NewListingContainer = () => {
 
             </Box>
             :
-            <ResizeSpinLoader color='#00004D' /> }
+            (<Box justify='center' align='center' height='100vh'>
+                    <ResizeSpinLoader color='#00004D' />
+            </Box>)}
         </Box>
     );
 };

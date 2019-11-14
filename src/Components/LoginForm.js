@@ -7,8 +7,11 @@ import { Close } from 'grommet-icons';
 
 const LoginForm = ({ setOpenLogin, onCloseLogIn, history }) => {
     const user = useSelector(state => state.user)
+    console.log(user)
     if (user.username) {
         onCloseLogIn(false)
+    } else if (user.error) {
+        alert('user not found')
     }
 
     const dispatch = useDispatch();

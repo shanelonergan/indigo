@@ -232,7 +232,7 @@ const HomeContainer = () => {
                 </Box>
             </Box>
             <Box>
-                <div>footer</div>
+                {/* <div>footer</div> */}
             </Box>
         </Box>
     );

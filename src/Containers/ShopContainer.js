@@ -204,7 +204,7 @@ const ShopContainer = () => {
 
         return (
             <>
-                <Box>filters</Box>
+                {/* <Box>filters</Box> */}
                 <Box fill>
                     <Grid
                         columns='15vw'
