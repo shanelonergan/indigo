@@ -23,7 +23,7 @@ const HomeContainer = () => {
                     <Grid
                         rows={['flex']}
                         columns={['20vw', '20vw', '20vw']}
-                        gap='xlarge'
+                        gap='8vw'
                     >
                         <Box
                             align='center'
