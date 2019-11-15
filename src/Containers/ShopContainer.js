@@ -172,7 +172,6 @@ const ShopContainer = () => {
         }
 
         const filterListings = (currentListings, filter) => {
-            // debugger
 
             const intFilterIds = appliedFilters[filter + '_id'].map(
                 stringFilterId => parseInt(stringFilterId)
@@ -208,7 +207,6 @@ const ShopContainer = () => {
 
         return (
             <>
-                {/* <Box>filters</Box> */}
                 <Box fill>
                     <Grid
                         columns='15vw'

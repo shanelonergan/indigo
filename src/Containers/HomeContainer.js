@@ -46,7 +46,6 @@ const HomeContainer = () => {
                                 fill={true}
                                 onClick={handleShop}
                                 color='brand'
-                                // primary
                             />
                         </Box>
                         <Box justify='center' align='center' justify='center'>
@@ -64,7 +63,6 @@ const HomeContainer = () => {
                                 fill={true}
                                 onClick={handleLearn}
                                 color='brand'
-                                // primary
                             />
                         </Box>
                     </Grid>
@@ -72,8 +70,6 @@ const HomeContainer = () => {
             </Box>
             <Box pad={{ top: 'medium' }}>
                 <Box
-                    // background='brand'
-                    // pad='medium'
                     width='96vw'
                     height='auto'
                     align='center'
@@ -144,8 +140,6 @@ const HomeContainer = () => {
             <Box
                 pad={{ top: 'medium' }}
                 direction='column'
-                // height='auto'
-                // align='center'
                 width='96vw'
                 height='auto'
                 align='center'
@@ -158,12 +152,6 @@ const HomeContainer = () => {
                     </Text>
                 </Box>
 
-                {/* <Grid
-                    rows={['flex']}
-                    columns={['31.37vw', '31.37vw', '31.37vw']}
-                    gap='small'
-                    align='stretch'
-                > */}
                 <Box direction='row' justify='around'>
                     <Box width='30vw'>
                         <Stack
@@ -175,7 +163,6 @@ const HomeContainer = () => {
                             <Box
                                 align='center'
                                 justify='center'
-                                // background='brand'
                                 height='medium'
                                 justify='center'
                             >
@@ -196,7 +183,6 @@ const HomeContainer = () => {
                             <Box
                                 align='center'
                                 justify='center'
-                                // background='brand'
                                 height='medium'
                                 justify='center'
                             >
@@ -217,7 +203,6 @@ const HomeContainer = () => {
                             <Box
                                 align='center'
                                 justify='center'
-                                // background='brand'
                                 height='medium'
                                 justify='center'
                             >
@@ -228,11 +213,9 @@ const HomeContainer = () => {
                             </Text>
                         </Stack>
                     </Box>
-                    {/* </Grid> */}
                 </Box>
             </Box>
             <Box>
-                {/* <div>footer</div> */}
             </Box>
         </Box>
     );

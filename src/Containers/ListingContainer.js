@@ -195,7 +195,6 @@ const ListingContainer = props => {
                                             border={{ color: 'brand', size: 'medium' }}
                                         >
                                             <Image
-                                                // round='medium'
                                                 fit='cover'
                                                 src={listing.user.img_url}
                                             />
@@ -214,7 +213,6 @@ const ListingContainer = props => {
                     <ResizeSpinLoader color='#00004D'/>
                 )}
             </Box>
-            {/* <Box size='medium'></Box> */}
         </>
     );
 };
