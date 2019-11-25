@@ -1,10 +1,10 @@
 # Indigo
 
-## What is Indigo?
+## Description
 
 A clothing resale application created specifically for denim. It allows listing, sorting, and filtering based on denim specific attributes, creating a marketplace tailored to the needs of new and vintage high-quality denim garments.
 
-## How does it work?
+## Technologies
 
 ### Front-End
 
@@ -25,3 +25,10 @@ Indigo's API is built with Ruby on Rails, utilizing JWT and BCrypt for security,
     npm start
 
 Make sure to visit the repo for the backend and follow those instructions as well.
+
+## Screenshots
+
+![screenshot of Indigo's home page](./app/assets/images/ch-1.png "home page")
+![screenshot of Crypto Hero's crypto currency page, listing top 100 coins](./app/assets/images/ch-2.png "cryptos")
+![screenshot of Crypto Hero's bitcoin exchange page, where a buyer can sell or buy bitcoin](./app/assets/images/ch-3.png "bitcoin")
+![screenshot of Crypto Hero's user portfolio page](./app/assets/images/ch-4.png "user portfolio")
