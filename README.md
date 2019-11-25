@@ -25,28 +25,28 @@ Inspired by applications like Grailed and Poshmark, Indigo aims to cater exclusi
 
 ### Front-End
 
--   Framework
-    -   [React](www.github.com/react)
--   State Management
-    -   [Redux](link)
-    -   [React Hooks](link)
--   Routing
-    -   [React Router](link)
--   User Interface
-    -   [Grommet](www.github.com/grommet)
+- Framework
+  - [React](www.github.com/react)
+- State Management
+  - [Redux](link)
+  - [React Hooks](link)
+- Routing
+  - [React Router](link)
+- User Interface
+  - [Grommet](www.github.com/grommet)
 
 ### Back-End
 
 [Link to Back-End Repo](https://github.com/shanelonergan/indigo-api)
 
--   API
-    -   [Ruby on Rails](link)
-    -   [Active Model Serializer](link)
--   Database
-    -   [PostgreSQL](link)
--   Authorization/Authentication
-    -   [JWT](link)
-    -   [BCrypt](link)
+- API
+  - [Ruby on Rails](link)
+  - [Active Model Serializer](link)
+- Database
+  - [PostgreSQL](link)
+- Authorization/Authentication
+  - [JWT](link)
+  - [BCrypt](link)
 
 ### Stripe API
 
@@ -108,6 +108,6 @@ npm install
 npm start
 ```
 
-**Note:** if you are running the front and together with the API, it is recommended that you start the Rails server first, then the NPM server. This will prompt you as to whether you want to run the NPM server on port 3001, to which you should respond yes.
+**Note:** if you are running the front-end together with the API, it is recommended that you start the Rails server first, then the NPM server. This will prompt you as to whether you want to run the NPM server on port 3001, to which you should respond yes.
 
-Make sure to visit the repo for the backend and follow those instructions as well.
+Make sure to visit the repo for the back-end and follow those instructions as well.
