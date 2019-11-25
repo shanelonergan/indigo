@@ -28,7 +28,7 @@ Make sure to visit the repo for the backend and follow those instructions as wel
 
 ## Screenshots
 
-![screenshot of Indigo's home page, part 1](./assets/img/indigo-home-1.png "home page 1")
+![screenshot of Indigo's home page, part 1](./public/indigo-home-1.png "home page 1")
 ![screenshot of Indigo's home page, part 1](./public/indigo-home-2.png "home page 2")
 ![screenshot of Indigo's shopping page, showing many listings and filters for them](./public/indigo-listings.png "listings")
 ![screenshot of Indigo's new listing form](./public/indigo-new-listing.png "new listing")
