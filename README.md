@@ -28,7 +28,9 @@ Make sure to visit the repo for the backend and follow those instructions as wel
 
 ## Screenshots
 
-![screenshot of Indigo's home page](./app/assets/images/ch-1.png "home page")
-![screenshot of Crypto Hero's crypto currency page, listing top 100 coins](./app/assets/images/ch-2.png "cryptos")
-![screenshot of Crypto Hero's bitcoin exchange page, where a buyer can sell or buy bitcoin](./app/assets/images/ch-3.png "bitcoin")
-![screenshot of Crypto Hero's user portfolio page](./app/assets/images/ch-4.png "user portfolio")
+![screenshot of Indigo's home page, part 1](indigo/public/indigo-home-1.png "home page 1")
+![screenshot of Indigo's home page, part 1](indigo/public/indigo-home-2.png "home page 2")
+![screenshot of Indigo's shopping page, showing many listings and filters for them](indigo/public/indigo-listings.png "listings")
+![screenshot of Indigo's new listing form](indigo/public/indigo-new-listing.png "new listing")
+![screenshot of Indigo's login modal](indigo/public/indigo-login.png "log in")
+![screenshot of Indigo's sign up form](indigo/public/indigo-signup.png "sign up")
