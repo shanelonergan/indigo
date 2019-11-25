@@ -25,10 +25,15 @@ Inspired by applications like Grailed and Poshmark, Indigo aims to cater exclusi
 
 ### Front-End
 
-- [React](www.github.com/react)
-  - Hooks API
-- [Redux](link)
-- [Grommet UI](www.github.com/grommet)
+- Framework
+  - [React](www.github.com/react)
+- State Management
+  - [Redux](link)
+  - [React Hooks](link)
+- Routing
+  - [React Router](link)
+- User Interface
+  - [Grommet](www.github.com/grommet)
 
 ### Back-End
 
@@ -36,11 +41,21 @@ Inspired by applications like Grailed and Poshmark, Indigo aims to cater exclusi
 
 - API
   - [Ruby on Rails](link)
-  - PostgreSQL
   - [Active Model Serializer](link)
+- Database
+  - [PostgreSQL](link)
 - Authorization/Authentication
   - [JWT](link)
   - [BCrypt](link)
+
+### Stripe API
+
+Indigo utilizes the Stripe API to securely handle payment processing. It is integrated using [Stripe-Checkout-React](link). A walkthrough of the relevant code can be found below:
+
+```javascript
+
+```
+
 
 ## Installation
 
