@@ -53,9 +53,27 @@ Inspired by applications like Grailed and Poshmark, Indigo aims to cater exclusi
 Indigo utilizes the Stripe API to securely handle payment processing. It is integrated using [Stripe-Checkout-React](link). A walkthrough of the relevant code can be found below:
 
 ```javascript
+// indigo/src/Routes.js
 
+import React from 'react'
+import { StripeProvider, Elements } from 'react-stripe-elements'
+
+...
+
+const renderListingContainer = () => {
+    return (
+        <StripeProvider apiKey="pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg">
+            <Elements>
+                <ListingContainer/>
+            </Elements>
+        </StripeProvider>
+    )
+}
 ```
 
+```javascript
+
+```
 
 ## Installation
 
