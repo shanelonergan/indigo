@@ -30,19 +30,27 @@ Inspired by applications like Grailed and Poshmark, Indigo aims to cater exclusi
 - [Redux](link)
 - [Grommet UI](www.github.com/grommet)
 
-React hooks and Redux are utilized in order to manage stateful logic, while Grommet UI is utilized to create a cohesive user interface.
-
 ### Back-End
 
 [Link to Back-End Repo](https://github.com/shanelonergan/indigo-api)
 
-Indigo's API is built with Ruby on Rails, utilizing JWT and BCrypt for security, and PostgreSQL for its database. Active Model serializer is utilized to organize JSON responses.
+- API
+  - [Ruby on Rails](link)
+  - PostgreSQL
+  - [Active Model Serializer](link)
+- Authorization/Authentication
+  - [JWT](link)
+  - [BCrypt](link)
 
 ## Installation
 
     Clone the repo and CD inside the directory
+
+    ```bash
     npm install
     npm start
+    ```
+
+    **Note:** if you are running the front and together with the API, it is reccomended that you start the Rails server first, then the NPM server. This will prompt you as to whether you want to run the NPM server on port 3001, to which you should respond yes.
 
 Make sure to visit the repo for the backend and follow those instructions as well.
-
