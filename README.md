@@ -14,39 +14,39 @@ Inspired by applications like Grailed and Poshmark, Indigo aims to cater exclusi
 
 ## Screenshots
 
-![screenshot of Indigo's home page, part 1](./public/indigo-home-1.png "home page 1")
-![screenshot of Indigo's home page, part 1](./public/indigo-home-2.png "home page 2")
-![screenshot of Indigo's shopping page, showing many listings and filters for them](./public/indigo-listings.png "listings")
-![screenshot of Indigo's new listing form](./public/indigo-new-listing.png "new listing")
-![screenshot of Indigo's login modal](./public/indigo-login.png "log in")
-![screenshot of Indigo's sign up form](./public/indigo-signup.png "sign up")
+![screenshot of Indigo's home page, part 1](./public/indigo-home-1.png 'home page 1')
+![screenshot of Indigo's home page, part 1](./public/indigo-home-2.png 'home page 2')
+![screenshot of Indigo's shopping page, showing many listings and filters for them](./public/indigo-listings.png 'listings')
+![screenshot of Indigo's new listing form](./public/indigo-new-listing.png 'new listing')
+![screenshot of Indigo's login modal](./public/indigo-login.png 'log in')
+![screenshot of Indigo's sign up form](./public/indigo-signup.png 'sign up')
 
 ## Technologies
 
 ### Front-End
 
-- Framework
-  - [React](www.github.com/react)
-- State Management
-  - [Redux](link)
-  - [React Hooks](link)
-- Routing
-  - [React Router](link)
-- User Interface
-  - [Grommet](www.github.com/grommet)
+-   Framework
+    -   [React](www.github.com/react)
+-   State Management
+    -   [Redux](link)
+    -   [React Hooks](link)
+-   Routing
+    -   [React Router](link)
+-   User Interface
+    -   [Grommet](www.github.com/grommet)
 
 ### Back-End
 
 [Link to Back-End Repo](https://github.com/shanelonergan/indigo-api)
 
-- API
-  - [Ruby on Rails](link)
-  - [Active Model Serializer](link)
-- Database
-  - [PostgreSQL](link)
-- Authorization/Authentication
-  - [JWT](link)
-  - [BCrypt](link)
+-   API
+    -   [Ruby on Rails](link)
+    -   [Active Model Serializer](link)
+-   Database
+    -   [PostgreSQL](link)
+-   Authorization/Authentication
+    -   [JWT](link)
+    -   [BCrypt](link)
 
 ### Stripe API
 
@@ -72,18 +72,42 @@ const renderListingContainer = () => {
 ```
 
 ```javascript
+import StripeCheckout from 'react-stripe-checkout';
 
+...
+
+<Box direction='row' align='center' alignSelf='center'>
+    <StripeCheckout
+        stripeKey='pk_test_LEfFcUQR5pRWI12plUR9V4Rq00MrKBR0Bg'
+        amount={listing.price * 100} // stripe price is in cents
+        currency='USD'
+        token={onToken}
+        panelLabel='Purchase for {{amount}}'
+        ComponentClass='div'
+        name='indigo'
+        shippingAddress
+    >
+        <Button
+            icon={<Stripe />}
+            label='Purchase'
+            margin={{ right: 'medium' }}
+
+            color='brand'
+            primary
+        />
+    </StripeCheckout>
+</Box>
 ```
 
 ## Installation
 
-    Clone the repo and CD inside the directory
+Clone the repo and CD inside the directory
 
-    ```bash
-    npm install
-    npm start
-    ```
+```bash
+npm install
+npm start
+```
 
-    **Note:** if you are running the front and together with the API, it is reccomended that you start the Rails server first, then the NPM server. This will prompt you as to whether you want to run the NPM server on port 3001, to which you should respond yes.
+**Note:** if you are running the front and together with the API, it is recommended that you start the Rails server first, then the NPM server. This will prompt you as to whether you want to run the NPM server on port 3001, to which you should respond yes.
 
 Make sure to visit the repo for the backend and follow those instructions as well.
