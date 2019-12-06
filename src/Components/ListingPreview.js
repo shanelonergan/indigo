@@ -1,12 +1,7 @@
 import React, {useEffect } from 'react';
 import { Box, Image, Text } from 'grommet';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useHistory } from "react-router-dom"
-// import { getAllListings } from '../Redux/actions/listingActions';
 
 const ListingPreview = ({listing, handleListing}) => {
-
-    // console.log(listing)
 
     return (
         <Box
