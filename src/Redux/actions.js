@@ -67,7 +67,6 @@ const loginUser = userCredentials => dispatch => {
       console.log(userObj)
       if (userObj.error) {
         console.log(userObj.error)
-        // dispatch(setErrorAction(userObj))
         localStorage.setItem('error', userObj.error)
       } else {
         dispatch(setUserAction(userObj.user));
