@@ -11,3 +11,4 @@
 - animate/color in heart for favorite
 - add number of favorites
 - deploy
+- add learn area
