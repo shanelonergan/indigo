@@ -24,7 +24,6 @@ import {
 const ShopContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const queryString = require('query-string')
     let filteredListings = [];
 
     // -> URL VARIABLES
