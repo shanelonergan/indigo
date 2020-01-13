@@ -1,4 +1,4 @@
-import React, {useEffect } from 'react';
+import React from 'react';
 import { Box, Image, Text } from 'grommet';
 
 const ListingPreview = ({listing, handleListing}) => {
