@@ -15,11 +15,6 @@ const clearUserAction = () => ({
   type: 'CLEAR_USER'
 });
 
-const setErrorAction = (error) => ({
-  type: 'SET_ERROR',
-  payload: error
-})
-
 // ==> FETCH <== \\
 
 const createUser = userObj => dispatch => {
