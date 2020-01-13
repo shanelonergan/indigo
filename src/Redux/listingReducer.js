@@ -7,11 +7,6 @@ export default (state = [], { type, payload }) => {
             return {...state, allListings: [ ...payload ]};
         case 'SET_LISTING':
             return {...state, currentListing: payload}
-        case 'SET_LISTINGS_CATEGORY':
-        case 'SET_LISTINGS_BRANDS':
-        case 'SET_LISTINGS_CONDITIONS':
-        case 'SET_LISTINGS_MILL':
-        case 'SET_LISTINGS_WASH':
 
         default:
             console.log('default')
