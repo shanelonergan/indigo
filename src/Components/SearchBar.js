@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Cart, User, Login, Search, Favorite } from 'grommet-icons';
+import { Search } from 'grommet-icons';
 import {
     Box,
     Button,
-    Heading,
-    Image,
     DropButton,
     Form,
     FormField

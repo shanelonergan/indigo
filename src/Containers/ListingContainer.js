@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { getListing } from '../Redux/actions/listingActions';
 import { createTransaction } from '../Redux/actions/transactionActions';
-import { Stripe, Transaction, Favorite } from 'grommet-icons';
+import { Stripe, Favorite } from 'grommet-icons';
 import { Box, Image, Text, Button, Carousel } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 

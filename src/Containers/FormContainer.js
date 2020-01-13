@@ -7,7 +7,7 @@ import {
   Button,
   Form,
   FormField,
-  RadioButtonGroup,
+  // RadioButtonGroup,
   Text
 } from "grommet";
 
@@ -65,13 +65,13 @@ const FormContainer = ({history}) => {
                 placeholder="Password"
                 required
             />
-            <FormField
+            {/* <FormField
                 label="I am interested in:"
                 name="ampm"
                 component={RadioButtonGroup}
                 pad
                 options={["clothing made for men", "clothing made for women", "both"]}
-            />
+            /> */}
             <Box direction="row" justify="between" margin={{ top: "medium" }}>
                 <Button type="submit" label="Sign Up" fill color='brand'/>
             </Box>

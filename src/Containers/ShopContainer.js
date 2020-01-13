@@ -5,10 +5,7 @@ import { useHistory } from 'react-router-dom';
 import {
     Box,
     Grid,
-    Text,
-    Image,
     InfiniteScroll,
-    Select,
     Button
 } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
@@ -135,7 +132,7 @@ const ShopContainer = () => {
         }
         if (washValues) {
             const washIds = washValues.map(valueObj => valueObj.id);
-            dispatch(setBrandsAction(washIds));
+            dispatch(setWashesAction(washIds));
             console.log('setting washes');
 
         }

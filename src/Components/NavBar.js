@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Cart, User, Login, Search, Favorite } from 'grommet-icons';
-import { Box, Button, Heading, Image, DropButton } from 'grommet';
+import { Cart, User, Login, Favorite } from 'grommet-icons';
+import { Box, Button, Heading } from 'grommet';
 import { SearchBar } from '../Components'
 
 const NavBar = ({
