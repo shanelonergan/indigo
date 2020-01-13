@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Select } from 'grommet';
+import { Select } from 'grommet';
 
 const FilterSelector = ({
     filterObj,
