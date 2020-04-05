@@ -1,5 +1,14 @@
 # TODO
 
+## urgent
+
+- login not working
+- condition dropdown not working in create listing
+- footer
+
+## stretch
+
+- themes
 - flesh out search function
   - add filters to search form
   - add search handling based on params in listings page
@@ -10,5 +19,9 @@
   - notify users who favorited that listing
 - animate/color in heart for favorite
 - add number of favorites
-- deploy
 - add learn area
+- redirect from sell to sign in
+
+## Done
+
+-deploy

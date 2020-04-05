@@ -1,5 +1,5 @@
 // ==> API CONSTANTS <== \\
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://indigo-api-deployment.herokuapp.com';
 const LISTINGS_URL = BASE_URL + '/listings';
 const SPECIFIC_LISTING_URL = id => LISTINGS_URL + '/' + id;
 

@@ -7,8 +7,8 @@ import { Stripe, Favorite } from 'grommet-icons';
 import { Box, Image, Text, Button, Carousel } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 
-const CHARGES_URL = 'http://localhost:3000/charges';
-const FAVORITES_URL = 'http://localhost:3000/favorites';
+const CHARGES_URL = 'https://indigo-api-deployment.herokuapp.com/charges';
+const FAVORITES_URL = 'https://indigo-api-deployment.herokuapp.com/favorites';
 
 const ListingContainer = props => {
     const dispatch = useDispatch();
@@ -43,6 +43,7 @@ const ListingContainer = props => {
             },
             body: JSON.stringify({ charge: charge, price: price })
         };
+        s
 
         fetch(CHARGES_URL, config)
         .then(res => res.json())
