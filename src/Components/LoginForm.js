@@ -22,7 +22,7 @@ const LoginForm = ({ setOpenLogin, onCloseLogIn, history }) => {
 	})
 
 	const onSubmit = (event) => {
-		console.log('submit')
+		console.log('submit', loginForm)
 		event.preventDefault()
 		dispatch(loginUser(loginForm))
 		setLoginForm({
