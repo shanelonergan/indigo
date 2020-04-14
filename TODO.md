@@ -2,7 +2,6 @@
 
 ## urgent
 
-- login not working
 - condition dropdown not working in create listing
 - footer
 
@@ -24,4 +23,5 @@
 
 ## Done
 
--deploy
+☑️ deploy
+☑️ login not working

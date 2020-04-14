@@ -34,7 +34,6 @@ const HomeContainer = () => {
                         rows={['flex']}
                         columns={['20vw', '20vw', '20vw']}
                         gap='8vw'
-                        fill
                     >
                         <Box
                             align='center'
