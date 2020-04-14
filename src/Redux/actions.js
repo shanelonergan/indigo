@@ -49,6 +49,7 @@ const deleteUser = userId => dispatch => {
 };
 
 const loginUser = userCredentials => dispatch => {
+  console.log(userCredentials)
   const config = {
     method: 'POST',
     headers: {
