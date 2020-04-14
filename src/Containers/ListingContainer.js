@@ -43,7 +43,6 @@ const ListingContainer = props => {
             },
             body: JSON.stringify({ charge: charge, price: price })
         };
-        s
 
         fetch(CHARGES_URL, config)
         .then(res => res.json())
