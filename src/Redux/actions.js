@@ -29,7 +29,6 @@ const createUser = userObj => dispatch => {
   fetch(USERS_URL, config)
     .then(res => res.json())
     .then(userObj => {
-      console.log(userObj, "create user")
       dispatch(setUserAction(userObj.user));
       localStorage.setItem('token', userObj.token);
     });
@@ -63,7 +62,7 @@ const loginUser = userCredentials => dispatch => {
       console.log(userObj)
       if (userObj.error) {
         console.log(userObj.error)
-        localStorage.setItem('error', userObj.error)
+        localStorage.setItem('error', userObj.errorga)
       } else {
         dispatch(setUserAction(userObj.user));
         localStorage.clear()

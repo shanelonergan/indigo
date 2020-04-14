@@ -34,6 +34,7 @@ const HomeContainer = () => {
                         rows={['flex']}
                         columns={['20vw', '20vw', '20vw']}
                         gap='8vw'
+                        fill
                     >
                         <Box
                             align='center'
@@ -82,7 +83,7 @@ const HomeContainer = () => {
                     </Box>
                     <Box direction='row'>
                         <Box
-                            height='auto'
+                            height='fixed'
                             width='large'
                             overflow='auto'
                             margin='small'
@@ -91,14 +92,14 @@ const HomeContainer = () => {
                                 <Carousel play={4000}>
                                     <Image
                                         src='https://i.pinimg.com/originals/c8/33/e7/c833e7442bcd0547f69ee3353bad4c85.jpg'
-
+                                        // fit='cover'
                                     />
                                     <Image
-                                        fit='cover'
+                                        // fit='cover'
                                         src='https://i.pinimg.com/originals/2f/c3/ea/2fc3eaf30218381402388b15536a3249.jpg'
                                     />
                                     <Image
-                                        fit='cover'
+                                        // fit='cover'
                                         src='https://i.pinimg.com/originals/82/12/73/821273bc6c2f54f6fa5e55060c4314e1.jpg'
                                     />
                                 </Carousel>
@@ -116,15 +117,15 @@ const HomeContainer = () => {
                             <Stack anchor='center' onClick={() => handleBrand('3sixteen')}>
                                 <Carousel fill play={4000}>
                                     <Image
-                                        fit='cover'
+                                        // fit='cover'
                                         src='https://i2.wp.com/auntay.com/wp-content/uploads/2018/01/20180119-DSCF6843-2-e1525548321456.jpg?ssl=1'
                                     />
                                     <Image
-                                        fit='cover'
+                                        // fit='cover'
                                         src='https://www.gessato.com/wp-content/uploads/2019/05/3sixteen-rinsed-kibata-jeans-2.jpg'
                                     />
                                     <Image
-                                        fit='cover'
+                                        // fit='cover'
                                         src='https://pbs.twimg.com/media/CF-B25XWgAAyuKA.jpg'
                                     />
                                 </Carousel>
