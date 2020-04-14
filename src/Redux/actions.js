@@ -49,7 +49,6 @@ const deleteUser = userId => dispatch => {
 };
 
 const loginUser = userCredentials => dispatch => {
-  console.log(userCredentials)
   const config = {
     method: 'POST',
     headers: {
@@ -57,6 +56,7 @@ const loginUser = userCredentials => dispatch => {
     },
     body: JSON.stringify(userCredentials)
   };
+  console.log(config, LOGIN_URL)
   fetch(LOGIN_URL, config)
     .then(res => res.json())
     .then(userObj => {
