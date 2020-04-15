@@ -49,14 +49,10 @@ const ListingContainer = (props) => {
 	}
 
 	const createFavorite = (listing) => {
-		console.log(listing)
 		const body = {
 			listing_id: listing.id,
 			user_id: loggedInUser.id,
 		}
-
-		console.log(body)
-
 		const config = {
 			method: 'POST',
 			headers: {
@@ -70,7 +66,9 @@ const ListingContainer = (props) => {
 				.then((res) => res.json())
 				.then(console.log)
 				.then(setFavorited(true))
-		}
+		} else {
+            setFavorited(false)
+        }
 	}
 
 	return (
@@ -146,7 +144,7 @@ const ListingContainer = (props) => {
 												primary
 											/>
 										</StripeCheckout>
-										<Favorite onClick={() => createFavorite(listing)} color={favorited ? 'focus' : 'brand'} />
+										<Favorite onClick={() => createFavorite(listing)} color={favorited ? 'focus' : 'brand'}/>
 									</Box>
 								</Box>
 								<Box direction='column' margin={{ top: 'medium' }} alignSelf='center'>
