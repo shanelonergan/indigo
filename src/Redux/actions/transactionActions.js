@@ -4,7 +4,7 @@ const TRANSACTIONS_URL = BASE_URL + '/transactions';
 
 // ==> FETCH <== \\
 const createTransaction = (listing, loggedInUser) => dispatch => {
-    // debugger
+
     const transactionObj = {
         buyer_id: loggedInUser.id,
         seller_id: listing.user.id,

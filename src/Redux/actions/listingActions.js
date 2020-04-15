@@ -14,10 +14,6 @@ const setAllListingsAction = listingsObj => ({
     payload: listingsObj
 });
 
-// const createListingAction = listingObj => ({
-//     type: 'SET'
-// })
-
 // ==> FETCH <== \\
 const createListing = listingInfo => dispatch => {
     const listingObj = {
