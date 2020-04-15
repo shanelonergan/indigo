@@ -57,10 +57,10 @@ const NavBar = ({
                     <Button icon={<Login />} onClick={onOpenLogIn} />
                 )}
 
-                <Button
+                {/* <Button
                     icon={<Cart />}
                     onClick={() => setShowSidebar(!showSidebar)}
-                />
+                /> */}
             </Box>
         </Box>
     );

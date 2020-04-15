@@ -53,7 +53,7 @@ const ShopContainer = () => {
     const [washValues, setWashValues] = useState('');
     const [loaded, setLoaded] = useState(false);
     const [favorites, setFavorites] = useState('')
-    const [showFilters, setShowFilters] = useState(true)
+    const [showFilters, setShowFilters] = useState(false)
 
     if (listings && !favorites && slug ==='favorites') {
         const favArr = listings.filter(listing => {
@@ -110,33 +110,27 @@ const ShopContainer = () => {
 
     useEffect(() => {
         if (brandValues) {
-            const brandIds = brandValues.map(valueObj => valueObj.id);
-            dispatch(setBrandsAction(brandIds));
-
+        //     const brandIds = brandValues.map(valueObj => valueObj.id);
+            dispatch(setBrandsAction(brandValues));
         }
         if (categoryValues) {
-            const categoryIds = categoryValues.map(valueObj => valueObj.id);
-            dispatch(setCategoriesAction(categoryIds));
-            console.log('setting categorys');
-
+            // const categoryIds = categoryValues.map(valueObj => {
+            //     console.log("valueObj:", valueObj)
+            //     return valueObj.id
+            // });
+            dispatch(setCategoriesAction(categoryValues));
         }
         if (conditionValues) {
-            const conditionIds = conditionValues.map(valueObj => valueObj.id);
-            dispatch(setConditionsAction(conditionIds));
-            console.log('setting conditions');
-
+            // const conditionIds = conditionValues.map(valueObj => valueObj.id);
+            dispatch(setConditionsAction(conditionValues));
         }
         if (millValues) {
-            const millIds = millValues.map(valueObj => valueObj.id);
-            dispatch(setMillsAction(millIds));
-            console.log('setting mills');
-
+            // const millIds = millValues.map(valueObj => valueObj.id);
+            dispatch(setMillsAction(millValues));
         }
         if (washValues) {
-            const washIds = washValues.map(valueObj => valueObj.id);
-            dispatch(setWashesAction(washIds));
-            console.log('setting washes');
-
+            // const washIds = washValues.map(valueObj => valueObj.id);
+            dispatch(setWashesAction(washValues));
         }
     }, [brandValues, categoryValues, conditionValues, millValues, washValues]);
 
@@ -237,8 +231,19 @@ const ShopContainer = () => {
                 <Box>
                     {showFilters
                         ? <FilterSidebar
-                             showFilters={showFilters}
+                            showFilters={showFilters}
                             setShowFilters={setShowFilters}
+                            brandValues={brandValues}
+                            setBrandValues={setBrandValues}
+                            categoryValues={categoryValues}
+                            setCategoryValues={setCategoryValues}
+                            conditionValues={conditionValues}
+                            setConditionValues={setConditionValues}
+                            millValues={millValues}
+                            setMillValues={setMillValues}
+                            washValues={washValues}
+                            setWashValues={setWashValues}
+                            setFavorites={setFavorites}
                         />
                         : null}
                     {/* <Box
