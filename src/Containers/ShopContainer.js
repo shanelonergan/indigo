@@ -185,8 +185,8 @@ const ShopContainer = () => {
 				<Box fill>
 					{size === 'small' ? (
 						<Grid
-							columns='xsmall'
-							rows='small'
+							columns='30vw'
+							rows='25vw'
 						>
 							<InfiniteScroll items={filteredListings} step={8}>
 								{(item) => (
