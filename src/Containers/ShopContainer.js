@@ -11,7 +11,7 @@ import {
 } from 'grommet';
 import { ResizeSpinLoader } from 'react-css-loaders';
 import { getAllListings } from '../Redux/actions/listingActions';
-import { ListingPreview, FilterSelector } from '../Components/';
+import { ListingPreview, FilterSelector, FilterSidebar } from '../Components/';
 import {
     setCategoriesAction,
     setBrandsAction,
@@ -53,6 +53,7 @@ const ShopContainer = () => {
     const [washValues, setWashValues] = useState('');
     const [loaded, setLoaded] = useState(false);
     const [favorites, setFavorites] = useState('')
+    const [showFilters, setShowFilters] = useState(true)
 
     if (listings && !favorites && slug ==='favorites') {
         const favArr = listings.filter(listing => {
@@ -229,19 +230,18 @@ const ShopContainer = () => {
 
     return (
         <Box fill overflow='hidden'>
+            <Box margin='medium'>
+                <Button label='Filters' onClick={() => setShowFilters(true)} />
+            </Box>
             {loaded ? (
-                <Grid
-                    fill={true}
-
-                    rows={['auto', 'flex']}
-                    columns={['auto', 'flex']}
-                    areas={[
-                        { name: 'sidebar', start: [0, 1], end: [0, 1] },
-                        { name: 'main', start: [1, 1], end: [1, 1] }
-                    ]}
-
-                >
-                    <Box
+                <Box>
+                    {showFilters
+                        ? <FilterSidebar
+                             showFilters={showFilters}
+                            setShowFilters={setShowFilters}
+                        />
+                        : null}
+                    {/* <Box
                         gridArea='sidebar'
                         // fill='vertical'
                         // position='fixed'
@@ -293,17 +293,16 @@ const ShopContainer = () => {
                             label='clear filters'
                             margin='small'
                         />
-                    </Box>
+                    </Box> */}
 
                     <Box
-                        gridArea='main'
                         justify='center'
                         align='center'
                         overflow='scroll'
                     >
                         {listings ? renderListings() : null}
                     </Box>
-                </Grid>
+                </Box>
             ) : (
                 <Box justify='center' align='center' height='100vh'>
                     <ResizeSpinLoader color='#00004D' />
