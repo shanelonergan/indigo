@@ -1,7 +1,8 @@
 // -> IMPORTS <- \\
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { SizeContext } from "../SizeContext";
 import {
     Box,
     Grid,
@@ -25,6 +26,7 @@ const ShopContainer = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     let filteredListings = [];
+    const size = useContext(SizeContext)
 
     // -> URL VARIABLES
     const urlArr = window.location.href.split('/');
