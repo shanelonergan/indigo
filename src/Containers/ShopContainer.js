@@ -22,6 +22,7 @@ const ShopContainer = () => {
 	const history = useHistory()
 	let filteredListings = []
 	const size = useContext(SizeContext)
+	console.log(size)
 
 	// -> URL VARIABLES
 	const urlArr = window.location.href.split('/')
@@ -182,10 +183,10 @@ const ShopContainer = () => {
 		return (
 			<>
 				<Box fill>
-					{size === 'medium' || 'large' ? (
+					{size === 'small' ? (
 						<Grid
-							columns='small'
-							rows='medium'
+							columns='xsmall'
+							rows='small'
 						>
 							<InfiniteScroll items={filteredListings} step={8}>
 								{(item) => (
@@ -193,10 +194,11 @@ const ShopContainer = () => {
 								)}
 							</InfiniteScroll>
 						</Grid>
+
 					) : (
 						<Grid
-							columns='xsmall'
-							rows='small'
+							columns='small'
+							rows='medium'
 						>
 							<InfiniteScroll items={filteredListings} step={8}>
 								{(item) => (
