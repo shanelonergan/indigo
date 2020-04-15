@@ -62,7 +62,7 @@ const loginUser = userCredentials => dispatch => {
       console.log(userObj)
       if (userObj.error) {
         console.log(userObj.error)
-        localStorage.setItem('error', userObj.errorga)
+        localStorage.setItem('error', userObj.errors)
       } else {
         dispatch(setUserAction(userObj.user));
         localStorage.clear()
