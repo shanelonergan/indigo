@@ -82,6 +82,8 @@ function App() {
 										setShowSidebar={setShowSidebar}
 										showUserInfo={showUserInfo}
 										setShowUserInfo={setShowUserInfo}
+										setOpenLogIn={setOpenLogIn}
+										openLogIn={openLogIn}
 									/>
 								)}
 
