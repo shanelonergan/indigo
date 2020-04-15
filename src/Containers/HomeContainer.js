@@ -35,19 +35,19 @@ const HomeContainer = () => {
                     align='center'
                     direction='row-responsive'
                     justify='center'
-                    gap='medium'
+                    // gap='medium'
                 >
 					<Box
 						align='center'
 						justify='center'
-						fill
+						fill pad='small'
 					>
 						<Button label='shop' fill={true} onClick={handleShop} color='brand'/>
 					</Box>
-					<Box justify='center' align='center' fill>
+					<Box justify='center' align='center' fill pad='small'>
 						<Button label='sell' fill={true} onClick={handleSell} color='brand' primary />
 					</Box>
-					<Box justify='center' align='center' fill>
+					<Box justify='center' align='center' fill pad='small'>
 						<Button label='learn' fill={true} onClick={handleLearn} color='brand' />
 					</Box>
 				</Box>
@@ -60,7 +60,7 @@ const HomeContainer = () => {
 						</Text>
 					</Box>
 					<Box direction='row-responsive'>
-						<Box height='fixed' width='large' overflow='auto' margin='small'>
+						<Box height='fixed' width='large' overflow='auto' pad='small'>
 							<Stack anchor='center' onClick={() => handleMill('Kuroki Mills')}>
 								<Carousel play={4000}>
 									<Image
@@ -78,7 +78,7 @@ const HomeContainer = () => {
 								</Text>
 							</Stack>
 						</Box>
-						<Box height='auto' width='large' overflow='hidden' margin='small'>
+						<Box height='auto' width='large' overflow='hidden' pad='small'>
 							<Stack anchor='center' onClick={() => handleBrand('3sixteen')}>
 								<Carousel fill play={4000}>
 									<Image
