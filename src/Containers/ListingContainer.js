@@ -75,17 +75,17 @@ const ListingContainer = (props) => {
 
 	return (
 		<>
-			<Box size='medium' direction='row'>
+			<Box size='medium' direction='row-responsive'>
 				{listing ? (
 					<>
-						<Box margin='small' responsive={true} height='80vh' width='36vw' overflow='auto'>
+						<Box margin='small' overflow='auto' height={{'max':'80vh'}} width={{'max':'80vw'}}>
 							<Carousel fill>
 								<Image
-									fit='cover'
+									// fit='cover'
 									src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745'
 								/>
 								<Image
-									fit='cover'
+									// fit='cover'
 									src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'
 								/>
 							</Carousel>
@@ -93,33 +93,33 @@ const ListingContainer = (props) => {
 						<Box
 							border={{ color: 'brand', size: 'medium' }}
 							margin='small'
-							pad='medium'
-							responsive={true}
+							pad='small'
+							// responsive={true}
 							align='center'
 							// justify='center'
-							height='80vh'
-							width='large'
+							// height='80vh'
+							// width='large'
 						>
 							<Box direction='column'>
 								<Box>
 									<Text color='brand' weight='bold' margin='small' alignSelf='center'>
 										{listing.brand.name}
 									</Text>
-									<Box direction='row' justify='between' margin={{ top: 'medium', bottom: 'medium' }}>
-										<Box width='25vw'>
-											<Text margin={{ bottom: 'small' }}>Details:</Text>
+									<Box direction='row-responsive' border justify='between' margin={{ top: 'medium', bottom: 'medium' }}>
+										<Box border>
+											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>Details</Text>
 											<Text margin={{ bottom: 'small' }}>{listing.name}</Text>
 											<Text margin={{ bottom: 'small' }}>wash: {listing.wash.name}</Text>
 											<Text margin={{ bottom: 'small' }}>mill: {listing.mill.name}</Text>
 											<Text margin={{ bottom: 'small' }}>
 												condition: {listing.condition.name}
 											</Text>
-											<Text margin={{ bottom: 'small' }} color='red' weight='bold'>
+											<Text margin={{ bottom: 'small' }} color='focus' weight='bold' alignSelf='center'>
 												$ {listing.price}
 											</Text>
 										</Box>
-										<Box direction='column' width='25vw'>
-											<Text margin={{ bottom: 'small' }}>Description:</Text>
+										<Box direction='column' width='medium' border>
+											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>Description</Text>
 											<Text>
 												Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa
 												cumque aut unde aspernatur id non atque, iure nesciunt voluptas corrupti
@@ -146,7 +146,7 @@ const ListingContainer = (props) => {
 												primary
 											/>
 										</StripeCheckout>
-										<Favorite onClick={() => createFavorite(listing)} background='focus' />
+										<Favorite onClick={() => createFavorite(listing)} color={favorited ? 'focus' : 'brand'} />
 									</Box>
 								</Box>
 								<Box direction='column' margin={{ top: 'medium' }} alignSelf='center'>
