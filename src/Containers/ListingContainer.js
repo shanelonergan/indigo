@@ -21,7 +21,18 @@ const ListingContainer = (props) => {
 
 	const listing = useSelector((state) => state.listings.currentListing)
 	const loggedInUser = useSelector((state) => state.user)
-	const [favorited, setFavorited] = useState(false)
+    const [favorited, setFavorited] = useState(false)
+
+    if(loggedInUser.favorites && listing && loggedInUser.favorites.map(listing => listing.id).includes(listing.id) && !favorited) {
+            setFavorited(true)
+    }
+
+    useEffect(() => {
+        if(loggedInUser) console.log('FAVORITES:', loggedInUser)
+        if(loggedInUser.favorites && loggedInUser.favorites.includes(listing)) {
+            setFavorited(true)
+        }
+    }, []);
 
 	const onToken = (token) => {
 		console.log(token)
