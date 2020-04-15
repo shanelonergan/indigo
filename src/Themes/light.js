@@ -28,7 +28,7 @@ const light = {
     },
     text: {
       medium: {
-          size: '1.25vw'
+          size: '20px'
         }
     }
   };
