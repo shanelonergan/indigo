@@ -37,11 +37,6 @@ const HomeContainer = () => {
                     justify='center'
                     gap='medium'
                 >
-					{/* <Grid
-                        rows={['flex']}
-                        columns={['20vw', '20vw', '20vw']}
-                        gap='8vw'
-                    > */}
 					<Box
 						align='center'
 						justify='center'
@@ -55,7 +50,6 @@ const HomeContainer = () => {
 					<Box justify='center' align='center' fill>
 						<Button label='learn' fill={true} onClick={handleLearn} color='brand' />
 					</Box>
-					{/* </Grid> */}
 				</Box>
 			</Box>
 			<Box pad={{ top: 'medium' }}>
@@ -65,7 +59,7 @@ const HomeContainer = () => {
 							Featured collections:
 						</Text>
 					</Box>
-					<Box direction='row'>
+					<Box direction='row-responsive'>
 						<Box height='fixed' width='large' overflow='auto' margin='small'>
 							<Stack anchor='center' onClick={() => handleMill('Kuroki Mills')}>
 								<Carousel play={4000}>
@@ -79,7 +73,7 @@ const HomeContainer = () => {
 										src='https://i.pinimg.com/originals/82/12/73/821273bc6c2f54f6fa5e55060c4314e1.jpg'
 									/>
 								</Carousel>
-								<Text weight='bold' color='focus' size='9vw'>
+								<Text weight='bold' color='focus' size='8vw'>
 									Kuroki Mills
 								</Text>
 							</Stack>
@@ -97,7 +91,7 @@ const HomeContainer = () => {
 										src='https://pbs.twimg.com/media/CF-B25XWgAAyuKA.jpg'
 									/>
 								</Carousel>
-								<Text weight='bold' color='focus' size='9vw'>
+								<Text weight='bold' color='focus' size='8vw'>
 									3sixteen
 								</Text>
 							</Stack>
@@ -112,15 +106,15 @@ const HomeContainer = () => {
 					</Text>
 				</Box>
 
-				<Box direction='row' justify='around'>
-					<Box width='30vw'>
+				<Box direction='row-responsive' justify='around'>
+					<Box width='30vh' pad='small'>
 						<Stack
 							anchor='center'
 							onClick={() => {
 								history.push('/listings/pants')
 							}}
 						>
-							<Box align='center' justify='center' height='medium'>
+							<Box align='center' justify='center' height='auto'>
 								<Image src='https://cdn.shopify.com/s/files/1/0070/1922/products/LINEN_JEANS_SLIM_1024x1024.jpg?v=1547508728' />
 							</Box>
 							<Text color='white' size='xxlarge'>
@@ -128,14 +122,14 @@ const HomeContainer = () => {
 							</Text>
 						</Stack>
 					</Box>
-					<Box width='30vw'>
+					<Box width='30vh' pad='small'>
 						<Stack
 							anchor='center'
 							onClick={() => {
 								history.push('/listings/shirts')
 							}}
 						>
-							<Box align='center' justify='center' height='medium'>
+							<Box align='center' justify='center' height='auto'>
 								<Image src='https://www.urbanrider.co.uk/media/catalog/product/cache/1/image/85e4522595efc69f496374d01ef2bf13/r/o/rokker-denim-rider-shirt-raw-main.jpg' />
 							</Box>
 							<Text color='white' size='xxlarge'>
@@ -143,14 +137,14 @@ const HomeContainer = () => {
 							</Text>
 						</Stack>
 					</Box>
-					<Box width='30vw'>
+					<Box width='30vh' pad='small'>
 						<Stack
 							anchor='center'
 							onClick={() => {
 								history.push('/listings/jackets')
 							}}
 						>
-							<Box align='center' justify='center' height='medium'>
+							<Box align='center' justify='center' height='auto'>
 								<Image src='https://media.endclothing.com/media/catalog/product/0/6/06-07-2015_apc_rawdenimjacket_indigo_1_jtl.jpg' />
 							</Box>
 							<Text color='white' size='xxlarge'>
