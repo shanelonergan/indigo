@@ -184,22 +184,15 @@ const ShopContainer = () => {
 			<>
 				<Box fill>
 					{size === 'small' ? (
-						<Grid
-							columns='30vw'
-							rows='25vw'
-						>
+						<Grid columns='30vw' rows='25vw'>
 							<InfiniteScroll items={filteredListings} step={8}>
 								{(item) => (
 									<ListingPreview key={item.id} listing={item} handleListing={handleListing} />
 								)}
 							</InfiniteScroll>
 						</Grid>
-
 					) : (
-						<Grid
-							columns='small'
-							rows='medium'
-						>
+						<Grid columns='small' rows='medium'>
 							<InfiniteScroll items={filteredListings} step={8}>
 								{(item) => (
 									<ListingPreview key={item.id} listing={item} handleListing={handleListing} />

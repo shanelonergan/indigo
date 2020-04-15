@@ -21,7 +21,7 @@ const FilterSelector = ({ filterObj, values, setValues, name, multiple, handleCh
 				options={filterObj}
 				onChange={({ value: nextValue }) => {
 					setValues(nextValue)
-                    console.log(nextValue)
+					console.log(nextValue)
 				}}
 			/>
 		)

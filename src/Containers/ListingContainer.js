@@ -13,7 +13,7 @@ const FAVORITES_URL = 'https://indigo-api-deployment.herokuapp.com/favorites'
 
 const ListingContainer = (props) => {
 	const dispatch = useDispatch()
-    const size = useContext(SizeContext)
+	const size = useContext(SizeContext)
 
 	useEffect(() => {
 		const urlArr = window.location.href.split('/')
@@ -23,18 +23,23 @@ const ListingContainer = (props) => {
 
 	const listing = useSelector((state) => state.listings.currentListing)
 	const loggedInUser = useSelector((state) => state.user)
-    const [favorited, setFavorited] = useState(false)
+	const [favorited, setFavorited] = useState(false)
 
-    if(loggedInUser.favorites && listing && loggedInUser.favorites.map(listing => listing.id).includes(listing.id) && !favorited) {
-            setFavorited(true)
-    }
+	if (
+		loggedInUser.favorites &&
+		listing &&
+		loggedInUser.favorites.map((listing) => listing.id).includes(listing.id) &&
+		!favorited
+	) {
+		setFavorited(true)
+	}
 
-    useEffect(() => {
-        if(loggedInUser) console.log('FAVORITES:', loggedInUser)
-        if(loggedInUser.favorites && loggedInUser.favorites.includes(listing)) {
-            setFavorited(true)
-        }
-    }, []);
+	useEffect(() => {
+		if (loggedInUser) console.log('FAVORITES:', loggedInUser)
+		if (loggedInUser.favorites && loggedInUser.favorites.includes(listing)) {
+			setFavorited(true)
+		}
+	}, [])
 
 	const onToken = (token) => {
 		console.log(token)
@@ -80,8 +85,8 @@ const ListingContainer = (props) => {
 				.then(console.log)
 				.then(setFavorited(true))
 		} else {
-            setFavorited(false)
-        }
+			setFavorited(false)
+		}
 	}
 
 	return (
@@ -89,62 +94,67 @@ const ListingContainer = (props) => {
 			<Box size='medium' direction='row-responsive'>
 				{listing ? (
 					<>
-                        {size === 'small' ?
-						<Box margin='small' overflow='auto' >
-							<Carousel fill>
-								<Image
-									// fit='cover'
-									src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745'
-								/>
-								<Image
-									// fit='cover'
-									src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'
-								/>
-							</Carousel>
-						</Box>
-                        :
-                        <Box margin='small'
-                            responsive={true}
-                            height='80vh'
-                            width='36vw'
-                            overflow='auto' >
-							<Carousel fill>
-								<Image
-									fit='cover'
-									src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745'
-								/>
-								<Image
-									fit='cover'
-									src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'
-								/>
-							</Carousel>
-						</Box> }
-						<Box
-							border={{ color: 'brand', size: 'medium' }}
-							margin='small'
-							pad='small'
-							align='center'
-						>
+						{size === 'small' ? (
+							<Box margin='small' overflow='auto'>
+								<Carousel fill>
+									<Image
+										// fit='cover'
+										src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745'
+									/>
+									<Image
+										// fit='cover'
+										src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'
+									/>
+								</Carousel>
+							</Box>
+						) : (
+							<Box margin='small' responsive={true} height='80vh' width='36vw' overflow='auto'>
+								<Carousel fill>
+									<Image
+										fit='cover'
+										src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745'
+									/>
+									<Image
+										fit='cover'
+										src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'
+									/>
+								</Carousel>
+							</Box>
+						)}
+						<Box border={{ color: 'brand', size: 'medium' }} margin='small' pad='small' align='center'>
 							<Box direction='column'>
 								<Box>
 									<Text color='brand' weight='bold' margin='small' alignSelf='center'>
 										{listing.brand.name}
 									</Text>
-									<Box direction='row-responsive' justify='between' margin={{ top: 'medium', bottom: 'medium' }}>
-										<Box >
-											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>Details</Text>
+									<Box
+										direction='row-responsive'
+										justify='between'
+										margin={{ top: 'medium', bottom: 'medium' }}
+									>
+										<Box>
+											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>
+												Details
+											</Text>
 											<Text margin={{ bottom: 'small' }}>{listing.name}</Text>
 											<Text margin={{ bottom: 'small' }}>wash: {listing.wash.name}</Text>
 											<Text margin={{ bottom: 'small' }}>mill: {listing.mill.name}</Text>
 											<Text margin={{ bottom: 'small' }}>
 												condition: {listing.condition.name}
 											</Text>
-											<Text margin={{ bottom: 'small' }} color='focus' weight='bold' alignSelf='center'>
+											<Text
+												margin={{ bottom: 'small' }}
+												color='focus'
+												weight='bold'
+												alignSelf='center'
+											>
 												$ {listing.price}
 											</Text>
 										</Box>
-										<Box direction='column' width='medium' >
-											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>Description</Text>
+										<Box direction='column' width='medium'>
+											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>
+												Description
+											</Text>
 											<Text>
 												Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa
 												cumque aut unde aspernatur id non atque, iure nesciunt voluptas corrupti
@@ -171,7 +181,10 @@ const ListingContainer = (props) => {
 												primary
 											/>
 										</StripeCheckout>
-										<Favorite onClick={() => createFavorite(listing)} color={favorited ? 'focus' : 'brand'}/>
+										<Favorite
+											onClick={() => createFavorite(listing)}
+											color={favorited ? 'focus' : 'brand'}
+										/>
 									</Box>
 								</Box>
 								<Box direction='column' margin={{ top: 'medium' }} alignSelf='center'>

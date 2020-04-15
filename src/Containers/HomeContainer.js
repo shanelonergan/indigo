@@ -1,4 +1,4 @@
-import React, {useContext } from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { SizeContext } from '../SizeContext'
 
@@ -31,19 +31,15 @@ const HomeContainer = () => {
 		<Box pad='medium' gap='small' align='center' justify='center'>
 			<Box pad={{ top: 'medium' }}>
 				<Box
-                    width='96vw'
-                    height='auto'
-                    align='center'
-                    direction='row-responsive'
-                    justify='center'
-                    // gap='medium'
-                >
-					<Box
-						align='center'
-						justify='center'
-						fill pad='small'
-					>
-						<Button label='shop' fill={true} onClick={handleShop} color='brand'/>
+					width='96vw'
+					height='auto'
+					align='center'
+					direction='row-responsive'
+					justify='center'
+					// gap='medium'
+				>
+					<Box align='center' justify='center' fill pad='small'>
+						<Button label='shop' fill={true} onClick={handleShop} color='brand' />
 					</Box>
 					<Box justify='center' align='center' fill pad='small'>
 						<Button label='sell' fill={true} onClick={handleSell} color='brand' primary />
@@ -64,15 +60,9 @@ const HomeContainer = () => {
 						<Box height='fixed' width='large' overflow='auto' pad='small'>
 							<Stack anchor='center' onClick={() => handleMill('Kuroki Mills')}>
 								<Carousel play={4000}>
-									<Image
-										src='https://i.pinimg.com/originals/c8/33/e7/c833e7442bcd0547f69ee3353bad4c85.jpg'
-									/>
-									<Image
-										src='https://i.pinimg.com/originals/2f/c3/ea/2fc3eaf30218381402388b15536a3249.jpg'
-									/>
-									<Image
-										src='https://i.pinimg.com/originals/82/12/73/821273bc6c2f54f6fa5e55060c4314e1.jpg'
-									/>
+									<Image src='https://i.pinimg.com/originals/c8/33/e7/c833e7442bcd0547f69ee3353bad4c85.jpg' />
+									<Image src='https://i.pinimg.com/originals/2f/c3/ea/2fc3eaf30218381402388b15536a3249.jpg' />
+									<Image src='https://i.pinimg.com/originals/82/12/73/821273bc6c2f54f6fa5e55060c4314e1.jpg' />
 								</Carousel>
 								<Text weight='bold' color='focus' size='8vw'>
 									Kuroki Mills
@@ -82,15 +72,9 @@ const HomeContainer = () => {
 						<Box height='auto' width='large' overflow='hidden' pad='small'>
 							<Stack anchor='center' onClick={() => handleBrand('3sixteen')}>
 								<Carousel fill play={4000}>
-									<Image
-										src='https://i2.wp.com/auntay.com/wp-content/uploads/2018/01/20180119-DSCF6843-2-e1525548321456.jpg?ssl=1'
-									/>
-									<Image
-										src='https://www.gessato.com/wp-content/uploads/2019/05/3sixteen-rinsed-kibata-jeans-2.jpg'
-									/>
-									<Image
-										src='https://pbs.twimg.com/media/CF-B25XWgAAyuKA.jpg'
-									/>
+									<Image src='https://i2.wp.com/auntay.com/wp-content/uploads/2018/01/20180119-DSCF6843-2-e1525548321456.jpg?ssl=1' />
+									<Image src='https://www.gessato.com/wp-content/uploads/2019/05/3sixteen-rinsed-kibata-jeans-2.jpg' />
+									<Image src='https://pbs.twimg.com/media/CF-B25XWgAAyuKA.jpg' />
 								</Carousel>
 								<Text weight='bold' color='focus' size='8vw'>
 									3sixteen
