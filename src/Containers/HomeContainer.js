@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import { SizeContext } from '../SizeContext'
 
 import { Box, Button, Grid, Image, Stack, Text, Carousel } from 'grommet'
 
 const HomeContainer = () => {
-	// TODO: refactor into one large grid
+	const size = useContext(SizeContext)
 	let history = useHistory()
 	const handleShop = () => {
 		history.push('/listings')
@@ -106,7 +107,7 @@ const HomeContainer = () => {
 					</Text>
 				</Box>
 
-				<Box direction='row-responsive' justify='around'>
+				<Box direction='row-responsive' justify='around' gap='large'>
 					<Box width='30vh' pad='small'>
 						<Stack
 							anchor='center'
