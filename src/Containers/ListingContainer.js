@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
 import { getListing } from '../Redux/actions/listingActions'
@@ -6,12 +6,14 @@ import { createTransaction } from '../Redux/actions/transactionActions'
 import { Stripe, Favorite } from 'grommet-icons'
 import { Box, Image, Text, Button, Carousel } from 'grommet'
 import { ResizeSpinLoader } from 'react-css-loaders'
+import { SizeContext } from '../SizeContext'
 
 const CHARGES_URL = 'https://indigo-api-deployment.herokuapp.com/charges'
 const FAVORITES_URL = 'https://indigo-api-deployment.herokuapp.com/favorites'
 
 const ListingContainer = (props) => {
 	const dispatch = useDispatch()
+    const size = useContext(SizeContext)
 
 	useEffect(() => {
 		const urlArr = window.location.href.split('/')
@@ -87,7 +89,8 @@ const ListingContainer = (props) => {
 			<Box size='medium' direction='row-responsive'>
 				{listing ? (
 					<>
-						<Box margin='small' overflow='auto' height={{'max':'80vh'}} width={{'max':'80vw'}}>
+                        {size === 'small' ?
+						<Box margin='small' overflow='auto' >
 							<Carousel fill>
 								<Image
 									// fit='cover'
@@ -99,23 +102,36 @@ const ListingContainer = (props) => {
 								/>
 							</Carousel>
 						</Box>
+                        :
+                        <Box margin='small'
+                            responsive={true}
+                            height='80vh'
+                            width='36vw'
+                            overflow='auto' >
+							<Carousel fill>
+								<Image
+									fit='cover'
+									src='https://images.garmentory.com/images/2574568/large/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464745'
+								/>
+								<Image
+									fit='cover'
+									src='https://images1.garmentory.com/images/2574569/xxl/Railcar-Spikes-X042-Jeans-20190417013220.jpg?1555464746'
+								/>
+							</Carousel>
+						</Box> }
 						<Box
 							border={{ color: 'brand', size: 'medium' }}
 							margin='small'
 							pad='small'
-							// responsive={true}
 							align='center'
-							// justify='center'
-							// height='80vh'
-							// width='large'
 						>
 							<Box direction='column'>
 								<Box>
 									<Text color='brand' weight='bold' margin='small' alignSelf='center'>
 										{listing.brand.name}
 									</Text>
-									<Box direction='row-responsive' border justify='between' margin={{ top: 'medium', bottom: 'medium' }}>
-										<Box border>
+									<Box direction='row-responsive' justify='between' margin={{ top: 'medium', bottom: 'medium' }}>
+										<Box >
 											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>Details</Text>
 											<Text margin={{ bottom: 'small' }}>{listing.name}</Text>
 											<Text margin={{ bottom: 'small' }}>wash: {listing.wash.name}</Text>
@@ -127,7 +143,7 @@ const ListingContainer = (props) => {
 												$ {listing.price}
 											</Text>
 										</Box>
-										<Box direction='column' width='medium' border>
+										<Box direction='column' width='medium' >
 											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>Description</Text>
 											<Text>
 												Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsa
