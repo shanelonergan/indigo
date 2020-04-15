@@ -41,7 +41,7 @@ const NewListingContainer = () => {
 	const handleDropDownChange = (id, name) => {
 		// debugger
 		const nameWithId = name + '_id'
-        console.log(id, nameWithId)
+		console.log(id, nameWithId)
 		setNewListingForm({
 			...newListingForm,
 			[nameWithId]: id,
@@ -53,7 +53,7 @@ const NewListingContainer = () => {
 			...newListingForm,
 			[event.target.name]: event.target.value,
 		})
-        console.log(newListingForm)
+		console.log(newListingForm)
 	}
 
 	const handleSubmit = (event) => {
@@ -68,127 +68,130 @@ const NewListingContainer = () => {
 		<Box fill align='center' justify='center'>
 			{toListings ? <Redirect to='/listings' /> : null}
 			{loaded === true ? (
-				<Box width='medium'>
-					<Box width='100vw' align='center'>
+				<Box>
+					<Box align='center'>
 						<Text size='6vh' margin={{ top: 'medium', bottom: 'medium' }} color='brand' weight='bold'>
 							Create a listing
 						</Text>
 					</Box>
+					<Box margin='medium'>
+						<Form onSubmit={handleSubmit}>
+                        <FormField
+								placeholder='item name'
+								name='name'
+								value={newListingForm.name}
+								onChange={handleChange}
+								required
+							/>
+                        <Box direction='row-responsive' gap='medium'>
+                            <Box direction='column'>
 
-					<Form onSubmit={handleSubmit}>
-						<Text>Item Details</Text>
+							<FilterSelector
+								handleChange={handleDropDownChange}
+								filterObj={brands}
+								name='brand'
+								singleSelectValue={newListingForm.brand_id}
+								multiple={false}
+								required
+							/>
 
-						<FormField
-							placeholder='item name'
-							name='name'
-							value={newListingForm.name}
-							onChange={handleChange}
-							required
-						/>
+							<FilterSelector
+								handleChange={handleDropDownChange}
+								filterObj={categories}
+								name='category'
+								singleSelectValue={newListingForm.category_id}
+								multiple={false}
+								required
+							/>
 
-						<FilterSelector
-							handleChange={handleDropDownChange}
-							filterObj={brands}
-							name='brand'
-							singleSelectValue={newListingForm.brand_id}
-							multiple={false}
-							required
-						/>
+							<FilterSelector
+								handleChange={handleDropDownChange}
+								filterObj={conditions}
+								name='condition'
+								singleSelectValue={newListingForm.condition_id}
+								multiple={false}
+								required
+							/>
+                            <FilterSelector
+								handleChange={handleDropDownChange}
+								filterObj={washes}
+								name='wash'
+								singleSelectValue={newListingForm.wash_id}
+								multiple={false}
+								required
+							/>
 
-						<FilterSelector
-							handleChange={handleDropDownChange}
-							filterObj={categories}
-							name='category'
-							singleSelectValue={newListingForm.category_id}
-							multiple={false}
-							required
-						/>
+							<FilterSelector
+								handleChange={handleDropDownChange}
+								filterObj={mills}
+								name='mill'
+								singleSelectValue={newListingForm.mill_id}
+								multiple={false}
+								required
+							/>
 
-						<FilterSelector
-							handleChange={handleDropDownChange}
-							filterObj={conditions}
-							name='condition'
-							singleSelectValue={newListingForm.condition_id}
-							multiple={false}
-							required
-						/>
-
-						{/* <FormField
+							{/* <FormField
                         name='gender'
                         component={RadioButtonGroup}
                         pad
                         options={['male', 'female', 'unisex']}
                     /> */}
 
-						<FormField
-							label='waist'
-							name='waist'
-							type='number'
-							value={newListingForm.waist}
-							onChange={handleChange}
-						/>
-						<FormField
-							label='length'
-							placeholder='length'
-							name='length'
-							type='number'
-							value={newListingForm.length}
-							onChange={handleChange}
-						/>
-
-						<FilterSelector
-							handleChange={handleDropDownChange}
-							filterObj={washes}
-							name='wash'
-							singleSelectValue={newListingForm.wash_id}
-							multiple={false}
-							required
-						/>
-
-						<FilterSelector
-							handleChange={handleDropDownChange}
-							filterObj={mills}
-							name='mill'
-							singleSelectValue={newListingForm.mill_id}
-							multiple={false}
-							required
-						/>
-
-						<FormField
-							label='denim weight (oz)'
-							name='weight'
-							type='number'
-							value={newListingForm.weight}
-							onChange={handleChange}
-						/>
-
-						<FormField
-							placeholder='item description'
-							name='description'
-							component={TextArea}
-							value={newListingForm.description}
-							onChange={handleChange}
-						/>
-						<FormField
-							label='price'
-							placeholder='price'
-							name='price'
-							type='number'
-							value={newListingForm.price}
-							onChange={handleChange}
-						/>
-						<Box margin={{ top: 'medium', bottom: 'medium' }}>
-							<Button
-								type='submit'
-								label='submit'
-								primary
-								color='brand'
-								alignSelf='center'
-								fill={true}
-								icon={<Checkmark />}
+							</Box>
+                            <Box direction='column'>
+                            <FormField
+								label='waist'
+								name='waist'
+								type='number'
+								value={newListingForm.waist}
+								onChange={handleChange}
 							/>
-						</Box>
-					</Form>
+							<FormField
+								label='length'
+								placeholder='length'
+								name='length'
+								type='number'
+								value={newListingForm.length}
+								onChange={handleChange}
+							/>
+							<FormField
+								label='denim weight (oz)'
+								name='weight'
+								type='number'
+								value={newListingForm.weight}
+								onChange={handleChange}
+							/>
+                            <FormField
+								label='price'
+								placeholder='price'
+								name='price'
+								type='number'
+								value={newListingForm.price}
+								onChange={handleChange}
+							/>
+
+
+                            </Box>
+                            </Box><FormField
+								placeholder='item description'
+								name='description'
+								component={TextArea}
+								value={newListingForm.description}
+								onChange={handleChange}
+							/>
+							<Box margin={{ top: 'medium', bottom: 'medium' }}>
+								<Button
+									type='submit'
+									label='submit'
+									primary
+									color='brand'
+									alignSelf='center'
+									fill={true}
+									icon={<Checkmark />}
+								/>
+							</Box>
+						</Form>
+					</Box>
 				</Box>
 			) : (
 				<Box justify='center' align='center' height='100vh'>
