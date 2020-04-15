@@ -104,26 +104,18 @@ const ShopContainer = () => {
 
 	useEffect(() => {
 		if (brandValues) {
-			//     const brandIds = brandValues.map(valueObj => valueObj.id);
 			dispatch(setBrandsAction(brandValues))
 		}
 		if (categoryValues) {
-			// const categoryIds = categoryValues.map(valueObj => {
-			//     console.log("valueObj:", valueObj)
-			//     return valueObj.id
-			// });
 			dispatch(setCategoriesAction(categoryValues))
 		}
 		if (conditionValues) {
-			// const conditionIds = conditionValues.map(valueObj => valueObj.id);
 			dispatch(setConditionsAction(conditionValues))
 		}
 		if (millValues) {
-			// const millIds = millValues.map(valueObj => valueObj.id);
 			dispatch(setMillsAction(millValues))
 		}
 		if (washValues) {
-			// const washIds = washValues.map(valueObj => valueObj.id);
 			dispatch(setWashesAction(washValues))
 		}
 	}, [brandValues, categoryValues, conditionValues, millValues, washValues])
@@ -194,8 +186,6 @@ const ShopContainer = () => {
 						<Grid
 							columns='small'
 							rows='medium'
-							// fill='horizontal'
-							// align='center'
 						>
 							<InfiniteScroll items={filteredListings} step={8}>
 								{(item) => (
@@ -207,8 +197,6 @@ const ShopContainer = () => {
 						<Grid
 							columns='xsmall'
 							rows='small'
-							// fill='horizontal'
-							// align='center'
 						>
 							<InfiniteScroll items={filteredListings} step={8}>
 								{(item) => (
@@ -246,60 +234,6 @@ const ShopContainer = () => {
 							setFavorites={setFavorites}
 						/>
 					) : null}
-					{/* <Box
-                        gridArea='sidebar'
-                        // fill='vertical'
-                        // position='fixed'
-                        background='c2'
-                        width='250px'
-                        height='100vh'
-                        justify='center'
-                        align='center'
-                    >
-                        <FilterSelector
-                            filterObj={brands}
-                            setValues={setBrandValues}
-                            values={brandValues}
-                            name='brands'
-                            multiple={true}
-                        />
-                        <FilterSelector
-                            filterObj={categories}
-                            setValues={setCategoryValues}
-                            values={categoryValues}
-                            name='categories'
-                            multiple={true}
-                        />
-                        <FilterSelector
-                            filterObj={conditions}
-                            setValues={setConditionValues}
-                            values={conditionValues}
-                            name='conditions'
-                            multiple={true}
-                        />
-                        <FilterSelector
-                            filterObj={mills}
-                            setValues={setMillValues}
-                            values={millValues}
-                            name='mills'
-                            multiple={true}
-                        />
-                        <FilterSelector
-                            filterObj={washes}
-                            setValues={setWashValues}
-                            values={washValues}
-                            name='washes'
-                            multiple={true}
-                        />
-
-                        <Button
-                            onClick={clearFilters}
-                            size='small'
-                            label='clear filters'
-                            margin='small'
-                        />
-                    </Box> */}
-
 					<Box justify='center' align='center' overflow='scroll'>
 						{listings ? renderListings() : null}
 					</Box>
