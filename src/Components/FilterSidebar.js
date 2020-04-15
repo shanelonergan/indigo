@@ -55,9 +55,6 @@ const FilterSidebar = ({
 			</Box>
 			<Box fill background='light-2' align='center' justify='center'>
 				<Box
-					// background='c2'
-					// width='250px'
-					// height='100vh'
 					justify='center'
 					align='center'
 				>

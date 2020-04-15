@@ -36,7 +36,6 @@ const HomeContainer = () => {
 					align='center'
 					direction='row-responsive'
 					justify='center'
-					// gap='medium'
 				>
 					<Box align='center' justify='center' fill pad='small'>
 						<Button label='shop' fill={true} onClick={handleShop} color='brand' />
@@ -139,7 +138,6 @@ const HomeContainer = () => {
 					</Box>
 				</Box>
 			</Box>
-			<Box></Box>
 		</Box>
 	)
 }
