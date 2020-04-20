@@ -10,7 +10,7 @@ Inspired by applications like [Grailed](https://www.grailed.com/) and [Poshmark]
 
 ## Demo
 
-![Gif Demo](https://i.imgur.com/gallery/sQwP2SC.gif)
+![Gif Demo](https://media.giphy.com/media/XAxhTIvKIEA987chtR/giphy.gif)
 
 ## Build Status
 

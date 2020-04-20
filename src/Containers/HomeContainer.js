@@ -91,7 +91,7 @@ const HomeContainer = () => {
 				</Box>
 
 				<Box direction='row-responsive' justify='around' gap='large'>
-					<Box width='30vh' pad='small'>
+					<Box width='35vh' pad='small'>
 						<Stack
 							anchor='center'
 							onClick={() => {
@@ -106,7 +106,7 @@ const HomeContainer = () => {
 							</Text>
 						</Stack>
 					</Box>
-					<Box width='30vh' pad='small'>
+					<Box width='35vh' pad='small'>
 						<Stack
 							anchor='center'
 							onClick={() => {
@@ -121,7 +121,7 @@ const HomeContainer = () => {
 							</Text>
 						</Stack>
 					</Box>
-					<Box width='30vh' pad='small'>
+					<Box width='35vh' pad='small'>
 						<Stack
 							anchor='center'
 							onClick={() => {

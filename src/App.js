@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { SizeContext } from './SizeContext'
 
 // ==> Grommet <== \\
-import { Box, Grommet, ResponsiveContext, Footer, Text } from 'grommet'
+import { Box, Grommet, ResponsiveContext, Footer, Text, Button } from 'grommet'
 import { Grommet as GrommetIcon, Favorite, Reactjs, Github, Twitter, Medium } from 'grommet-icons'
 
 // ==> Themes \\
@@ -106,31 +106,48 @@ function App() {
 							{/* <Box> */}
 
 							<Box direction='column'>
-								<Box direction = 'row'>
-								<Text size='small'>Made with</Text>
-									<Box margin={{'left':'xsmall'}}>
-										<GrommetIcon size='medium' color='accent-2'/>
+								<Box direction='column'>
+									<Box direction='row'>
+										<Text size='small' margin={{ top: 'xxsmall' }}>
+											Made with
+										</Text>
+										<Box margin={{ left: 'xsmall', right: 'xxsmall' }}>
+											<GrommetIcon size='medium' color='accent-2' />
+										</Box>
+										<Text size='small' margin={{ top: 'xxsmall' }}>
+											{' '}
+											,
+										</Text>
+										<Box margin={{ left: 'xsmall', right: 'xxsmall' }}>
+											<Reactjs size='medium' color='#61DBFB' />
+										</Box>
+										<Text size='small' margin={{ top: 'xxsmall' }}>
+											{' '}
+											, and a whole lot of
+										</Text>
+										<Box margin={{ left: 'xsmall', right: 'xxsmall' }}>
+											<Favorite size='medium' color='focus' />
+										</Box>
+										<Text size='small' margin={{ top: 'xxsmall' }}>
+											by Shane Lonergan
+										</Text>
 									</Box>
-									<Text size='small'>,</Text>
-									<Box margin={{'left':'xsmall'}}>
-										<Reactjs size='medium' color='#61DBFB'/>
+									<Box direction='row' alignSelf='center'>
+										<Button icon={<Github />} plain />
+										<Button icon={<Github />} plain />
+										<Button icon={<Github />} plain />
 									</Box>
-									<Text size='small'>, and a </Text>
 								</Box>
-								<Box direction = 'row'>
-									<Text size='small'>whole lot of </Text>
-									<Box margin={{'left':'xsmall', 'right':'xsmall'}}>
-										<Favorite size='medium' color='focus'/>
-									</Box>
-									<Text size='small'>by Shane Lonergan</Text>
-								</Box>
-								</Box>
-								<Box>
-									<Text size='small'>Grommet</Text>
-								</Box>
-								<Box>
-									<Text size='small'>© 2020</Text>
-								</Box>
+							</Box>
+							<Box direction='column'>
+								<Text size='small' margin={{ top: 'xsmall' }}>
+									Indigo is open-source! Check it out on GitHub:
+								</Text>
+								<Button icon={<Github />} plain alignSelf='center' />
+							</Box>
+							<Box>
+								<Text size='small'>© 2020</Text>
+							</Box>
 
 							{/* </Box> */}
 						</Footer>
