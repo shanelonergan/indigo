@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { SizeContext } from './SizeContext'
 
 // ==> Grommet <== \\
-import { Box, Grommet, ResponsiveContext, Footer, Text, Button } from 'grommet'
-import { Grommet as GrommetIcon, Favorite, Reactjs, Github, Twitter, Medium } from 'grommet-icons'
+import { Box, Grommet, ResponsiveContext, Footer, Text, Button, Avatar } from 'grommet'
+import { Grommet as GrommetIcon, Favorite, Reactjs, Github, Twitter, Medium, Linkedin, Add } from 'grommet-icons'
 
 // ==> Themes \\
 import light from './Themes/light'
@@ -102,7 +102,7 @@ function App() {
 								)}
 							</Box>
 						</Box>
-						<Footer background='brand' pad='small'>
+						<Footer background='brand' pad='small' direction='row-responsive'>
 							{/* <Box> */}
 
 							<Box direction='column'>
@@ -129,13 +129,15 @@ function App() {
 											<Favorite size='medium' color='focus' />
 										</Box>
 										<Text size='small' margin={{ top: 'xxsmall' }}>
-											by Shane Lonergan
+											by Shane:
 										</Text>
 									</Box>
-									<Box direction='row' alignSelf='center'>
-										<Button icon={<Github />} plain />
-										<Button icon={<Github />} plain />
-										<Button icon={<Github />} plain />
+									<Box direction='row' alignSelf='center' gap='medium' pad='small'>
+										<Button icon={<Avatar size='small' src='https://avatars2.githubusercontent.com/u/52255508?s=400&u=ca705fb2292c36027735a9b012b720a0ce869649&v=4'/>} plain href='https://shanelonergan.dev' target='_blank'/>
+										<Button icon={<Github />} plain href='https://github.com/shanelonergan' target='_blank'/>
+										<Button icon={<Twitter />} plain href='https://twitter.com/shane__lonergan' target='_blank'/>
+										<Button icon={<Medium />} plain href='https://medium.com/@sptlonergan' target='_blank'/>
+										<Button icon={<Linkedin />} plain href='https://www.linkedin.com/in/shane-lonergan/' target='_blank'/>
 									</Box>
 								</Box>
 							</Box>
@@ -143,13 +145,13 @@ function App() {
 								<Text size='small' margin={{ top: 'xsmall' }}>
 									Indigo is open-source! Check it out on GitHub:
 								</Text>
-								<Button icon={<Github />} plain alignSelf='center' />
-							</Box>
-							<Box>
-								<Text size='small'>© 2020</Text>
+								<Box pad='small' direction='row' alignSelf='center'>
+									<Button icon={<Github />} plain alignSelf='center' pad='small' href='https://github.com/shanelonergan/indigo' target='_blank'/>
+								<Text size='small' margin={{ top: 'xxsmall', left: 'small' }}>© 2020</Text>
+
+								</Box>
 							</Box>
 
-							{/* </Box> */}
 						</Footer>
 					</SizeContext.Provider>
 				)}
