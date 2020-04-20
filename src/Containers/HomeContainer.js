@@ -30,13 +30,7 @@ const HomeContainer = () => {
 	return (
 		<Box pad='medium' gap='small' align='center' justify='center'>
 			<Box pad={{ top: 'medium' }}>
-				<Box
-					width='96vw'
-					height='auto'
-					align='center'
-					direction='row-responsive'
-					justify='center'
-				>
+				<Box width='96vw' height='auto' align='center' direction='row-responsive' justify='center'>
 					<Box align='center' justify='center' fill pad='small'>
 						<Button label='shop' fill={true} onClick={handleShop} color='brand' />
 					</Box>

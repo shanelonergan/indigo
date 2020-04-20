@@ -70,7 +70,7 @@ function App() {
 									<Routes />
 								</Box>
 
-								{!showSidebar || size !== 'small' ? (
+								{/* {!showSidebar || size !== 'small' ? (
 									<CollapsableSidebar
 										showSidebar={showSidebar}
 										setShowSidebar={setShowSidebar}
@@ -86,7 +86,7 @@ function App() {
 										setOpenLogIn={setOpenLogIn}
 										openLogIn={openLogIn}
 									/>
-								)}
+								)} */}
 
 								{!showUserInfo || size !== 'small' ? (
 									<UserSidebar
@@ -103,8 +103,6 @@ function App() {
 							</Box>
 						</Box>
 						<Footer background='brand' pad='small' direction='row-responsive'>
-							{/* <Box> */}
-
 							<Box direction='column'>
 								<Box direction='column'>
 									<Box direction='row' justify='center'>
@@ -112,21 +110,26 @@ function App() {
 											Made with
 										</Text>
 										<Box margin={{ left: 'xsmall' }}>
-											<Button icon={<GrommetIcon size='medium' color='accent-2' />} plain href='https://v2.grommet.io/' target='_blank'/>
+											<Button
+												icon={<GrommetIcon size='medium' color='accent-2' />}
+												plain
+												href='https://v2.grommet.io/'
+												target='_blank'
+											/>
 										</Box>
-										{/* <Text size='small' margin={{ top: 'xxsmall' }}>
-											{' '}
-											,
-										</Text> */}
 										<Box margin={{ left: 'xsmall', right: 'xxsmall' }} justify='center'>
-											<Add size='small'/>
+											<Add size='small' />
 										</Box>
 										<Box margin={{ left: 'xxsmall', right: 'xsmall' }}>
-											<Button icon={<Reactjs size='medium' color='#61DBFB' />} plain href='https://reactjs.org/' target='_blank'/>
+											<Button
+												icon={<Reactjs size='medium' color='#61DBFB' />}
+												plain
+												href='https://reactjs.org/'
+												target='_blank'
+											/>
 										</Box>
 										<Text size='small' margin={{ top: 'xxsmall' }}>
-											{' '}
-											 and a whole lot of
+											and a whole lot of
 										</Text>
 										<Box margin={{ left: 'xsmall', right: 'xsmall' }}>
 											<Favorite size='medium' color='focus' />
@@ -135,12 +138,42 @@ function App() {
 											by Shane
 										</Text>
 									</Box>
-									<Box direction='row' alignSelf='center' gap='medium' pad={{top: 'medium'}}>
-										<Button icon={<Avatar size='small' src='https://avatars2.githubusercontent.com/u/52255508?s=400&u=ca705fb2292c36027735a9b012b720a0ce869649&v=4'/>} plain href='https://shanelonergan.dev' target='_blank'/>
-										<Button icon={<Github />} plain href='https://github.com/shanelonergan' target='_blank'/>
-										<Button icon={<Twitter />} plain href='https://twitter.com/shane__lonergan' target='_blank'/>
-										<Button icon={<Medium />} plain href='https://medium.com/@sptlonergan' target='_blank'/>
-										<Button icon={<Linkedin />} plain href='https://www.linkedin.com/in/shane-lonergan/' target='_blank'/>
+									<Box direction='row' alignSelf='center' gap='medium' pad={{ top: 'medium' }}>
+										<Button
+											icon={
+												<Avatar
+													size='small'
+													src='https://avatars2.githubusercontent.com/u/52255508?s=400&u=ca705fb2292c36027735a9b012b720a0ce869649&v=4'
+												/>
+											}
+											plain
+											href='https://shanelonergan.dev'
+											target='_blank'
+										/>
+										<Button
+											icon={<Github />}
+											plain
+											href='https://github.com/shanelonergan'
+											target='_blank'
+										/>
+										<Button
+											icon={<Twitter />}
+											plain
+											href='https://twitter.com/shane__lonergan'
+											target='_blank'
+										/>
+										<Button
+											icon={<Medium />}
+											plain
+											href='https://medium.com/@sptlonergan'
+											target='_blank'
+										/>
+										<Button
+											icon={<Linkedin />}
+											plain
+											href='https://www.linkedin.com/in/shane-lonergan/'
+											target='_blank'
+										/>
 									</Box>
 								</Box>
 							</Box>
@@ -148,13 +181,20 @@ function App() {
 								<Text size='small' margin={{ top: 'xsmall' }} alignSelf='center'>
 									Indigo is open-source! Check it out on GitHub:
 								</Text>
-								<Box pad={{top: 'medium'}} direction='row' alignSelf='center'>
-									<Button icon={<Github />} plain alignSelf='center' pad='small' href='https://github.com/shanelonergan/indigo' target='_blank'/>
-								<Text size='small' margin={{ top: 'xxsmall', left: 'small' }}>© 2020</Text>
-
+								<Box pad={{ top: 'medium' }} direction='row' alignSelf='center'>
+									<Button
+										icon={<Github />}
+										plain
+										alignSelf='center'
+										pad='small'
+										href='https://github.com/shanelonergan/indigo'
+										target='_blank'
+									/>
+									<Text size='small' margin={{ top: 'xxsmall', left: 'small' }}>
+										© 2020
+									</Text>
 								</Box>
 							</Box>
-
 						</Footer>
 					</SizeContext.Provider>
 				)}

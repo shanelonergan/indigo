@@ -30,9 +30,10 @@ const UserSidebar = ({showUserInfo, onOpenLogIn, setOpenLogIn, openLogIn, setSho
         flex
         width='medium'
         background='c2'
-        elevation='small'
+        // elevation='small'
         align='center'
         justify='center'
+        height='110vh'
       >
         <Text margin='medium'>{text}</Text>
         {username ?
