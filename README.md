@@ -28,25 +28,25 @@ Inspired by applications like [Grailed](https://www.grailed.com/) and [Poshmark]
 - Framework
   - [React](www.github.com/react)
 - State Management
-  - [Redux](link)
-  - [React Hooks](link)
+  - [React Redux](https://react-redux.js.org/)
+  - [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 - Routing
-  - [React Router](link)
+  - [React Router](https://www.npmjs.com/package/react-router-dom)
 - User Interface
-  - [Grommet](www.github.com/grommet)
+  - [Grommet](https://v2.grommet.io/)
 
 ### Back-End
 
 [Link to Back-End Repo](https://github.com/shanelonergan/indigo-api)
 
 - API
-  - [Ruby on Rails](link)
-  - [Active Model Serializer](link)
+  - [Ruby on Rails](https://rubyonrails.org/)
+  - [Active Model Serializer](https://github.com/rails-api/active_model_serializers)
 - Database
-  - [PostgreSQL](link)
+  - [PostgreSQL](https://www.postgresql.org/)
 - Authorization/Authentication
-  - [JWT](link)
-  - [BCrypt](link)
+  - [JWT](https://jwt.io/)
+  - [BCrypt](https://rubygems.org/gems/bcrypt/versions/3.1.12)
 
 ### Stripe API
 
