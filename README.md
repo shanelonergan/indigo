@@ -8,6 +8,10 @@ A clothing resale application created specifically for denim. It allows listing,
 
 Inspired by applications like [Grailed](https://www.grailed.com/) and [Poshmark](https://poshmark.com/), Indigo aims to cater exclusively to denim-lovers. Denim has seen a massive resurgence over the past 5 years, and consumers are now highly educated about the qualities of their denim garments. Close attention is paid to which mill the denim was sourced from, as well as the weight and wash of the denim. Vintage denim coming from prized mills is highly sought after, and many new companies have sprung up to create modern garments with the quality of the vintage heirlooms. Indigo aims to make finding specific and high-quality denim garments as simple and enjoyable as possible.
 
+## Demo
+
+![Gif Demo](https://i.imgur.com/gallery/sQwP2SC.gif)
+
 ## Build Status
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/398cc6de-3a0b-4275-9a76-2dba030a0d30/deploy-status)](https://app.netlify.com/sites/indigo-deployment/deploys) ![Heroku](https://heroku-badge.herokuapp.com/?app=indigo-api-deployment&root=/users)
