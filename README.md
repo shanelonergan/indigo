@@ -118,7 +118,7 @@ Pull requests are always welcome! Please make sure that your PR is [well-scoped]
 
 <table>
   <tr>
-    <td align="center"><a href="http://shanelonergan.dev/"><img src="https://avatars2.githubusercontent.com/u/52255508?s=400&u=ca705fb2292c36027735a9b012b720a0ce869649&v=4" width="200px;" alt=""/><br /><sub><b>Shane Lonergan</b></sub></a><br /><a href="https://github.com/shanelonergan/indigo/commits?author=shanelonergan" title="Code">💻</a> <a href="#infra-sruti" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/sruti/covid19-riskfactors-app/issues/created_by/sruti https://github.com/shanelonergan/indigo/issues/created_by/shanelonergan" title="Bug reports">🐛</a><a href="#ideas-sruti" title="Ideas, Planning, & Feedback">💡</a></td>
+    <td align="center"><a href="http://shanelonergan.dev/"><img src="https://avatars2.githubusercontent.com/u/52255508?s=400&u=ca705fb2292c36027735a9b012b720a0ce869649&v=4" width="200px;" alt=""/><br /><sub><b>Shane Lonergan</b></sub></a><br /><a href="https://github.com/shanelonergan/indigo/commits?author=shanelonergan" title="Code">💻</a> <a href="#infra-sruti" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/shanelonergan/indigo/issues/created_by/shanelonergan" title="Bug reports">🐛</a><a href="#ideas-sruti" title="Ideas, Planning, & Feedback">💡</a></td>
     </tr>
 </table>
 
