@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux'
 import { SizeContext } from './SizeContext'
 
 // ==> Grommet <== \\
-import { Box, Grommet, ResponsiveContext } from 'grommet'
+import { Box, Grommet, ResponsiveContext, Footer, Text } from 'grommet'
+import { Grommet as GrommetIcon, Favorite, Reactjs, Github, Twitter, Medium } from 'grommet-icons'
 
 // ==> Themes \\
 import light from './Themes/light'
@@ -101,6 +102,38 @@ function App() {
 								)}
 							</Box>
 						</Box>
+						<Footer background='brand' pad='small'>
+							{/* <Box> */}
+
+							<Box direction='column'>
+								<Box direction = 'row'>
+								<Text size='small'>Made with</Text>
+									<Box margin={{'left':'xsmall'}}>
+										<GrommetIcon size='medium' color='accent-2'/>
+									</Box>
+									<Text size='small'>,</Text>
+									<Box margin={{'left':'xsmall'}}>
+										<Reactjs size='medium' color='#61DBFB'/>
+									</Box>
+									<Text size='small'>, and a </Text>
+								</Box>
+								<Box direction = 'row'>
+									<Text size='small'>whole lot of </Text>
+									<Box margin={{'left':'xsmall', 'right':'xsmall'}}>
+										<Favorite size='medium' color='focus'/>
+									</Box>
+									<Text size='small'>by Shane Lonergan</Text>
+								</Box>
+								</Box>
+								<Box>
+									<Text size='small'>Grommet</Text>
+								</Box>
+								<Box>
+									<Text size='small'>© 2020</Text>
+								</Box>
+
+							{/* </Box> */}
+						</Footer>
 					</SizeContext.Provider>
 				)}
 			</ResponsiveContext.Consumer>
