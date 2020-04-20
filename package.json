@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@khanacademy/react-multi-select": "^0.3.3",
-    "grommet": "^2.7.11",
+    "grommet": "^2.13.0",
     "grommet-icons": "^4.3.0",
     "grommet-theme-dxc": "^0.1.2",
     "query-string": "^6.9.0",
