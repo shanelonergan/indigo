@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { loginUser } from '../Redux/actions'
 import { Box, Button, FormField, Heading, Layer, TextInput, Text, Anchor } from 'grommet'
-import { Close } from 'grommet-icons'
+import { Close, View, Hide, User } from 'grommet-icons'
 
 const LoginForm = ({ setOpenLogin, onCloseLogIn, history }) => {
 	const user = useSelector((state) => state.user)
@@ -20,6 +20,8 @@ const LoginForm = ({ setOpenLogin, onCloseLogIn, history }) => {
 		username: '',
 		password: '',
 	})
+
+	const [reveal, setReveal] = useState(false)
 
 	const onSubmit = (event) => {
 		console.log('submit', loginForm)
@@ -62,17 +64,26 @@ const LoginForm = ({ setOpenLogin, onCloseLogIn, history }) => {
 							placeholder='Username'
 							value={username}
 							onChange={onChange}
+							icon={<User/>}
+							reverse
 						/>
 					</FormField>
 					<FormField label='Password'>
+						<Box direction='row'>
 						<TextInput
 							id='password-input'
 							name='password'
-							type='password'
+							type={reveal ? 'text' : 'password'}
 							placeholder='Password'
 							value={password}
 							onChange={onChange}
+							plain
 						/>
+						<Button
+							icon={reveal ? <View size='medium' /> : <Hide size='medium' />}
+							onClick={() => setReveal(!reveal)}
+						/>
+						</Box>
 					</FormField>
 					<Box direction='row' align='center' justify='center'>
 						<Text margin='small'>New? </Text>
