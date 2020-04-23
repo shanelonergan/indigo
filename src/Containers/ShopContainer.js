@@ -35,6 +35,8 @@ const ShopContainer = () => {
 		searchPhrase = searchParamsArr.join(' ')
 	}
 
+	console.log('phrase:', searchPhrase)
+
 	// -> REDUX STATE <- \\
 	const { brands, categories, conditions, mills, washes } = useSelector((state) => state.filters)
 	const listings = useSelector((state) => state.listings.allListings)

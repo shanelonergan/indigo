@@ -38,13 +38,13 @@ const NewListingContainer = () => {
 		}
 	}
 
-	const handleDropDownChange = (id, name) => {
+	const handleDropDownChange = (selectorObj, name) => {
 		// debugger
 		const nameWithId = name + '_id'
-		console.log(id, nameWithId)
+		console.log(selectorObj, nameWithId)
 		setNewListingForm({
 			...newListingForm,
-			[nameWithId]: id.id,
+			[nameWithId]: selectorObj.id,
 		})
 	}
 

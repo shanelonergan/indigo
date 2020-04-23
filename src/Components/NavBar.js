@@ -35,11 +35,10 @@ const NavBar = ({
             <Heading
                 level='3'
                 margin='none'
-                onClick={handleHome}
                 responsive={true}
                 direction='row'
             >
-                indigo
+                <Button label='indigo' onClick={handleHome} plain/>
             </Heading>
 
             <SearchBar/>
