@@ -47,7 +47,7 @@ function App() {
 			<ResponsiveContext.Consumer>
 				{(size) => (
 					<SizeContext.Provider value={size}>
-						<Box>
+						<Box height={{min: '100vh'}}>
 							<NavBar
 								showSidebar={showSidebar}
 								setShowSidebar={setShowSidebar}
