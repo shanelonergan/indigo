@@ -35,8 +35,6 @@ const ShopContainer = () => {
 		searchPhrase = searchParamsArr.join(' ')
 	}
 
-	console.log('phrase:', searchPhrase)
-
 	// -> REDUX STATE <- \\
 	const { brands, categories, conditions, mills, washes } = useSelector((state) => state.filters)
 	const listings = useSelector((state) => state.listings.allListings)
@@ -157,6 +155,10 @@ const ShopContainer = () => {
 			filteredListings = currentListings.filter((listing) => {
 				return intFilterIds.includes(listing[filter].id)
 			})
+
+			if (searchPhrase) {
+				console.log('hello search phrase')
+			}
 		}
 
 		if (appliedFilters.brand_id) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Cart, User, Login, Favorite } from 'grommet-icons';
@@ -13,6 +13,8 @@ const NavBar = ({
     setShowUserInfo
 }) => {
     const loggedInUser = useSelector(state => state.user);
+
+    const [searchDrop, setSearchDrop] = useState(false)
 
     const history = useHistory();
 
@@ -41,7 +43,10 @@ const NavBar = ({
                 <Button label='indigo' onClick={handleHome} plain/>
             </Heading>
 
-            <SearchBar/>
+            <SearchBar
+                searchDrop={searchDrop}
+                setSearchDrop={setSearchDrop}
+            />
 
             <Box direction='row' align='center' justify='between'>
                 {loggedInUser.username ? (

@@ -9,7 +9,7 @@ import {
     FormField
 } from 'grommet';
 
-const SearchBar = () => {
+const SearchBar = ({searchDrop, setSearchDrop}) => {
     const history = useHistory();
     const [searchParams, setSearchParams] = useState({
         text: ''
@@ -25,12 +25,13 @@ const SearchBar = () => {
         const textSlug = textArr.join('+')
         console.log(textSlug)
         history.push(`/listings?text=${textSlug}`);
+        setSearchDrop(false)
     };
     const renderDropContent = () => {
         return (
             <Box pad='large' background='brand' onSubmit={handleSubmit}>
                 <Form>
-                    <FormField name='text' onChange={handleChange}/>
+                    <FormField name='text' onChange={handleChange} focus/>
                     <Button
                         type='submit'
                         label='Submit'
@@ -50,6 +51,9 @@ const SearchBar = () => {
             margin={{ left: 'small' }}
             dropAlign={{ top: 'bottom' }}
             dropContent={renderDropContent()}
+            open={searchDrop}
+            onClose={() => setSearchDrop(false)}
+            onOpen={() => setSearchDrop(true)}
         />
     );
 };
