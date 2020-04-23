@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { SizeContext } from './SizeContext'
 
@@ -14,7 +14,7 @@ import { dxc } from 'grommet-theme-dxc'
 // ==> Components <== \\
 import Routes from './Routes'
 import NavBar from './Components/NavBar'
-import CollapsableSidebar from './Components/CollapsableSidebar'
+// import CollapsableSidebar from './Components/CollapsableSidebar'
 import UserSidebar from './Components/UserSidebar'
 import MobileSidebar from './Components/MobileSidebar'
 import { persistUser } from './Redux/actions'

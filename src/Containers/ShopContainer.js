@@ -22,7 +22,7 @@ const ShopContainer = () => {
 	const history = useHistory()
 	let filteredListings = []
 	const size = useContext(SizeContext)
-	console.log(size)
+	console.log('screensize:', size)
 
 	// -> URL VARIABLES
 	const urlArr = window.location.href.split('/')
@@ -55,17 +55,17 @@ const ShopContainer = () => {
 		const favArr = listings.filter((listing) => {
 			const allFavorites = listing.favorites.all
 			const favoriteUserIds = allFavorites.map((favorite) => favorite.user_id)
-			console.log(favoriteUserIds)
+			console.log('favoriteUserIds:', favoriteUserIds)
 			return favoriteUserIds.includes(loggedInUser.id)
 		})
 		setFavorites(favArr)
 	}
 
 	// -> LOGS <- \\
-	console.log(favorites)
-	console.log(appliedFilters)
-	console.log(slug)
-	console.log(searchPhrase)
+	console.log('favorites:', favorites)
+	console.log('applied filters:', appliedFilters)
+	console.log('slug:', slug)
+	console.log('search phrase:', searchPhrase)
 
 	if (brands && categories && conditions && mills && washes) {
 		if (!loaded) {
@@ -123,7 +123,7 @@ const ShopContainer = () => {
 
 	const handleListing = (event) => {
 		const listingId = event.target.parentNode.id
-		console.log(listingId)
+		console.log('listingId:', listingId)
 		history.push(`/listings/${listingId}`)
 	}
 
@@ -155,28 +155,21 @@ const ShopContainer = () => {
 			filteredListings = currentListings.filter((listing) => {
 				return intFilterIds.includes(listing[filter].id)
 			})
-
-			console.log(filteredListings)
 		}
 
 		if (appliedFilters.brand_id) {
 			filterListings(filteredListings, 'brand')
-			console.log('filtering by brand')
 		}
 		if (appliedFilters.category_id) {
-			console.log('filtering by category')
 			filterListings(filteredListings, 'category')
 		}
 		if (appliedFilters.condition_id) {
-			console.log('filtering by condition')
 			filterListings(filteredListings, 'condition')
 		}
 		if (appliedFilters.mill_id) {
-			console.log('filtering by condition')
 			filterListings(filteredListings, 'mill')
 		}
 		if (appliedFilters.wash_id) {
-			console.log('filtering by condition')
 			filterListings(filteredListings, 'wash')
 		}
 

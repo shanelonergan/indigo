@@ -44,7 +44,7 @@ const NewListingContainer = () => {
 		console.log(id, nameWithId)
 		setNewListingForm({
 			...newListingForm,
-			[nameWithId]: id,
+			[nameWithId]: id.id,
 		})
 	}
 
@@ -53,7 +53,7 @@ const NewListingContainer = () => {
 			...newListingForm,
 			[event.target.name]: event.target.value,
 		})
-		console.log(newListingForm)
+		console.log('new listing form:', newListingForm)
 	}
 
 	const handleSubmit = (event) => {
