@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Cart, User, Login, Favorite } from 'grommet-icons';
+import { User, Login, Favorite } from 'grommet-icons';
 import { Box, Button, Heading } from 'grommet';
 import { SearchBar } from '../Components'
 

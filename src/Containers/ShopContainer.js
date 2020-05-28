@@ -6,7 +6,7 @@ import { SizeContext } from '../SizeContext'
 import { Box, Grid, InfiniteScroll, Button } from 'grommet'
 import { ResizeSpinLoader } from 'react-css-loaders'
 import { getAllListings } from '../Redux/actions/listingActions'
-import { ListingPreview, FilterSelector, FilterSidebar } from '../Components/'
+import { ListingPreview, FilterSidebar } from '../Components/'
 import {
 	setCategoriesAction,
 	setBrandsAction,

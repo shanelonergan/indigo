@@ -1,19 +1,12 @@
 // -> IMPORTS <- \\
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { SizeContext } from '../SizeContext'
-import { Box, Grid, InfiniteScroll, Button, Layer } from 'grommet'
+import { Box, Button, Layer } from 'grommet'
 import { FormClose } from 'grommet-icons'
-import { ResizeSpinLoader } from 'react-css-loaders'
-import { getAllListings } from '../Redux/actions/listingActions'
-import { ListingPreview, FilterSelector } from '../Components/'
+import { FilterSelector } from '../Components/'
 import {
-	setCategoriesAction,
-	setBrandsAction,
-	setConditionsAction,
-	setMillsAction,
-	setWashesAction,
 	clearAppliedFiltersAction,
 } from '../Redux/actions/appliedFilterActions'
 

@@ -14,7 +14,6 @@ import { dxc } from 'grommet-theme-dxc'
 // ==> Components <== \\
 import Routes from './Routes'
 import NavBar from './Components/NavBar'
-// import CollapsableSidebar from './Components/CollapsableSidebar'
 import UserSidebar from './Components/UserSidebar'
 import MobileSidebar from './Components/MobileSidebar'
 import { persistUser } from './Redux/actions'
