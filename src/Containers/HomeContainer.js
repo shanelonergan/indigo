@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { SizeContext } from '../SizeContext'
 
-import { Box, Button, Grid, Image, Stack, Text, Carousel } from 'grommet'
+import { Box, Button, Image, Stack, Text, Carousel } from 'grommet'
 
 const HomeContainer = () => {
 	const size = useContext(SizeContext)
@@ -30,7 +30,7 @@ const HomeContainer = () => {
 	return (
 		<Box pad='medium' gap='small' align='center' justify='center'>
 			<Box pad={{ top: 'medium' }}>
-				<Box width='96vw' height={{'min': 'xsmall'}} align='center' direction='row-responsive' justify='center'>
+				<Box width='96vw' height={{'min': '4.5em'}} align='center' direction='row-responsive' justify='center'>
 					<Box align='center' justify='center' fill pad='small'>
 						<Button label='shop' fill={true} onClick={handleShop} color='brand' />
 					</Box>
