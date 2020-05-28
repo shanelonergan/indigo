@@ -132,7 +132,7 @@ const ListingContainer = (props) => {
 										justify='between'
 										margin={{ top: 'medium', bottom: 'medium' }}
 									>
-										<Box>
+										<Box pad='small'>
 											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>
 												Details
 											</Text>
@@ -151,7 +151,7 @@ const ListingContainer = (props) => {
 												$ {listing.price}
 											</Text>
 										</Box>
-										<Box direction='column' width='medium'>
+										<Box direction='column' width='medium' pad='small'>
 											<Text margin={{ bottom: 'small' }} alignSelf='center' color='control'>
 												Description
 											</Text>
