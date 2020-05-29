@@ -6,23 +6,20 @@ import { Checkmark } from 'grommet-icons'
 import { FilterSelector } from '../Components/index'
 import { ResizeSpinLoader } from 'react-css-loaders'
 
-import { Box, Button, Form, FormField, TextArea, Text } from 'grommet'
+import { Box, Button, Form, FormField, TextArea, Text,
+Select } from 'grommet'
 
 const NewListingContainer = () => {
 	const dispatch = useDispatch()
-
 	const loggedInUser = useSelector((state) => state.user)
-
 	const { brands, categories, conditions, mills, washes } = useSelector((state) => state.filters)
-
 	const [toListings, setToListings] = useState(false)
-
 	const [loaded, setLoaded] = useState(false)
-
 	const [newListingForm, setNewListingForm] = useState({
 		name: '',
-		category_id: '',
+		category_id: '', // pants === 1
 		brand_id: '',
+		size: '',
 		waist: 30,
 		length: 32,
 		weight: 12,
@@ -137,6 +134,8 @@ const NewListingContainer = () => {
                     /> */}
 								</Box>
 								<Box direction='column'>
+									{ newListingForm.category_id === 1
+									? <>
 									<FormField
 										label='waist'
 										name='waist'
@@ -152,6 +151,22 @@ const NewListingContainer = () => {
 										value={newListingForm.length}
 										onChange={handleChange}
 									/>
+									</>
+									:
+										<Select
+											size='small'
+											margin='small'
+											placeholder='size'
+											name='size'
+											options={['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge', 'xxxlarge']}
+											value={newListingForm.size}
+											onChange={({ value: nextValue }) => {
+												setNewListingForm({
+													...newListingForm,
+													size: nextValue,
+												})
+											}}
+				/> }
 									<FormField
 										label='denim weight (oz)'
 										name='weight'
