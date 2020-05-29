@@ -53,9 +53,9 @@ const HomeContainer = () => {
 						<Box height='fixed' width='large' overflow='auto' pad='small'>
 							<Stack anchor='center' onClick={() => handleMill('Kuroki Mills')}>
 								<Carousel play={4000} controls='selectors'>
-									<Image src='https://i.pinimg.com/originals/c8/33/e7/c833e7442bcd0547f69ee3353bad4c85.jpg' />
-									<Image src='https://i.pinimg.com/originals/2f/c3/ea/2fc3eaf30218381402388b15536a3249.jpg' />
-									<Image src='https://i.pinimg.com/originals/82/12/73/821273bc6c2f54f6fa5e55060c4314e1.jpg' />
+									<Image src='https://i.imgur.com/AhNpNsR.jpg' />
+									<Image src='https://i.imgur.com/HrQUSpx.jpg' />
+									<Image src='https://i.imgur.com/AYWUBYU.jpg' />
 								</Carousel>
 								<Text weight='bold' color='focus' size='8vw'>
 									Kuroki Mills
@@ -67,7 +67,7 @@ const HomeContainer = () => {
 								<Carousel fill play={4000} controls='selectors'>
 									<Image src='https://i2.wp.com/auntay.com/wp-content/uploads/2018/01/20180119-DSCF6843-2-e1525548321456.jpg?ssl=1' />
 									<Image src='https://www.gessato.com/wp-content/uploads/2019/05/3sixteen-rinsed-kibata-jeans-2.jpg' />
-									<Image src='https://pbs.twimg.com/media/CF-B25XWgAAyuKA.jpg' />
+									<Image src='https://i.imgur.com/RblqRCz.jpg' />
 								</Carousel>
 								<Text weight='bold' color='focus' size='8vw'>
 									3sixteen
