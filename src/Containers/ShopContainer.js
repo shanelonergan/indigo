@@ -62,10 +62,10 @@ const ShopContainer = () => {
 	}
 
 	// -> LOGS <- \\
-	console.log('favorites:', favorites)
-	console.log('applied filters:', appliedFilters)
-	console.log('slug:', slug)
-	console.log('search phrase:', searchPhrase)
+	// console.log('favorites:', favorites)
+	// console.log('applied filters:', appliedFilters)
+	// console.log('slug:', slug)
+	// console.log('search phrase:', searchPhrase)
 
 	if (brands && categories && conditions && mills && washes) {
 		if (!loaded) {
@@ -101,7 +101,7 @@ const ShopContainer = () => {
 	useEffect(() => {
 		dispatch(getAllListings())
 		window.scrollTo(0, 0)
-	}, [])
+	}, [dispatch])
 
 	useEffect(() => {
 		if (brandValues) {
@@ -119,7 +119,7 @@ const ShopContainer = () => {
 		if (washValues) {
 			dispatch(setWashesAction(washValues))
 		}
-	}, [brandValues, categoryValues, conditionValues, millValues, washValues])
+	}, [brandValues, categoryValues, conditionValues, millValues, washValues, dispatch])
 
 	const handleListing = (event) => {
 		const listingId = event.target.parentNode.id
@@ -129,18 +129,18 @@ const ShopContainer = () => {
 
 	useEffect(() => {
 		dispatch(clearAppliedFiltersAction())
-	}, [])
+	}, [dispatch])
 
-	const clearFilters = () => {
-		dispatch(clearAppliedFiltersAction())
-		setBrandValues('')
-		setCategoryValues('')
-		setConditionValues('')
-		setMillValues('')
-		setWashValues('')
-		setFavorites('')
-		history.push('/listings')
-	}
+	// const clearFilters = () => {
+	// 	dispatch(clearAppliedFiltersAction())
+	// 	setBrandValues('')
+	// 	setCategoryValues('')
+	// 	setConditionValues('')
+	// 	setMillValues('')
+	// 	setWashValues('')
+	// 	setFavorites('')
+	// 	history.push('/listings')
+	// }
 
 	const renderListings = () => {
 		if (favorites) {

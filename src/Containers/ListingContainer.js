@@ -19,7 +19,7 @@ const ListingContainer = (props) => {
 		const urlArr = window.location.href.split('/')
 		const listingId = urlArr[4]
 		dispatch(getListing(listingId))
-	}, [])
+	}, [dispatch])
 
 	const listing = useSelector((state) => state.listings.currentListing)
 	const loggedInUser = useSelector((state) => state.user)
@@ -39,7 +39,7 @@ const ListingContainer = (props) => {
 		if (loggedInUser.favorites && loggedInUser.favorites.includes(listing)) {
 			setFavorited(true)
 		}
-	}, [])
+	}, [loggedInUser, listing])
 
 	const onToken = (token) => {
 		console.log(token)

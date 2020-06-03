@@ -1,8 +1,7 @@
 // -> IMPORTS <- \\
-import React, { useContext } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { SizeContext } from '../SizeContext'
 import { Box, Button, Layer } from 'grommet'
 import { FormClose } from 'grommet-icons'
 import { FilterSelector } from '../Components/'
@@ -27,7 +26,6 @@ const FilterSidebar = ({
 }) => {
 	const dispatch = useDispatch()
 	const history = useHistory()
-	const size = useContext(SizeContext)
     const { brands, categories, conditions, mills, washes } = useSelector(state => state.filters);
     console.log(brands, categories, conditions, mills, washes)
 

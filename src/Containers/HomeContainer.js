@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { SizeContext } from '../SizeContext'
 
 import { Box, Button, Image, Stack, Text, Carousel } from 'grommet'
 
 const HomeContainer = () => {
-	const size = useContext(SizeContext)
 	let history = useHistory()
 	const handleShop = () => {
 		history.push('/listings')

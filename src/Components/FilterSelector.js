@@ -3,7 +3,7 @@ import { Select } from 'grommet'
 
 const FilterSelector = ({ filterObj, values, setValues, name, multiple, handleChange, singleSelectValue }) => {
 	const singleSelectObj = filterObj.filter((filter) => filter.id === singleSelectValue)
-	console.log(singleSelectObj, filterObj)
+	// console.log(singleSelectObj, filterObj)
 
 	if (multiple) {
 		return (
