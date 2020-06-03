@@ -131,17 +131,6 @@ const ShopContainer = () => {
 		dispatch(clearAppliedFiltersAction())
 	}, [dispatch])
 
-	// const clearFilters = () => {
-	// 	dispatch(clearAppliedFiltersAction())
-	// 	setBrandValues('')
-	// 	setCategoryValues('')
-	// 	setConditionValues('')
-	// 	setMillValues('')
-	// 	setWashValues('')
-	// 	setFavorites('')
-	// 	history.push('/listings')
-	// }
-
 	const renderListings = () => {
 		if (favorites) {
 			filteredListings = favorites
@@ -150,7 +139,8 @@ const ShopContainer = () => {
 		}
 
 		const filterListings = (currentListings, filter) => {
-			const intFilterIds = appliedFilters[filter + '_id'].map((stringFilterId) => parseInt(stringFilterId))
+			const intFilterIds = appliedFilters[filter + '_id'].map((filterObj) => parseInt(filterObj.id))
+			console.log(appliedFilters[filter + '_id'], intFilterIds)
 
 			filteredListings = currentListings.filter((listing) => {
 				return intFilterIds.includes(listing[filter].id)
